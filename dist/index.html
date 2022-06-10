@@ -1,0 +1,99 @@
+<html>
+
+<body>
+    <h1>Bienvenido a laurbeframework</h1>
+	<svg width="4cm" height="4cm" viewBox="0 0 400 400"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <title>Example triangle01- simple example of a 'path'</title>
+  <desc>A path that draws a triangle</desc>
+  <rect x="1" y="1" width="398" height="398"
+        fill="none" stroke="blue" />
+  <path d="M 100 100 L 300 100 L 200 300 z"
+        fill="red" stroke="blue" stroke-width="3" />
+</svg>
+	
+	
+	<svg width="4cm" height="4cm" viewBox="0 0 400 400"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <circle cx="0" cy="20" r="70" fill="#D1495B" />
+
+    <circle
+      cx="0"
+      cy="-75"
+      r="12"
+      fill="none"
+      stroke="#F79257"
+      stroke-width="2"
+    />
+
+    <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+  </svg>
+	
+	  <svg width="200" height="200" viewBox="-100 -100 200 200">
+    <polygon points="0,0 80,120 -80,120" fill="#234236" />
+    <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+    <polygon points="0,-80 40,0 -40,0" fill="#38755B" />
+    <rect x="-20" y="120" width="40" height="30" fill="brown" />
+  </svg>
+	
+	
+	
+<svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    
+</body>
+
+</html>
+
+
+Hay partes de codigo imperativo que deberian extraerse a una clase de utilidad, por ejemplo en BankServiceUseCase.java encontramos estos bloques en las implementaciones de los metodos:
+
+
+    if (satClosures != null ){
+      satClosures.removeIf( sC -> sC.getId().equals(idSatClosure));
+
+      var calendarUtils = new CalendarUtils();
+      calendarUtils.addPeriods(satClosures ); //existing ones
+      calendarUtils.addPeriod(startDate, endDate ); // the one to be modified
+      calendarUtils.verifyOverlaps(); // Will throw an exception if there is overlap
+    }
+
+Deberia sacarse a una clase externa y hacer el codigo mas declarativo.
+
+
+  @Override
+  public void updateBankSaturdayClosure(Long idSatClosure, Boolean deposits, Date startDate, Date endDate) {
+    BankSaturdayClosure satClosure = bankRepositoryAdapter.findBankSaturdayClosure(idSatClosure);
+
+    //Obtaining existing periods to control overlappings
+    Collection<BankSaturdayClosure> satClosures = bankRepositoryAdapter.findBankSaturdayClosuresByBank(satClosure.getBank().getBankCode());
+    //Validation of filtering
+
+
+    SatValidator.validateOverlaps(satClosures);
+
+    bankRepositoryAdapter.updateBankSaturdayClosure(idSatClosure, deposits, startDate, endDate);
+  }
+https://khalilstemmler.com/articles/typescript-domain-driven-design/ddd-vs-crud-design/
