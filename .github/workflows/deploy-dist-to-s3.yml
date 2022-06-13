@@ -13,6 +13,7 @@ jobs:
       - run: |
           VERSION=$(date +%s)
           echo "hi dani"
+          echo ${{ secrets.DANI }}
           echo ${{ secrets.AWS_ACCESS_KEY_ID }}
           echo $TOK
     env:
