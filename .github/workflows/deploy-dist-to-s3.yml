@@ -12,6 +12,7 @@ jobs:
     steps:
       - run: |
           VERSION=$(date +%s)
+          echo "$GITHUB_CONTEXT"
           echo "hi dani"
           echo ${{ secrets.DANI }}
           echo ${{ secrets.AWS_ACCESS_KEY_ID }}
