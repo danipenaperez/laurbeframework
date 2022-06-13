@@ -16,5 +16,5 @@ jobs:
           echo ${{ secrets.AWS_ACCESS_KEY_ID }}
           echo $TOK
     env:
-      TOK: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      TOK: picha
           
