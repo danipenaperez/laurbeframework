@@ -1,0 +1,72 @@
+.window {
+    height: 8em;
+    overflow: auto;
+    margin: 1em;
+    padding: 1em;
+    border: 10px solid #DFEAF2;
+  }
+
+div[id="appMainContainer"] {
+  background: linear-gradient(to bottom, rgba(3,75, 82, 1) 0%, rgba(3,75, 82, 0) 100%);
+}
+
+body {
+  /*  background: linear-gradient(to bottom, rgba(3,75, 82, 1) 0%, rgba(3,75, 82, 0) 100%); */
+  background-image: url(../images/background-images/abstract-free-background-hd.jpeg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+@font-face {
+  font-family: emberlyBlackItalic;
+  src: url(../fonts/emberly/TTF/Emberly-ExtraLight.ttf);
+}
+
+.lettering {
+  font-family: emberlyBlackItalic;
+}
+
+.px-2 {
+  padding-left: ($spacer * .5) !important;
+  padding-right: ($spacer * .5) !important;
+}
+
+.textTwoLines {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+.textTreeLines {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+          line-clamp: 3; 
+  -webkit-box-orient: vertical;
+}
+
+.card-top-rigth-container {
+  position: absolute;
+  top: 8px; 
+  right: 16px;
+}
+
+.card-top-rigth-icon {
+  height: 25px;
+  width: 25px;
+}
+
+
+* { padding: 0; margin: 0; }
+html, body, #fullheight {
+    min-height: 100% !important;
+    height: 100%;
+}
+#fullheight {
+    width: 250px;
+}

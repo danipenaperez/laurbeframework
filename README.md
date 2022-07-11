@@ -1,5 +1,9 @@
 # laurbeframework
 Public Repo of laurbeframework
 
-Changelog:
-0.1.0 New initial deploy
+# Directories
+
+/bin: you will find all laurbe runtime files
+/src: source code files and scripts
+/demos: Some demos using current version 
+/docs: Mkdocs site .md (files)
