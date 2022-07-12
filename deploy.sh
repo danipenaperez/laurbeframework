@@ -9,15 +9,27 @@
 
 echo "Publishing the Cloud Distribution"
 
+echo "Create the Tag Release"
+read -p "Please insert the Tag for this release (example: 0.0.1, 1.0.1) " TagName
+git add -A
+git commit -m "Created New Tag $TagName"
+git tag $TagName
+git push origin $TagName
+echo "Succesully created TAG $TagName"
 
 
-echo "** Served current directory on http://localhost:$PORT"
-echo "** Press Crtl+C to stop the server and exit"
-echo $3
-echo " "
-docker run --rm=true --name tecmint-web -p $PORT:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4
+echo "1. Publish on S3 Bucket"
+aws s3 sync ./bin s3://laurbeframework.com/cdn/dist/$TagName/bin
+aws s3 sync ./bin s3://www.laurbeframework.com/cdn/dist/$TagName/bin
+
+aws s3 sync ./demos s3://laurbeframework.com/cdn/dist/$TagName/demos
+aws s3 sync ./demos s3://www.laurbeframework.com/cdn/dist/$TagName/demos
+
+
+echo "2. Invalidate cache on CloudFront"
+aws cloudfront create-invalidation --distribution-id E2SPB1VGZ5MD9F --paths "/*"
+aws cloudfront create-invalidation --distribution-id EKWL2JY4SGHJX --paths "/*"
 
 echo "**************************************"
-echo "* Assembled all laurbe framework bin FINIsSHED"
-echo "* Building distribution at $SITE_OUTPUT_DIR directory...END"
+echo "* Succesfully deployed laurbe Framework, OPEN TO THE WORLD"
 echo "**************************************"
