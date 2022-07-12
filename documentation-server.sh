@@ -59,7 +59,7 @@ case $ACTION in
         docker run --rm -it -p $LOCAL_PORT:8000 -v $DOCUMENTS_ROOT_PATH:/docs --name $LOCAL_CONTAINER_NAME --label=$DOCKER_TOOL_LABELS $LOCAL_CONTAINER_IMAGE build
         # Reassign permissions to current user 
         sudo chown -R $CURRENT_USER:$CURRENT_USER $DOCUMENTS_ROOT_PATH/site
-        echo "Build the local documentation at $PWD/site."
+        echo "Build the local documentation at $DOCUMENTS_ROOT_PATH/site."
 		;;
 	"help")
         echo '*******************'

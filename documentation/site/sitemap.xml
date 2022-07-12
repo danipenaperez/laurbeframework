@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://www.laurbeframework.com/</loc>
+         <lastmod>2022-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.laurbeframework.com/components/button/button/</loc>
+         <lastmod>2022-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.laurbeframework.com/components/button/button_group/</loc>
+         <lastmod>2022-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.laurbeframework.com/components/layout/</loc>
+         <lastmod>2022-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.laurbeframework.com/utilidades/mkdocs_examples/</loc>
+         <lastmod>2022-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
