@@ -1,5 +1,12 @@
 #!/bin/bash
 
+
+###########################
+# Execute this script to rebuild the ./bin folder. 
+# This folder will contains all distribution files needed to use laurbeframework
+#
+###########################
+
 echo "Building laurbeframework distribution"
 
 #Execute dependent scripts
@@ -59,4 +66,7 @@ echo "Moving concat JS to Bin dir....END"
 # Reassign permissions to current user 
 # sudo chown -R $CURRENT_USER:$CURRENT_USER ./site
 
-echo "Building distribution at $SITE_OUTPUT_DIR directory...END"
+echo "**************************************"
+echo "* Assembled all laurbe framework bin FINIsSHED"
+echo "* Building distribution at $SITE_OUTPUT_DIR directory...END"
+echo "**************************************"

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Demo APP Test</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+	<div id="layoutContainer"></div>
+
+	
+	<!-- jQuery library -->
+	<script src="../bin/thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="../bin/thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="../bin/thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="../bin/thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+	<script type="text/javascript" src="../bin/js/combined.js"></script> 
+
+	<!--Default Template style-->
+	<link rel="stylesheet" href="../bin/stylesheets/classicTemplate.css">
+
+    <script type="text/javascript">
+	    //$( document ).ready(function() {//only waits for DOM loaded
+	    $(window).on('load', function() { //will wait for all js downloaded
+	        
+			laurbe.templateManager.templatePath='../bin';
+
+	        var NoticiasView = new laurbe.View({
+							menuName:'Noticias',
+							items:[
+								new laurbe.Container({
+										items:[
+											new laurbe.CardGroup({
+											    		items: [
+															new laurbe.Card({
+																title:'Card1',
+																text:'Novedades de la herramieta, conectate y sientete conectado',
+																footMessage:'footermeeess',
+																img:{
+																	src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+																	alt: 'mi imagen'
+																}
+															}),
+															new laurbe.Card({
+																title:'Card2',
+																text:'Jornada de liga ',
+																footMessage:'footermeeess',
+																img:{
+																	src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+																	alt: 'mi imagen'
+																}
+															})
+														]
+											})
+										]
+
+								})
+							]
+	        });
+
+
+	        var librosView = new laurbe.View({
+							menuName:'libros',
+							items:[
+								new laurbe.Container({
+										items:[
+											new laurbe.CardGroup({
+											    		items: [
+															new laurbe.Card({
+																title:'Card1',
+																text:'La casa de bernarda alba',
+																footMessage:'footermeeess',
+																img:{
+																	src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+																	alt: 'mi imagen'
+																}
+															}),
+															new laurbe.Card({
+																title:'Card2',
+																text:'El Caminio',
+																footMessage:'footermeeess',
+																img:{
+																	src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+																	alt: 'mi imagen'
+																}
+															})
+														]
+											})
+										]
+
+								})
+							]
+	        });
+
+
+
+			var app = new laurbe.App({
+				title:'NewsPapper',
+				navBar:{
+					brand:{
+						logoUrl:'https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-outline.svg'
+					},
+					searchTool:{
+						placeholder:'que estas buscando..?'
+					}
+				},
+				views:[NoticiasView, librosView],
+				bottomNavBar:{
+					items:[
+								new laurbe.NavBarBottomMenuItem({
+									items:[
+										new laurbe.Button({
+											// text:'Explore',
+											extraClass:'btn-block',
+											type:'secondary',
+											//span:{ text:'4'},
+											image:{
+												src: "https://img.icons8.com/ios/64/000000/search--v4.png"
+											},
+											onclick:function(){
+												vulgus_app._navigate('ExploreSessions_View', {"genre": "metal"});
+							
+											}
+										})
+									]
+								}),
+								new laurbe.NavBarBottomMenuItem({
+									items:[
+										new laurbe.Button({
+											//text:'Home',
+											extraClass:'btn-block',
+											type:'secondary',
+											image:{
+												src: "https://img.icons8.com/wired/64/000000/homer-simpson.png"
+											},
+											onclick:function(){
+												vulgus_app._navigate('ExploreSessions_View', {"genre": "metal"});
+							
+											}
+										})
+									]
+								}),
+								new laurbe.NavBarBottomMenuItem({
+									items:[
+										new laurbe.Image({
+											img_src: 'https://img.icons8.com/wired/50/000000/left.png',
+											alt:'Back',
+											width:"32",
+											height:"32",
+											onclick: function(){
+												alert('Haciendo back');
+											}
+										})
+									]
+								}),
+								new laurbe.NavBarBottomMenuItem({
+									items:[
+										new laurbe.Image({
+											img_src: 'https://img.icons8.com/wired/64/000000/person-at-home.png',
+											alt:'tom cruise',
+											width:"32",
+											height:"32",
+											onclick: function(){
+												var token =vulgus_app.storageManager.get('vulgus_token');
+												if(!token){
+													var loginToken = Math.random();
+													vulgus_app.storageManager.save('vulgus_token', loginToken);
+													alert("sucessfully loggedin "+loginToken);
+												}else{
+													alert('ya logueado '+token);
+												}
+											}
+										})
+									]
+								}),
+								new laurbe.NavBarBottomMenuItem({
+									items:[
+										new laurbe.Image({
+											img_src: 'https://www.idalsys.com/wp-content/uploads/2019/03/whatsapp-icon-273x300.png',
+											alt:'tom cruise',
+											width:"32",
+											height:"32",
+											onclick: function(){
+												var currentURL = vulgus_app.navigatorManager.getCurrentViewCompleteURL();
+												vulgus_app.shareSocialManager.shareCurrentViewToWassap(currentURL);
+											}
+										})
+									]
+								}),
+								new laurbe.NavBarBottomMenuItem({
+									items:[
+										new laurbe.Image({
+											img_src: 'https://key0.cc/images/preview/33822_98c940126c635dc1d39a6a275a915c3a.png',
+											alt:'share',
+											width:"32",
+											height:"32",
+											onclick: function(){
+												var currentURL = vulgus_app.navigatorManager.getCurrentViewCompleteURL();
+												vulgus_app.shareSocialManager.shareCurrentViewToAllAvailable("VulgusAPP te enrrolla colega", currentURL);
+											}
+										})
+									]
+								})
+					]
+				}
+			});
+			app.init();
+
+
+		});
+    </script> 
+  </body>
+</html>
+
