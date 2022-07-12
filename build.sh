@@ -8,8 +8,10 @@ echo "Building laurbeframework distribution"
 CURRENT_USER=$(whoami)
 echo $CURRENT_USER
 
-
+SRC_DIR=$PWD/src
 SITE_OUTPUT_DIR=$PWD/bin
+
+
 # Remove old folder
 if [ -d "$SITE_OUTPUT_DIR" ]; 
   echo "Cleaning ouputFolder"
@@ -20,18 +22,18 @@ mkdir $SITE_OUTPUT_DIR
 
 # Static resources
 echo "Copying Html source to output Bin directory...."
-cp -R ./html $SITE_OUTPUT_DIR
+cp -R $SRC_DIR/html $SITE_OUTPUT_DIR
 echo "Copying images source to output Bin directory...."
-cp -R ./images $SITE_OUTPUT_DIR
+cp -R $SRC_DIR/images $SITE_OUTPUT_DIR
 echo "Copying Stylesheets source to output Bin directory...."
-cp -R ./stylesheets $SITE_OUTPUT_DIR
+cp -R $SRC_DIR/stylesheets $SITE_OUTPUT_DIR
 echo "Copying Thirdparty source to output Bin directory...."
-cp -R ./thirdparty $SITE_OUTPUT_DIR
+cp -R $SRC_DIR/thirdparty $SITE_OUTPUT_DIR
 
 
 # Building Javascript concat and minify
 echo "Concat all Js files...."
-SRC_DIR=$PWD/src
+
 JS_CONCAT_OUTPUT_DIR=$SRC_DIR/js
 # Remove old folder
 if [ -d "$JS_CONCAT_OUTPUT_DIR" ]; 
