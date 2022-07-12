@@ -4,13 +4,13 @@ module.exports = function (grunt) {
     concat: {
             js: {
                 src: [
-                        'js/core/*.js',
-                        'js/components/*.js',
-                        'js/components/app/*.js', 
-                        'js/components/composite/*.js',
-                        'js/components/login/*.js' 
+                        'javascript/core/*.js',
+                        'javascript/components/*.js',
+                        'javascript/components/app/*.js', 
+                        'javascript/components/composite/*.js',
+                        'javascript/components/login/*.js' 
                     ],
-                dest: 'dist/combined.js'
+                dest: 'js/combined.js'
             }
     } 
     // define source files and their destinations
