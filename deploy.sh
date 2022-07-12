@@ -34,7 +34,7 @@ fi
 
 read -p "Publish Documentation Distribution on S3 Bucket? (Y/n)? " Continue
 if [ "$Continue" = "Y" ] ; then
-./docucumentation-server.sh assemble
+./documentation-server.sh assemble
 aws s3 sync ./site s3://laurbeframework.com/cdn/dist/$TagName/docs
 aws s3 sync ./site s3://www.laurbeframework.com/cdn/dist/$TagName/docs
 fi
@@ -45,6 +45,9 @@ echo "Invalidate cache on CloudFront....Start"
 aws cloudfront create-invalidation --distribution-id E2SPB1VGZ5MD9F --paths "/*"
 aws cloudfront create-invalidation --distribution-id EKWL2JY4SGHJX --paths "/*"
 echo "Invalidate cache on CloudFront....END"
+
+
+
 
 echo "**************************************"
 echo "* Succesfully deployed laurbe Framework, OPEN TO THE WORLD"
