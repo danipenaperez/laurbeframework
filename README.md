@@ -9,19 +9,21 @@ Public Repo of laurbeframework
 /docs: Mkdocs site .md (files)
 
 
+# HOW TO DEVELOP NEW FEATURES
+1. Run ./development-server.sh will serve /bin and /demos at http://localhost:8888/bin http://localhost:8888/demos
+2. Change source files at /src 
+3. Build the whole JS executing ./build.sh (automatically server will serve it)
+4. Test the framework using /demos html files at  http://localhost:8888
+
+# HOW TO DOCUMENT FEATURE
+1. Execute ./documentation-server.sh to run MKDOCS server. 
+2. Edit /documentation/docs/**.md files
+3. Check it at http://localhost:9999
+4. Stop server ./documentation-server.sh stop
+
 # HOW BUILD A VERSION
 
-cd src
-./build.sh (this command will populate /bin directory)
+1. Execute ./build.sh 
+2. Execute ./documentation-server.sh generate
+3. Execute ./deploy.sh
 
-
-
-docker run -it --rm docker-node-grunt:1.0.0
-
-https://gordonlesti.com/create-grunt-docker-image/
-
-docker build -t danipenaperez_grunt .
-
-docker run --rm -v "$PWD":/tmp -w /tmp danipenaperez_grunt npm install
-
-docker run --rm -p8080:8080 -v "$PWD":/tmp -w /tmp danipenaperez_grunt grunt 

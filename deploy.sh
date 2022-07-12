@@ -9,27 +9,44 @@
 
 echo "Publishing the Cloud Distribution"
 
-echo "Create the Tag Release"
-read -p "Please insert the Tag for this release (example: 0.0.1, 1.0.1) " TagName
-git add -A
-git commit -m "Created New Tag $TagName"
-git tag $TagName
-git push origin $TagName
-echo "Succesully created TAG $TagName"
+
+read -p "Create the Tag Release? (Y/n)? " Continue
+if [ "$Continue" = "Y" ] ; then
+    read -p "Please insert the Tag for this release (example: 0.0.1, 1.0.1) " TagName
+    git add -A
+    git commit -m "Created New Tag $TagName"
+    git tag $TagName
+    git push origin $TagName
+    echo "Succesully created TAG $TagName"
+fi
 
 
-echo "1. Publish on S3 Bucket"
-aws s3 sync ./bin s3://laurbeframework.com/cdn/dist/$TagName/bin
-aws s3 sync ./bin s3://www.laurbeframework.com/cdn/dist/$TagName/bin
-
+read -p "Publish Binary Disttribution on S3 Bucket? (Y/n)? " Continue
+if [ "$Continue" = "Y" ] ; then
+    aws s3 sync ./bin s3://laurbeframework.com/cdn/dist/$TagName/bin
+    aws s3 sync ./bin s3://www.laurbeframework.com/cdn/dist/$TagName/bin
+fi
+read -p "Publish Demo Examples Distribution on S3 Bucket? (Y/n)? " Continue
+if [ "$Continue" = "Y" ] ; then
 aws s3 sync ./demos s3://laurbeframework.com/cdn/dist/$TagName/demos
 aws s3 sync ./demos s3://www.laurbeframework.com/cdn/dist/$TagName/demos
+fi
+
+read -p "Publish Documentation Distribution on S3 Bucket? (Y/n)? " Continue
+if [ "$Continue" = "Y" ] ; then
+./docucumentation-server.sh assemble
+aws s3 sync ./site s3://laurbeframework.com/cdn/dist/$TagName/docs
+aws s3 sync ./site s3://www.laurbeframework.com/cdn/dist/$TagName/docs
+fi
 
 
-echo "2. Invalidate cache on CloudFront"
+
+echo "Invalidate cache on CloudFront....Start"
 aws cloudfront create-invalidation --distribution-id E2SPB1VGZ5MD9F --paths "/*"
 aws cloudfront create-invalidation --distribution-id EKWL2JY4SGHJX --paths "/*"
+echo "Invalidate cache on CloudFront....END"
 
 echo "**************************************"
 echo "* Succesfully deployed laurbe Framework, OPEN TO THE WORLD"
+echo "* https://www.laurbeframework.com"
 echo "**************************************"

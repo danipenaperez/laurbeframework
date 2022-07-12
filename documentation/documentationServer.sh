@@ -53,6 +53,13 @@ case $ACTION in
 		;;
     "assemble")
         echo ""
+        # Remove old folder
+        SITE_OUTPUT_DIR=$DOCUMENTS_ROOT_PATH/site
+        if [ -d "$SITE_OUTPUT_DIR" ]; 
+        echo "Cleaning ouputFolder"
+        then rm -Rf $SITE_OUTPUT_DIR; 
+        fi
+
         docker run --rm -it -p $LOCAL_PORT:8000 -v $DOCUMENTS_ROOT_PATH:/docs --name $LOCAL_CONTAINER_NAME --label=$DOCKER_TOOL_LABELS $LOCAL_CONTAINER_IMAGE build
         echo "Build the local documentation at $PWD/site."
 		;;
