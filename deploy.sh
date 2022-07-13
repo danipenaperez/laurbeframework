@@ -39,6 +39,11 @@ aws s3 sync ./documentation/site s3://laurbeframework.com/cdn/dist/$TagName/docs
 aws s3 sync ./documentation/site s3://www.laurbeframework.com/cdn/dist/$TagName/docs
 fi
 
+read -p "Publish Landing Page on S3 Bucket? (Y/n)? " Continue
+if [ "$Continue" = "Y" ] ; then
+aws s3 sync ./landingPage s3://laurbeframework.com
+aws s3 sync ./landingPage s3://www.laurbeframework.com
+fi
 
 
 echo "Invalidate cache on CloudFront....Start"
@@ -51,5 +56,5 @@ echo "Invalidate cache on CloudFront....END"
 
 echo "**************************************"
 echo "* Succesfully deployed laurbe Framework, OPEN TO THE WORLD"
-echo "* https://www.laurbeframework.com"
+echo "* https://www.laurbeframework.com/cdn/dist/$TagName/docs"
 echo "**************************************"
