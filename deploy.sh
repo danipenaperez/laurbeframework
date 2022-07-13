@@ -17,7 +17,9 @@ if [ "$Continue" = "Y" ] ; then
     git commit -m "Created New Tag $TagName"
     git tag $TagName
     git push origin $TagName
-    echo "Succesully created TAG $TagName"
+    echo "*******************************"
+    echo "* Succesully created TAG $TagName"
+    echo "*******************************"
 fi
 
 
@@ -45,16 +47,17 @@ aws s3 sync ./landingPage s3://laurbeframework.com
 aws s3 sync ./landingPage s3://www.laurbeframework.com
 fi
 
-
+echo "*******************************"
 echo "Invalidate cache on CloudFront....Start"
 aws cloudfront create-invalidation --distribution-id E2SPB1VGZ5MD9F --paths "/*"
 aws cloudfront create-invalidation --distribution-id EKWL2JY4SGHJX --paths "/*"
 echo "Invalidate cache on CloudFront....END"
-
+echo "*******************************"
 
 
 
 echo "**************************************"
 echo "* Succesfully deployed laurbe Framework, OPEN TO THE WORLD"
+echo "* https://www.laurbeframework.com/"
 echo "* https://www.laurbeframework.com/cdn/dist/$TagName/docs"
 echo "**************************************"
