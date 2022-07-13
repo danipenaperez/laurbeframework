@@ -2,12 +2,13 @@
 Public Repo of laurbeframework
 
 # Directories
-
 /bin: you will find all laurbe runtime files
 /src: source code files and scripts
 /demos: Some demos using current version 
 /docs: Mkdocs site .md (files)
 
+# Branch
+It is only main branch, and created tags from this branch.
 
 # HOW TO DEVELOP NEW FEATURES
 1. Run ./development-server.sh will serve /bin and /demos at http://localhost:8888/bin http://localhost:8888/demos
