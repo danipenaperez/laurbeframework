@@ -36,7 +36,7 @@ fi
 
 read -p "Publish Documentation Distribution on S3 Bucket? (Y/n)? " Continue
 if [ "$Continue" = "Y" ] ; then
-./documentation-server.sh assemble
+#./documentation-server.sh assemble
 aws s3 sync ./documentation/site s3://laurbeframework.com/cdn/dist/$TagName/docs
 aws s3 sync ./documentation/site s3://www.laurbeframework.com/cdn/dist/$TagName/docs
 fi

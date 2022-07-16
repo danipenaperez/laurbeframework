@@ -16,5 +16,8 @@ I decided to create this framework to easily and fast create web sites.
 All source code can be found at  [Github](https://github.com/danipenaperez/laurbeframework)
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7564517257477302"
-     crossorigin="anonymous"></script>
+
+
+
+<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7564517257477302" crossorigin="anonymous"></script>
+     
