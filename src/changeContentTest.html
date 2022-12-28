@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+	<div id="layoutContainer"></div>
+
+	
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/layout.js"></script>
+    <script type="text/javascript" src="./js/components/region.js"></script>
+
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+	<script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+
+    <script type="text/javascript" src="./js/components/image.js"></script>
+        <script type="text/javascript" src="./js/components/button.js"></script>
+
+    <script type="text/javascript" src="./js/components/container.js"></script>
+    <script type="text/javascript" src="./js/components/form.js"></script>
+    <script type="text/javascript" src="./js/components/textField.js"></script>
+
+    <script type="text/javascript" src="./js/components/grid.js"></script>
+    <script type="text/javascript" src="./js/components/row.js"></script>
+    <script type="text/javascript" src="./js/components/column.js"></script>
+
+    <script type="text/javascript" src="./js/components/cardGroup.js"></script>
+    <script type="text/javascript" src="./js/components/card.js"></script>
+
+    <script type="text/javascript">
+	    //$( document ).ready(function() {//only waits for DOM loaded
+	    $(window).on('load', function() { //will wait for all js downloaded
+	        
+	    	function changeContent(card){
+	    		alert('han pulsado el card '+card.id);
+	    		console.log(laurbe.Directory[card.id]);
+	    		alert('voy a destruir');
+	    		container.destroy();
+	    		alert('destriyud');
+
+				container = new laurbe.Layout({
+	    		renderTo:'layoutWaa',
+		    		items: [
+						new laurbe.Region({
+							items:[
+								new laurbe.Image({
+									img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
+									alt:'Amrio casa',
+									onclick: function(){
+										alert('me han clickado y soy la imagen del '+this.alt);
+										loadMore();
+
+									}
+								})
+							]
+
+						}),
+						new laurbe.Region({
+							items:[
+								new laurbe.Image({
+									img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Iker_Casillas_2.jpg/245px-Iker_Casillas_2.jpg',
+									alt:'casillas',
+									onclick: function(){
+										alert('me han clickado y soy la imagen del '+this.alt);
+										loadMore();
+									}
+								})
+							]
+						}),
+						
+						new laurbe.Region({
+							items:[
+								new laurbe.Image({
+									img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+									alt:'tom cruise',
+									onclick: function(){
+										alert('me han clickado y soy la imagen del '+this.alt);
+										loadMore();
+									}
+								})
+							]
+						})
+					]
+		    	});
+
+		        
+			    container._render();
+
+
+	    	}
+
+	    	function loadMore(){
+	    		alert('voy a loadmore');
+	    		container.destroy();
+
+				container = new laurbe.Layout({
+	    			renderTo:'layoutWaa',
+		    		items: [
+						new laurbe.Region({
+							items:[
+								new laurbe.Image({
+									img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/JohnnyDepp2018.jpg/220px-JohnnyDepp2018.jpg',
+									alt:'Jhonny dip',
+									onclick: function(){
+										alert('clickado' + this.alt);
+										loadMore();
+									}
+								})
+							]
+
+						}),
+						new laurbe.Region({
+							items:[
+								new laurbe.Image({
+									img_src: 'https://s3.eestatic.com/2018/10/24/corazon/famosos/Belen_Esteban_Menendez-Empresas_de_famosos-Tono_Sanchis-Famosos_347978627_102848612_1706x1706.jpg',
+									alt:'La Belen',
+									onclick: function(){
+										alert('clickado' + this.alt);
+										loadMore();
+									}
+								})
+							]
+						}),
+						
+						new laurbe.Region({
+							items:[
+								new laurbe.Image({
+									img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Al_Pacino.jpg/220px-Al_Pacino.jpg',
+									alt:'alpacino',
+									onclick: function(){
+										alert('clickado' + this.alt);
+										loadMore();
+									}
+								})
+							]
+						})
+					]
+		    	});
+		    	container._render();
+	    	}
+
+
+
+
+
+
+			var headerMenu = new laurbe.NavBar({	
+					        				renderTo:'header',
+											title:'Amazing App',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'Users',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Friends',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Sessions',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+			headerMenu._render();
+
+
+
+	    	var container = new laurbe.Container({
+	    		renderTo:'layoutWaa',
+	    		items: [
+					new laurbe.CardGroup({
+					    		items: [
+									  new laurbe.Card({
+									  	id:'cardParadigmaGame',
+										title:'Card1',
+										text:'Novedades de la herramieta, conectate y sientete conectado',
+										footMessage:'footermeeess',
+										img:{
+											src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+											alt: 'mi imagen'
+										},
+										onclick:function(){
+											changeContent(this);
+										}
+
+
+									}),	
+									new laurbe.Card({
+										id:'cardChefGame',
+										title:'Card2',
+										text:'Si quiere convertirte en chef este es tu lugar',
+										footMessage:'footermeeess',
+										img:{
+											src: 'https://www.paradigmadigital.com/wp-content/uploads/2019/03/testKotlin-01.jpg',
+											alt: 'mi imagen'
+										},
+										onclick:function(){
+											changeContent(this);
+										}
+									}),
+									new laurbe.Card({
+										id:'cardJuanitoGame',
+										title:'Card3',
+										text:'Esta apasionante historia nos narra como Juanito valderrama canto a la luna',
+										footMessage:'footermeeess',
+										img:{
+											src: 'http://toyoutome.es/wp-content/uploads/2016/06/EaaS_04.jpg',
+											alt: 'mi imagen'
+										},
+										onclick:function(){
+											changeContent(this);
+										}
+									}),
+									new laurbe.Card({
+										id:'cardVacacionesGame',
+										title:'Card3',
+										text:'Vamonos de vacaciones',
+										footMessage:'Vacaciones',
+										img:{
+											src: 'https://www.365imagenesbonitas.com/wp-content/uploads/2017/12/playa-maldivas.jpg',
+											alt: 'mi imagen'
+										},
+										onclick:function(){
+											changeContent(this);
+										}
+									})
+					    		]
+					  })
+				]
+	    	});
+
+	        
+		    container._render();
+
+
+
+		});
+    </script> 
+  </body>
+</html>
+

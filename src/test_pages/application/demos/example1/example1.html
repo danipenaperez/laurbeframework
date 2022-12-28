@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="http://localhost:8888/stylesheets/components/app/classicTemplate.css">
+    <!--View and component styles-->
+     <link rel="stylesheet" href="./stylesheets/view/socialLoginView.css">
+
+    	<!--Favicones-->
+      <link rel="shortcut icon" href="/laurbe/icon/fox-icon.ico" type="image/x-icon">
+      <link rel="icon" href="/laurbe/icon/fox-icon.ico" type="image/x-icon">
+      <title>Emaple 1</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+	<div id="layoutContainer"></div>
+
+
+	<!-- jQuery library -->
+	<script src="../../../../thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="../../../../thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="../../../../thirdparty/bootstrap.min.js"></script> 
+    
+    <!-- Plugins jquery -->
+    <script src="../../../../thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="../../../../js/components/laurbe.js"></script>
+    <script type="text/javascript" src="../../../../js//components/layout.js"></script>
+    <script type="text/javascript" src="../../../../js//components/region.js"></script>
+
+    <script type="text/javascript" src="../../../../js//components/navbar.js"></script>
+    <script type="text/javascript" src="../../../../js//components/navbarMenuItem.js"></script>
+    <script type="text/javascript" src="../../../../js//components/navbarBottomMenuItem.js"></script>
+    <script type="text/javascript" src="../../../../js//components/navbarbottom.js"></script>
+    <script type="text/javascript" src="../../../../js//components/image.js"></script>
+    <script type="text/javascript" src="../../../../js//components/button.js"></script>
+    <script type="text/javascript" src="../../../../js//components/buttonGroup.js"></script>
+    <script type="text/javascript" src="../../../../js//components/textLink.js"></script>
+
+    <script type="text/javascript" src="../../../../js//components/container.js"></script>
+    <script type="text/javascript" src="../../../../js//components/form.js"></script>
+    <script type="text/javascript" src="../../../../js//components/textField.js"></script>
+    <script type="text/javascript" src="../../../../js//components/modalDialog.js"></script>
+
+    <script type="text/javascript" src="../../../../js//components/grid.js"></script>
+    <script type="text/javascript" src="../../../../js//components/row.js"></script>
+    <script type="text/javascript" src="../../../../js//components/column.js"></script>
+
+    <script type="text/javascript" src="../../../../js//components/cardGroup.js"></script>
+    <script type="text/javascript" src="../../../../js//components/card.js"></script>
+
+	<script type="text/javascript" src="../../../../js//components/youTubeVideo.js"></script>
+	<script type="text/javascript" src="../../../../js//components/video.js"></script>
+
+	<script type="text/javascript" src="../../../../js//components/spotifyAudio.js"></script>
+
+    <script type="text/javascript" src="../../../../js//components/commentsGroup.js"></script>
+    <script type="text/javascript" src="../../../../js//components/comment.js"></script>
+
+
+    <script type="text/javascript" src="../../../../js//components/app/app.js"></script>
+    <script type="text/javascript" src="../../../../js//components/app/view.js"></script>
+    <script type="text/javascript" src="../../../../js//components/composite/socialLoginView.js"></script>
+    <script type="text/javascript" src="../../../../js//components/composite/scrollableCardListView.js"></script>
+
+    <!--Laurbe Core-->
+    <script type="text/javascript" src="../../../../js//data/dao.js"></script>
+    <script type="text/javascript" src="../../../../js//data/localStorageManager.js"></script>
+    <script type="text/javascript" src="../../../../js//core/navigatorManager.js"></script>
+    <script type="text/javascript" src="../../../../js//core/shareSocialManager.js"></script>
+
+
+    
+    
+    <script type="text/javascript">
+	    //$( document ).ready(function() {//only waits for DOM loaded
+	    $(window).on('load', function() { //will wait for all js downloaded
+        /**Overwrite default configuration**/
+        laurbe.configure({
+          templateManager:{
+              templatePath: 'http://localhost:8888'
+            }
+        });
+        
+        var app = new laurbe.App({
+                                  title: 'Example layout 1',
+                                  navBar: {
+                                    brand: {
+                                      logoUrl: 'https://upload.wikimedia.org/wikinews/en/7/7e/International_Monetary_Fund_logo.svg'
+                                    },
+                                    searchTool: {
+                                      placeholder: 'looking for...'
+                                    }
+                                  },
+                                  views: [
+                                    new laurbe.View({
+                                      id: 'viewA_View',
+                                      navigator:{
+                                        menuName: 'Menu A',
+                                        extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                                      },
+                                      items: [
+                                        new laurbe.Region({
+                                          text: 'Region A.1',
+                                          extraClass:'bg-info' 
+                                        }),
+                                        new laurbe.Region({
+                                          text: 'Region A.2',
+                                          extraClass:'bg-danger' 
+                                        }),
+                                        new laurbe.Region({
+                                          text: 'Region A.3',
+                                          extraClass:'bg-warning' 
+                                        })
+                                      ]
+                                    }),
+                                    new laurbe.View({
+                                      id: 'viewB_View',
+                                      navigator:{
+                                        menuName: 'Menu B',
+                                        extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                                      },
+                                      items: [
+                                        new laurbe.Region({
+                                          text: 'Region A.1',
+                                          extraClass:'bg-light' 
+                                        }),
+                                        new laurbe.Region({
+                                          text: 'Region A.2',
+                                          extraClass:'bg-secondary' 
+                                        }),
+                                        new laurbe.Region({
+                                          text: 'Region A.3',
+                                          extraClass:'bg-success' 
+                                        })
+                                      ]
+                                    })
+                                  ],
+                                  dao: new laurbe.RestDAO({
+                                    basePath: '.'
+                                  }),
+                                  storageManager: new laurbe.LocalStorageManager({})
+                                  ,bottomNavBar: {
+                                    items: [
+                                      new laurbe.NavBarBottomMenuItem({
+                                        items: [
+                                          new laurbe.TextLink({
+                                            extraClass: 'nav-menu-item-text-color-white',
+                                            text:'Demo link copyrigth'
+                                          })
+                                        ]
+                                      })
+                                    ]
+                                  }
+                                });
+        app.init();
+			
+
+		});
+    </script> 
+  </body>
+</html>
+

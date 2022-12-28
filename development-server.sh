@@ -17,7 +17,9 @@ echo "*****************************************************"
 echo "** Served current directory on http://localhost:$PORT"
 echo "** Press Crtl+C to stop the server and exit"
 
-docker run --rm=true --name tecmint-web -p $PORT:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4
+SOURCES_DEV_DIRECTORY="$PWD/src"
+
+docker run --rm=true --name tecmint-web -p $PORT:80 -v "$SOURCES_DEV_DIRECTORY":/usr/local/apache2/htdocs/ httpd:2.4
 
 echo "**************************************"
 echo "* Stoppped local Development Server"

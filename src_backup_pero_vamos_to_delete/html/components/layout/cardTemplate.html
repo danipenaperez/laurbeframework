@@ -1,0 +1,74 @@
+ <script id="cardTemplate" type="text/x-custom-template">
+	<div class="card h-100" id="${id}">
+	    
+		<div id="${id}_North_Region_childsWrapper">
+			<img class="card-img-top" src="${img.src}" alt="${img.alt}" height="150" width="100" style="object-fit: cover;"> </img>
+			
+			<!--Icon top rigth container
+			<div id="${id}_card_top_rigth_container_childsWrapper" class="card-top-rigth-container">
+				<img class="card-top-rigth-icon" src="./icon/fox-icon.png" alt="${img.alt}"> </img>
+				<img class="card-top-rigth-icon" src="./icon/fox-icon.png" alt="${img.alt}"> </img>
+			</div>
+			-->
+		</div>
+	    <div class="card-body ">
+			<div class="row">
+				<div class="col">
+					<h2 class="card-title lettering textTwoLines"><b>${title}</b></h2>
+				</div>
+				<!--
+				<div class="col">
+					<div style="float: right;">pedo</div>
+				</div>
+				-->
+			  </div>
+	      
+	      <p class="card-text textTreeLines">${text}</p>
+	      
+	      <!-- with buttons add 
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+	      -->
+	     	<div id="${id}_childsWrapper">
+				<!-- Child elements will be render here -->
+			</div>
+	    </div>
+		<div class="card-body ">
+			<div class="row">
+				
+				<div class="col d-none d-sm-block">
+					<div style="float: left;">
+						<p class="card-text "><small class="text-muted">${footMessage}</small></p>
+					</div>	
+				</div>	
+				<div class="col">
+					<div style="float: right;">
+						<div class="social">
+							<a href="whatsapp://send?text=http://www.google.es?q=busqueda" data-action="share/whatsapp/share">
+								<i class="fa fa-whatsapp" style="font-size: 1.5em;"></i>
+							</a>
+							<a href="#">
+								<i class="fa fa-share-alt" style="font-size: 1.5em;"></i>
+							</a>
+							<a href="#">
+								<i class="fa fa-heart" style="font-size: 1.5em;"></i>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="card-footer d-none d-sm-block">  -->
+		<div class="card-footer"> 	
+			<div id="${id}_cneeded">
+				<img class="card-top-rigth-icon" src="./icon/drum-set.png" alt="${img.alt}"> </img>
+				<img class="card-top-rigth-icon" src="./icon/bass-guitar-clav.png" alt="${img.alt}"> </img>
+				<img class="card-top-rigth-icon" src="./icon/electric-guitar-clav.png" alt="${img.alt}"> </img>
+				<img class="card-top-rigth-icon" src="./icon/microphone-with-wire.png" alt="${img.alt}"> </img>
+				<img class="card-top-rigth-icon" src="./icon/piano.png" alt="piano"> </img>
+			</div>
+	       <small class="text-muted">Last updated 3 mins ago</small>
+	    </div>
+  </div>
+</script>   
+

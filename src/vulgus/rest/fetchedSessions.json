@@ -1,0 +1,119 @@
+[
+    {
+        "title":"And Justice For All",
+        "id_session": "andjustice",
+        "description": "Full Album Cover session",
+        "tags":["Metal", "Metallica"],
+        "img": "https://www.thomann.de/pics/bdb/128185/12948444_800.jpg"
+
+    },
+    {
+        "title":"Metelando sin parar ni trabajando",
+        "id_session": "metaleando",
+        "description": "Los locos han vuelto y te estan buscando",
+        "tags":["Metal", "Metallica"],
+        "img": "./images/animatedgif.gif"
+
+    },
+    {
+        "title":"Lucifer",
+        "id_session": "lucifer",
+        "description": "Metal Lucifer",
+        "tags":["Metal", "Lucifer"],
+        "img": "https://img.playbuzz.com/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1510290568/rqjtxqblgt73758sw25c.jpg"
+        
+    },
+    {
+        "title":"Pantera Sessions",
+        "id_session": "pantera",
+        "description": "Tocaremos los temas de Pantera del primer album, pero con huevos y con la clase que solo corresponde a la gente respetable de la periferia de la capital",
+        "tags":["Metal", "Pantera"],
+        "img": "https://img.playbuzz.com/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1510292312/elspdi4xiptyndsvrt4p.jpg"
+        
+    },
+    {
+        "title":"Heavy Slaves",
+        "id_session": "heavy_slaves",
+        "description": "Invocaremos a Satan",
+        "tags":["Metal", "Satanas"],
+        "img": "https://www.creativefabrica.com/wp-content/uploads/2017/05/Heavy-metal.jpg"
+        
+    },
+    {
+        "title":"Iron Maiden Tribute",
+        "id_session": "ironmaiden",
+        "description": "Tributaremos a los reyes del metal",
+        "tags":["Metal", "Power Metal", "Iron Maiden"],
+        "img": "https://laciclotimia.com/wp-content/uploads/2020/10/Heavy-80-Destacada.jpg"
+        
+    },
+    {
+        "title":"Bacanal de heavy",
+        "id_session": "bacanalheavy",
+        "description": "Mover greñas es nuestro lema",
+        "tags":["Metal", "Power Metal", "satan"],
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Fgby2WNg76fK8ocVTgbkpaxN6VpZ0JZbAw&usqp=CAU"
+        
+    },
+    {
+        "title":"Al mas puro estilo vallecas",
+        "id_session": "vallecas",
+        "description": "Tocaremos temas que sonaban en la urbe",
+        "tags":["Metal", "Power Metal", "Urbe"],
+        "img": "https://cdn2.vectorstock.com/i/1000x1000/17/91/heavy-metal-vector-23581791.jpg"
+        
+    },
+    {
+        "title":"Metal Gods",
+        "id_session": "metalgods",
+        "description": "Todo el power metal que podamos y un poco mas",
+        "tags":["Metal", "Power Metal", "satan"],
+        "img": "https://elordenmundial.com/wp-content/uploads/2019/11/10675861575_e3257f7ace_k-1310x873.jpg"
+        
+    },
+    {
+        "title":"Sin Frenos",
+        "id_session": "sinfrenos",
+        "description": "La muerte tiene un precio, exactamente 32,50 euros. La gente piensa que no, pero si que lo tiene y yo lo sé. Por otro lado un amigo me dijo el otro dia que si tenia una escopeta por casa",
+        "tags":["Metal", "Frenando"],
+        "img": "https://img.playbuzz.com/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1510291227/hilegxyb9b47qlo2wxwo.jpg"
+        
+    },
+    {
+        "title":"James Hetfield Tribute",
+        "id_session": "jameshetfield",
+        "description": "Todos los grandes exitos",
+        "tags":["Metal", "Metallica"],
+        "img": "https://media1.giphy.com/media/wk7LybJypIaha/giphy.gif"
+
+    },
+    {
+        "title":"Amistoso 8 vs 8 Alpedrete",
+        "id_session": "amistosoalpedrete",
+        "description": "Buscamos equipo nivel amateur para pachanga el finde del 23 de diciembre",
+        "tags":["Metal", "Metallica"],
+        "img": "https://static.paraloscuriosos.com/img/articles/9509/470x470/orig.5857adbdbcb38_tumblr_ohxe53ekzg1u29yy1o1_400.gif"
+
+    },
+    {
+        "title":"Amistoso Fubtol 11 Las Rozas Viernes 22",
+        "id_session": "amistosolasrozas",
+        "description": "Buscamos equipo nivel amateur para pachanga el finde del 23 de diciembre",
+        "tags":["Metal", "Metallica"],
+        "img": "https://thumbs.gfycat.com/CleanConfusedCrownofthornsstarfish-size_restricted.gif"
+    },
+    {
+        "title":"Flamenco Sessions",
+        "id_session": "flamenco_sessions",
+        "description": "A Buleirar un poco",
+        "tags":["Flamenco", "Metallica"],
+        "img": "http://www.sgae.es/ImagenesSGAE/2020/Musica/Noticias/Flamenco_Latin_Grammy_SGAE_2020.jpg"
+    },
+    {
+        "title":"Country Sessions",
+        "id_session": "country_sessions",
+        "description": "A Countriear",
+        "tags":["Country"],
+        "img": "https://musicindustryhowtoimages.s3.amazonaws.com/wp-content/uploads/2016/10/12071823/play-country-guitar.jpg"
+    }
+]

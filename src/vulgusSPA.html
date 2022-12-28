@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- PWA Features-->
+	<script src="index.js" defer></script>
+	<link rel="manifest" href="manifest.webmanifest">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="./stylesheets/classicTemplate.css">
+    <!--View and component styles-->
+     <link rel="stylesheet" href="./stylesheets/view/socialLoginView.css">
+
+    	<!--Favicones-->
+      <link rel="shortcut icon" href="/laurbe/icon/fox-icon.ico" type="image/x-icon">
+      <link rel="icon" href="/laurbe/icon/fox-icon.ico" type="image/x-icon">
+      <title>Music Arena</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+	<div id="layoutContainer"></div>
+  <!--
+	<button id="installPWA" name="installPWA" >Instalame pero ya!!!</button>
+-->
+
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/layout.js"></script>
+    <script type="text/javascript" src="./js/components/region.js"></script>
+
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+    <script type="text/javascript" src="./js/components/navbarBottomMenuItem.js"></script>
+    <script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+    <script type="text/javascript" src="./js/components/image.js"></script>
+    <script type="text/javascript" src="./js/components/button.js"></script>
+    <script type="text/javascript" src="./js/components/buttonGroup.js"></script>
+
+    <script type="text/javascript" src="./js/components/container.js"></script>
+    <script type="text/javascript" src="./js/components/form.js"></script>
+    <script type="text/javascript" src="./js/components/textField.js"></script>
+    <script type="text/javascript" src="./js/components/modalDialog.js"></script>
+
+    <script type="text/javascript" src="./js/components/grid.js"></script>
+    <script type="text/javascript" src="./js/components/row.js"></script>
+    <script type="text/javascript" src="./js/components/column.js"></script>
+
+    <script type="text/javascript" src="./js/components/cardGroup.js"></script>
+    <script type="text/javascript" src="./js/components/card.js"></script>
+
+	<script type="text/javascript" src="./js/components/youTubeVideo.js"></script>
+	<script type="text/javascript" src="./js/components/video.js"></script>
+
+	<script type="text/javascript" src="./js/components/spotifyAudio.js"></script>
+
+    <script type="text/javascript" src="./js/components/commentsGroup.js"></script>
+    <script type="text/javascript" src="./js/components/comment.js"></script>
+
+
+    <script type="text/javascript" src="./js/components/app/app.js"></script>
+    <script type="text/javascript" src="./js/components/app/view.js"></script>
+    <script type="text/javascript" src="./js/components/composite/socialLoginView.js"></script>
+    <script type="text/javascript" src="./js/components/composite/scrollableCardListView.js"></script>
+
+    <!--Laurbe Core-->
+    <script type="text/javascript" src="./js/data/dao.js"></script>
+    <script type="text/javascript" src="./js/data/localStorageManager.js"></script>
+    <script type="text/javascript" src="./js/core/navigatorManager.js"></script>
+    <script type="text/javascript" src="./js/core/shareSocialManager.js"></script>
+
+    <!-- APP Views-->
+    <script type="text/javascript" src="./vulgus/exploreSessionsViewGridDinamic.js"></script>
+    <script type="text/javascript" src="./vulgus/dynamicFormView.js"></script>
+    <script type="text/javascript" src="./vulgus/detailed_view.js"></script>
+    
+    <!--Vulgus main app-->
+    <script type="text/javascript" src="./vulgus/vulgus_app.js"></script>
+    <script type="text/javascript">
+	    //$( document ).ready(function() {//only waits for DOM loaded
+	    $(window).on('load', function() { //will wait for all js downloaded
+
+			vulgus_app_init();
+
+		});
+    </script> 
+  </body>
+</html>
+

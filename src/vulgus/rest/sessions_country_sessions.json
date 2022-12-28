@@ -1,0 +1,52 @@
+{
+    "title":"Country Sessions",
+    "id_session": "country_sessions",
+    "description": "A Countriear un poco",
+    "tags":["Country"],
+    "img": "https://musicindustryhowtoimages.s3.amazonaws.com/wp-content/uploads/2016/10/12071823/play-country-guitar.jpg",
+    "setList":[
+        {
+            "name": "La primera",
+            "link":{
+                "type": "spotify",
+                "src": "https://open.spotify.com/embed/track/32OlwWuMpZ6b0aN2RZOeMS"
+            }
+        }
+    ],
+    "comments":[
+        {
+            "user": {
+                "name": "Manolo",
+                "img":"testRepository/images/icons/guitar/favicon.png"
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "value": "The five Famous licks"
+                    
+                },
+                {
+                    "type": "youTubeVideo",
+                    "src": "https://www.youtube.com/embed/9mVBPbJYiMg"
+                }
+            ]
+        },
+        {
+            "user": {
+                "name": "Manolo",
+                "img":"testRepository/images/icons/guitar/favicon.png"
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Albert lee examples, vas a fliparlo como se te va a quedar la carita..."
+                    
+                },
+                {
+                    "type": "youTubeVideo",
+                    "src": "https://www.youtube.com/embed/Jj_SfowKL4E"
+                }
+            ]
+        }
+    ]
+}

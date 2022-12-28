@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+	
+	
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/combined.min.js"></script>
+    
+    
+    <script type="text/javascript">
+	    $( document ).ready(function() {
+	        
+
+			var headerMenu = new laurbe.NavBar({	
+					        				renderTo:'header',
+											title:'Amazing App',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'Users',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Friends',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Sessions',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+			headerMenu._render();
+
+			var menu2 = new laurbe.NavBar({	
+					        				
+											title:'Users',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'One',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													id : 'menuitem2',
+													text:'Dos',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													id : 'menuitem3',
+													text:'Tres',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+
+
+
+	    	var layout = new laurbe.Layout({
+	    		renderTo:'layoutWaa',
+	    		items: [
+					new laurbe.Region({
+						//id : 'menuitem1',
+						text:'Region1',
+						items:[
+							menu2
+						]
+
+					}),
+					new laurbe.Region({
+						text:'Region2',
+						items:[
+								new laurbe.Layout({
+											items:[
+												new laurbe.Region({
+													text:'subRegion2.1'
+												}),
+												new laurbe.Region({
+													text:'subRegion2.2'
+												}),
+											]	
+
+								})
+
+						]
+
+					}),
+					new laurbe.Region({
+						text:'Region3',
+						items:[
+
+								new laurbe.NavBar({	
+													        				
+													title:'Pedido',
+													items: [
+														new laurbe.NavBarMenuItem({
+															//id : 'menuitem1',
+															text:'Bebida',
+															selected: false
+														}),
+														new laurbe.NavBarMenuItem({
+															text:'Comida',
+															selected: false
+														})
+													]
+											})
+						]
+					})
+				]
+	    	});
+
+	        
+		    layout._render();
+
+	    });
+    </script> 
+  </body>
+</html>

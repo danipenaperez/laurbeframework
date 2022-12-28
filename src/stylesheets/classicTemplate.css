@@ -10,7 +10,7 @@ div[id="appMainContainer"] {
   background: linear-gradient(to bottom, rgba(3,75, 82, 1) 0%, rgba(3,75, 82, 0) 100%);
 }
 
-body {
+.movida {
   /*  background: linear-gradient(to bottom, rgba(3,75, 82, 1) 0%, rgba(3,75, 82, 0) 100%); */
   background-image: url(../images/background-images/abstract-free-background-hd.jpeg);
   background-repeat: no-repeat;
@@ -59,14 +59,4 @@ body {
 .card-top-rigth-icon {
   height: 25px;
   width: 25px;
-}
-
-
-* { padding: 0; margin: 0; }
-html, body, #fullheight {
-    min-height: 100% !important;
-    height: 100%;
-}
-#fullheight {
-    width: 250px;
 }

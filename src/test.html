@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+  	<!-- NAVBAR -->
+  	<div id="navBarContainer"></div>
+
+	<div id="navBarContainer2"></div>
+
+
+<select>
+	<div id="antonio">
+		<option>casa</option>
+	</div>
+	<div id="antonio2">
+		<option>casa2</option>
+	</div>
+	
+	<option>mesa</option>
+	<option>silla</option>
+	<option>barco</option>
+
+
+</select>
+
+	
+	
+	<!-- Latest compiled and minified CSS -->
+	
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+	<script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+    
+    
+    <script type="text/javascript">
+	    $( document ).ready(function() {
+	        
+	        var menu2 = new laurbe.NavBar({	
+					        				renderTo:'navBarContainer2', 
+											title:'Hellow',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'OptionOne',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													id : 'menuitem2',
+													text:'Option Dos',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													id : 'menuitem3',
+													text:'Option Tres',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+			menu2._render();
+
+	    });
+    </script> 
+  </body>
+</html>

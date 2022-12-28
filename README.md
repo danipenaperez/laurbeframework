@@ -28,3 +28,11 @@ It is only main branch, and created tags from this branch.
 2. Execute ./documentation-server.sh generate
 3. Execute ./deploy.sh
 
+
+# Pending Task
+1. Hacer un objeto laurbeConfig. que contenga la informacion relativa a donde esta la ruta de las templates, los css a cargar, etc..
+y la app al hacer el init lo carga.
+2. Comprobar que no tenemos dependencias de js ni css de terceros, porque al cargar luego la pagina fuera de localhost puede dar problemas de cors y otras movidas.
+3. Comprobar que templateManger al llamar 2 veces por una template de componente,  no la esta metiendo 2 veces en el <div id"templateManager">
+La llamada http la hace y esto ya esta mal. Habria que comprobar si la tiene y si la tiene, pues no se hace el load,  y se va directamente a pintarse.
+4.Navigation : Hay un problema por el cual se pone view_id=Loquesea# y se cuela la almohadilla, de manera que si refrescamos la pagina el metodo navigate busca la vista por id con la almohadilla y claro no encuentra nada

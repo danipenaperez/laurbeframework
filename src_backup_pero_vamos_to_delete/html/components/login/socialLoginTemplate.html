@@ -1,0 +1,32 @@
+<script id="socialLoginTemplate" type="text/x-custom-template">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card">
+            <div class="p-3 border-bottom d-flex align-items-center justify-content-center">
+                <h5>Login to Vulgus APP</h5>
+            </div>
+            <div class="p-3 px-4 py-4 border-bottom">
+                <div class="form">   
+                {{if loginForm}}
+                    
+                    <input type="text" class="form-control mb-2" placeholder="Email/Username" />
+                
+                    <input type="text" class="form-control" placeholder="Password" /> 
+                        <a href="#">Forgot?</a> 
+                    </div> 
+                        <button class="btn btn-danger btn-block login-continue">continue</button>
+                        
+                        <div class="d-flex justify-content-center align-items-center mt-3 mb-3"> <span class="line"></span> 
+                            <small class="px-2 line-text">OR</small> 
+                            <span class="line"></span> 
+                        </div> 
+                {{/if}}
+                    
+                    
+                    <div id="${id}_buttonsWrapper">
+                        <!-- Child Items will be here -->
+                    </div>    
+            </div>
+            <div class="p-3 d-flex flex-row justify-content-center align-items-center member"> <span>Not a member? </span> <a href="#" class="text-decoration-none ml-2">SIGNUP</a> </div>
+        </div>
+    </div>
+</script>

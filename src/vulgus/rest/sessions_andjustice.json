@@ -1,0 +1,115 @@
+{
+        "title":"And Justice For All",
+        "description": "Full Album Cover session, tocaremos de lo mas general a lo mas particular y el himno de percebesa tambien para los amantes de lo exotico. La gente pensara que estamos locos, pero nada mas lejos de la realidad solo con nuestra espada bloquearemos al pontifice verdugo y amo de todo in nomineeee satanas!! Seguramente nos quedemos con ganas de mas asi que traer algo de comer y avisar a la familia por si quiere pasar a disfrutar de buena musica y buen ambiente en un marco incomparable.",
+        "tags":["Metal", "Metallica"],
+        "img": "https://www.thomann.de/pics/bdb/128185/12948444_800.jpg",
+        "setList":[
+            {
+                "name": "La primera",
+                "link":{
+                    "type": "spotify",
+                    "src": "https://open.spotify.com/embed/track/32OlwWuMpZ6b0aN2RZOeMS"
+                }
+            },
+            {
+                "name": "La Segunda",
+                "link":{
+                    "type": "spotify",
+                    "src": "https://open.spotify.com/embed/track/69kOkLUCkxIZYexIgSG8rq"
+                }
+            },
+            {
+                "name": "Tercera",
+                "link":{
+                    "type": "spotify",
+                    "src": "https://open.spotify.com/embed/track/1BECwm5qkaBwlbfo4kpYx8"
+                }
+            },
+            {
+                "name": "Cuarta",
+                "link":{
+                    "type": "spotify",
+                    "src": "https://open.spotify.com/embed/track/78XG7U0UueeC86XpzF9O7f"
+                }
+            }
+        ],
+        "comments":[
+            {
+                "user": {
+                    "name": "Manolo",
+                    "img":"testRepository/images/icons/guitar/favicon.png"
+                },
+                "content": [
+                    {
+                        "type": "text",
+                        "value": "El primer tema se toca asi"
+                        
+                    },
+                    {
+                    "type": "youTubeVideo",
+                    "src": "https://www.youtube.com/embed/fA4IHJnKYiw"
+                    }
+                ]
+            },
+            {
+                "user": {
+                    "name": "Daniel",
+                    "img":"https://yt3.ggpht.com/-tO_SdVYSVg8/AAAAAAAAAAI/AAAAAAAAAAA/t089mcHnzD0/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg"
+                },
+                "content": [
+                    {
+                        "type": "text",
+                        "value": "Tu opinion me importa una mierda, erres mas feo que yo, maldito imbecil"
+                        
+                    }
+                ]
+            },
+            {
+                "user": {
+                    "name": "Manolo",
+                    "img":"testRepository/images/icons/guitar/favicon.png"
+                },
+                "content": [
+                    {
+                        "type": "text",
+                        "value": "Gueno, a mi no me pareces tan feo, pero si que es verdad que te podrias lavar un poco mas, aunque sea en fin de semana."
+                        
+                    },
+                    {
+                    "type": "video",
+                    "src": "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+                    }
+                ]
+            },
+            {
+                "user": {
+                    "name": "Daniel",
+                    "img":"https://yt3.ggpht.com/-tO_SdVYSVg8/AAAAAAAAAAI/AAAAAAAAAAA/t089mcHnzD0/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg"
+                },
+                "content": [
+                    {
+                        "type": "text",
+                        "value": "Ok te aviso cuando cambie de opinion"
+                        
+                    }
+                ]
+            },
+            {
+                "user": {
+                    "name": "Daniel",
+                    "img":"https://yt3.ggpht.com/-tO_SdVYSVg8/AAAAAAAAAAI/AAAAAAAAAAA/t089mcHnzD0/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg"
+                },
+                "content": [
+                    {
+                        "type": "text",
+                        "value": "Pues mira que joya acabo de encontrar"
+                        
+                    },
+                    {
+                        "type": "youTubeVideo",
+                        "src": "https://www.youtube.com/embed/G2OepnvdDfY"
+                    }
+                ]
+            }
+        ]
+}

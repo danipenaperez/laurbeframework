@@ -1,0 +1,98 @@
+{
+    "title":"Lucifer",
+    "description": "Metal Lucifer",
+    "tags":["Metal", "Metallica"],
+    "img": "https://img.playbuzz.com/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1510290568/rqjtxqblgt73758sw25c.jpg",
+    "setList":[
+        {
+            "name": "La primera",
+            "link":{
+                "type": "spotify",
+                "src": "https://open.spotify.com/embed/track/32OlwWuMpZ6b0aN2RZOeMS"
+            }
+        },
+        {
+            "name": "La Segunda",
+            "link":{
+                "type": "spotify",
+                "src": "https://open.spotify.com/embed/track/69kOkLUCkxIZYexIgSG8rq"
+            }
+        },
+        {
+            "name": "Tercera",
+            "link":{
+                "type": "spotify",
+                "src": "https://open.spotify.com/embed/track/1BECwm5qkaBwlbfo4kpYx8"
+            }
+        },
+        {
+            "name": "Cuarta",
+            "link":{
+                "type": "spotify",
+                "src": "https://open.spotify.com/embed/track/78XG7U0UueeC86XpzF9O7f"
+            }
+        }
+    ],
+    "comments":[
+        {
+            "user": {
+                "name": "Manolo",
+                "img":"testRepository/images/icons/guitar/favicon.png"
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "value": "El primer tema se toca asi"
+                    
+                },
+                {
+                "type": "youTubeVideo",
+                "src": "https://www.youtube.com/embed/fA4IHJnKYiw"
+                }
+            ]
+        },
+        {
+            "user": {
+                "name": "Daniel",
+                "img":"https://yt3.ggpht.com/-tO_SdVYSVg8/AAAAAAAAAAI/AAAAAAAAAAA/t089mcHnzD0/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg"
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Tu opinion me importa una mierda, erres mas feo que yo, maldito imbecil"
+                    
+                }
+            ]
+        },
+        {
+            "user": {
+                "name": "Manolo",
+                "img":"testRepository/images/icons/guitar/favicon.png"
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Gueno, a mi no me pareces tan feo, pero si que es verdad que te podrias lavar un poco mas, aunque sea en fin de semana."
+                    
+                },
+                {
+                "type": "video",
+                "src": "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+                }
+            ]
+        },
+        {
+            "user": {
+                "name": "Daniel",
+                "img":"https://yt3.ggpht.com/-tO_SdVYSVg8/AAAAAAAAAAI/AAAAAAAAAAA/t089mcHnzD0/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg"
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Ok te aviso cuando cambie de opinion"
+                    
+                }
+            ]
+        }
+    ]
+}

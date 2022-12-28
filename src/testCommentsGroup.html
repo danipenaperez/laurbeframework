@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+	<div id="layoutContainer"></div>
+
+	
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/layout.js"></script>
+    <script type="text/javascript" src="./js/components/region.js"></script>
+
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+	<script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+
+    <script type="text/javascript" src="./js/components/image.js"></script>
+        <script type="text/javascript" src="./js/components/button.js"></script>
+
+    <script type="text/javascript" src="./js/components/container.js"></script>
+    <script type="text/javascript" src="./js/components/form.js"></script>
+    <script type="text/javascript" src="./js/components/textField.js"></script>
+
+    <script type="text/javascript" src="./js/components/grid.js"></script>
+    <script type="text/javascript" src="./js/components/row.js"></script>
+    <script type="text/javascript" src="./js/components/column.js"></script>
+
+    <script type="text/javascript" src="./js/components/cardGroup.js"></script>
+    <script type="text/javascript" src="./js/components/card.js"></script>
+
+    <script type="text/javascript" src="./js/components/commentsGroup.js"></script>
+    <script type="text/javascript" src="./js/components/comment.js"></script>
+    
+
+    <script type="text/javascript">
+	    //$( document ).ready(function() {//only waits for DOM loaded
+	    $(window).on('load', function() { //will wait for all js downloaded
+	        
+
+			var headerMenu = new laurbe.NavBar({	
+					        				renderTo:'header',
+											title:'Amazing App',
+											fixedTop:false,
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'Users',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Friends',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Sessions',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+			headerMenu._render();
+
+
+
+	    	var layout = new laurbe.Container({
+	    		renderTo:'layoutWaa',
+	    		items: [
+						new laurbe.CommentsGroup({
+							title:'My Comments',
+							items:[  
+								new laurbe.Comment({
+									 title:'Manolo',
+									 img:{
+									 	src:'http://rs775.pbsrc.com/albums/yy35/PhoenyxStar/link-1.jpg~c200'
+									 }
+								}),
+								new laurbe.Comment({
+									 title:'Daniel',
+									 img:{
+									 	src:'https://yt3.ggpht.com/-tO_SdVYSVg8/AAAAAAAAAAI/AAAAAAAAAAA/t089mcHnzD0/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg'
+									 },
+									 text:'Tu opinion me importa una mierda, erres mas feo que yo, maldito imbecil'+
+									 '<iframe width="716" height="403" src="https://www.youtube.com/embed/fA4IHJnKYiw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+								}),
+								new laurbe.Comment({
+									 title:'Manolo',
+									 img:{
+									 	src:'http://rs775.pbsrc.com/albums/yy35/PhoenyxStar/link-1.jpg~c200'
+									 },
+									 text:'Bueno, a mi no me pareces tan feo, pero si que es verdad que te podrias lavar un poco mas, aunque sea en fin de semana.'
+								}),
+								new laurbe.Comment({
+									 title:'Daniel',
+									 img:{
+									 	src:'https://yt3.ggpht.com/-tO_SdVYSVg8/AAAAAAAAAAI/AAAAAAAAAAA/t089mcHnzD0/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg'
+									 },
+									 text:'Ok, te aviso cuando cambie de opinion'
+								})
+
+							]
+					    })
+				]
+	    	});
+
+	        
+		    layout._render();
+
+
+
+		});
+    </script> 
+  </body>
+</html>
+

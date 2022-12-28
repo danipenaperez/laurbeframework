@@ -1,0 +1,10 @@
+{
+    "photo":"https://yt3.ggpht.com/-tO_SdVYSVg8/AAAAAAAAAAI/AAAAAAAAAAA/t089mcHnzD0/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg",
+    "name": "Danielus",
+    "age": "17",
+    "scores":[
+        {"instrument":"Drums", "stars":"4/5"},
+        {"instrument":"Guitar", "stars":"2/5"}
+    ],
+    "zones":"28440,35500"
+}

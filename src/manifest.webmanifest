@@ -1,0 +1,15 @@
+{
+  "background_color": "purple",
+  "description": "Vulgus SPA movidas.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "icon/fox-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "VulgusSPA Amazing",
+  "short_name": "Vulgus",
+  "start_url": "/testRepository/vulgusSPA.html"
+}

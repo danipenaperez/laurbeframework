@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+
+
+	
+	<div id="buttontest" class="container">
+	</div>
+
+
+	<div class="container">
+		<div id="contarapper" class="container">
+			<div class="container" id="buttonContainer" >   
+				<!-- Child elements will be render here -->  
+				<button type="button" class="btn btn-primary">boton 11</button>
+				<button type="button" class="btn btn-primary">boton 12</button>
+			</div>
+		</div>
+	</div>
+
+
+	
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/layout.js"></script>
+    <script type="text/javascript" src="./js/components/region.js"></script>
+
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+	<script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+
+    <script type="text/javascript" src="./js/components/image.js"></script>
+    <script type="text/javascript" src="./js/components/button.js"></script>
+
+    <script type="text/javascript" src="./js/components/container.js"></script>
+    
+    <script type="text/javascript">
+	    $( document ).ready(function() {
+	        
+
+			var headerMenu = new laurbe.NavBar({	
+					        				renderTo:'header',
+											title:'Amazing App',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'Users',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Friends',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Sessions',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+			headerMenu._render();
+
+
+			var buttonss = new laurbe.Container({
+								renderTo:'buttontest',
+								items:[
+										new laurbe.Button({
+											text:'boton 11!!',
+											span:{
+												text:'4'
+											},
+											onclick:function(){
+												alert('soy el boton 1 y me han pulsado');
+											}
+										}),
+										new laurbe.Button({
+											text:'boton 12'
+										}),
+								]
+							});
+
+			buttonss._render();
+
+
+
+			var layout = new laurbe.Layout({
+	    		renderTo:'layoutWaa',
+	    		items: [
+					new laurbe.Region({
+						items:[
+							new laurbe.Container({
+								items:[
+										new laurbe.Button({
+											text:'boton A'
+										}),
+										new laurbe.Button({
+											text:'boton B'
+										})
+								]
+							})
+							
+						]
+
+					}),
+					new laurbe.Region({
+						items:[
+							new laurbe.Layout({
+								items:[
+									new laurbe.Region({
+										text:'',
+										items:[
+											new laurbe.Button({
+												text:'boton B'
+											}),
+											new laurbe.Button({
+												text:'boton D'
+											})
+										]
+
+									}),
+									new laurbe.Region({
+										text:'',
+										items:[
+											new laurbe.Button({
+												text:'boton E'
+											})
+										]
+
+									})
+								]
+
+							})
+						]
+					})
+					/**
+					,new laurbe.Region({
+						items:[
+							new laurbe.Image({
+								img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+								alt:'tom cruise',
+								onclick: function(){
+									alert('me han clickado y soy la imagen del tom cruise');
+								}
+							}),
+							new laurbe.Button({
+								text:'Tomcruise'
+							})
+						]
+					})
+					**/
+					
+				]
+	    	});
+
+	        
+		   layout._render();
+			
+
+		   
+		    
+
+	    });
+    </script> 
+  </body>
+</html>

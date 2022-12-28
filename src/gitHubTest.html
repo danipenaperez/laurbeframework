@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+	<div id="layoutContainer"></div>
+
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/laurbe.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/layout.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/region.js"></script>
+
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/navbar.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/navbarMenuItem.js"></script>
+
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/image.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/button.js"></script>
+
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/container.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/form.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/textField.js"></script>
+
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/grid.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/row.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/column.js"></script>
+
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/cardGroup.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/card.js"></script>
+
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/app/app.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/danipenaperez/laurbe/master/js/components/app/view.js"></script>
+
+    <script type="text/javascript">
+	    //$( document ).ready(function() {//only waits for DOM loaded
+	    $(window).on('load', function() { //will wait for all js downloaded
+
+   	    	laurbe.templateManager.templatePath='https://raw.githubusercontent.com/danipenaperez/laurbe/';
+
+
+	        var NoticiasView = new laurbe.View({
+							menuName:'Noticias',
+							items:[
+								new laurbe.Container({
+										items:[
+											new laurbe.CardGroup({
+											    		items: [
+															new laurbe.Card({
+																title:'Card1',
+																text:'Novedades de la herramieta, conectate y sientete conectado',
+																footMessage:'footermeeess',
+																img:{
+																	src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+																	alt: 'mi imagen'
+																}
+															}),
+															new laurbe.Card({
+																title:'Card2',
+																text:'Jornada de liga ',
+																footMessage:'footermeeess',
+																img:{
+																	src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+																	alt: 'mi imagen'
+																}
+															})
+														]
+											})
+										]
+
+								})
+							]
+	        });
+
+
+	        var librosView = new laurbe.View({
+							menuName:'libros',
+							items:[
+								new laurbe.Container({
+										items:[
+											new laurbe.CardGroup({
+											    		items: [
+															new laurbe.Card({
+																title:'Card1',
+																text:'La casa de bernarda alba',
+																footMessage:'footermeeess',
+																img:{
+																	src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+																	alt: 'mi imagen'
+																}
+															}),
+															new laurbe.Card({
+																title:'Card2',
+																text:'El Caminio',
+																footMessage:'footermeeess',
+																img:{
+																	src: 'https://www.paradigmadigital.com/wp-content/themes/paradigma13/images/logos/logo_paradigma_2018_rgb.png',
+																	alt: 'mi imagen'
+																}
+															})
+														]
+											})
+										]
+
+								})
+							]
+	        });
+
+
+
+			var app = new laurbe.App({
+				title:'NewsPapper',
+				views:[NoticiasView, librosView]
+			});
+			app.init();
+
+
+		});
+    </script> 
+  </body>
+</html>
+

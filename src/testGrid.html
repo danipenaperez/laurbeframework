@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+
+  	<div id="formGrid"></div>
+	<div id="formGrid2"></div>
+	
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/layout.js"></script>
+    <script type="text/javascript" src="./js/components/region.js"></script>
+
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+	<script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+
+    <script type="text/javascript" src="./js/components/image.js"></script>
+        <script type="text/javascript" src="./js/components/button.js"></script>
+
+    <script type="text/javascript" src="./js/components/container.js"></script>
+    <script type="text/javascript" src="./js/components/form.js"></script>
+    <script type="text/javascript" src="./js/components/textField.js"></script>
+
+    <script type="text/javascript" src="./js/components/grid.js"></script>
+    <script type="text/javascript" src="./js/components/row.js"></script>
+    <script type="text/javascript" src="./js/components/column.js"></script>
+    <script type="text/javascript">
+	    $( document ).ready(function() {
+	        
+
+			var headerMenu = new laurbe.NavBar({	
+					        				renderTo:'header',
+											title:'Amazing App',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'Users',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Friends',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Sessions',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+			headerMenu._render();
+
+
+
+	    	var layout = new laurbe.Grid({
+	    		renderTo:'layoutWaa',
+	    		items: [
+					
+					new laurbe.Row({
+						text:'',
+						items:[
+							new laurbe.Column({
+								items:[
+									new laurbe.TextField({
+										//label:'email',
+										value:'aucton@hotmail.com'
+									})
+								]
+							}),
+							new laurbe.Column({
+								items:[
+									new laurbe.Image({
+										img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+										alt:'tom cruise',
+										onclick: function(){
+											alert('me han clickado y soy la imagen del tom cruise');
+										}
+									})
+								]
+							}),
+							new laurbe.Column({
+								items:[
+									new laurbe.Image({
+										img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+										alt:'tom cruise',
+										onclick: function(){
+											alert('me han clickado y soy la imagen del tom cruise');
+										}
+									})
+								]
+							}),
+							new laurbe.Column({
+								items:[
+									new laurbe.Button({
+											text:'boton 1!!',
+											onclick:function(){
+												alert('soy el boton 1 y me han pulsado');
+											}
+										})
+								]
+							})
+						]
+					}),
+					new laurbe.Row({
+						text:'',
+						items:[
+							new laurbe.Column({
+								items:[
+									new laurbe.TextField({
+										//label:'email',
+										value:'aucton@hotmail.com'
+									})
+								]
+							}),
+							new laurbe.Column({
+								items:[
+									new laurbe.Image({
+										img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+										alt:'tom cruise',
+										onclick: function(){
+											alert('me han clickado y soy la imagen del tom cruise');
+										}
+									})
+								]
+							}),
+							new laurbe.Column({
+								items:[
+									new laurbe.Image({
+										img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+										alt:'tom cruise',
+										onclick: function(){
+											alert('me han clickado y soy la imagen del tom cruise');
+										}
+									})
+								]
+							}),
+							new laurbe.Column({
+								items:[
+									new laurbe.Button({
+											text:'boton 2!!',
+											onclick:function(){
+												alert('soy el boton 2 y me han pulsado');
+											}
+										})
+								]
+							})
+						]
+					}),
+					new laurbe.Row({
+						text:'',
+						items:[
+							new laurbe.Column({
+								items:[
+									new laurbe.TextField({
+										//label:'email',
+										value:'aucton@hotmail.com'
+									})
+								]
+							}),
+							new laurbe.Column({
+								items:[
+									new laurbe.TextField({
+										//label:'edad',
+										value:'25'
+									})
+								]
+							}),
+							new laurbe.Column({
+								items:[
+									new laurbe.Image({
+										img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+										alt:'tom cruise',
+										onclick: function(){
+											alert('me han clickado y soy la imagen del tom cruise');
+										}
+									})
+								]
+							}), 
+							new laurbe.Column({
+								items:[
+									new laurbe.Button({
+											text:'boton 3!!',
+											onclick:function(){
+												alert('soy el boton 3 y me han pulsado');
+											}
+										})
+								]
+							})
+						]
+					})
+				]
+	    	});
+
+	        
+		    layout._render();
+
+		});
+    </script> 
+  </body>
+</html>

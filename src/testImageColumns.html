@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+
+  	<div id="secondContainer"></div>
+	
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/layout.js"></script>
+    <script type="text/javascript" src="./js/components/region.js"></script>
+
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+	<script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+
+    <script type="text/javascript" src="./js/components/image.js"></script>
+    
+    
+    <script type="text/javascript">
+	    $( document ).ready(function() {
+	        
+
+			var headerMenu = new laurbe.NavBar({	
+					        				renderTo:'header',
+											title:'Amazing App',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'Users',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Friends',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Sessions',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+			headerMenu._render();
+
+
+
+	    	var layout = new laurbe.Layout({
+	    		renderTo:'layoutWaa',
+	    		items: [
+					new laurbe.Region({
+						items:[
+							new laurbe.Image({
+								img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
+								alt:'Amrio casa'
+							})
+						]
+
+					}),
+					new laurbe.Region({
+						items:[
+							new laurbe.Image({
+								img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Iker_Casillas_2.jpg/245px-Iker_Casillas_2.jpg',
+								alt:'casillas'
+							})
+						]
+					}),
+					
+					new laurbe.Region({
+						items:[
+							new laurbe.Image({
+								img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+								alt:'tom cruise',
+								onclick: function(){
+									alert('me han clickado y soy la imagen del tom cruise');
+								}
+							})
+						]
+					})
+				]
+	    	});
+
+	        
+		    layout._render();
+
+
+		    /***************SECOND LAYOUT secondContainer************/
+		    var layout2 = new laurbe.Layout({
+	    		renderTo:'secondContainer',
+	    		items: [
+					new laurbe.Region({
+						text:'region1'
+					}),
+					new laurbe.Region({
+						text:'',
+						items:[
+							new laurbe.Layout({
+												items:[
+													new laurbe.Region({
+														text:'',
+														items:[
+															new laurbe.Image({
+																img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
+																alt:'Amrio casa'
+															})
+														]
+													}),
+													new laurbe.Region({
+														text:'',
+														items:[
+															new laurbe.Image({
+																img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Iker_Casillas_2.jpg/245px-Iker_Casillas_2.jpg',
+																alt:'casillas'
+															})
+														]
+													}),
+													new laurbe.Region({
+														text:'',
+														items:[
+															new laurbe.Image({
+																img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+																alt:'tom cruise',
+																onclick: function(){
+																	alert('soy la pequeña soy la imagen del tom cruise');
+																}
+															})
+														]
+													})
+												]
+							})
+						]
+						
+
+					}),
+					new laurbe.Region({
+						text:'region3'
+					})
+				]
+	    	});
+
+	        
+		    layout2._render();
+		    
+
+	    });
+    </script> 
+  </body>
+</html>

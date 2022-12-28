@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+
+  	<!-- Primer form -->
+  	<div id="formSimpleContainer" class="container">
+  		<!-- <h1 class="display-4">Simple form with title </h1> -->
+  		<div id="formSimple"></div>
+  	</div>
+
+  	<!-- Primer form -->
+  	<div id="userProfileFormContainer" class="container">
+  		<!-- <h1 class="display-4">Simple form with title </h1> -->
+  		<div id="userProfileForm"></div>
+  	</div>
+	
+	<!-- Grid Style -->
+	<div id="formSimpleContainer" class="container">
+		<!-- <h1 class="display-4">Grid Style Form (as table, but vertical on mobile view) </h1> -->
+  		
+  		<div id="formAsGrid"></div>
+  	</div>
+	
+
+
+
+	<!-- jQuery library -->
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/layout.js"></script>
+    <script type="text/javascript" src="./js/components/region.js"></script>
+
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+	<script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+
+    <script type="text/javascript" src="./js/components/image.js"></script>
+        <script type="text/javascript" src="./js/components/button.js"></script>
+
+    <script type="text/javascript" src="./js/components/container.js"></script>
+    <script type="text/javascript" src="./js/components/form.js"></script>
+    <script type="text/javascript" src="./js/components/textField.js"></script>
+
+	<script type="text/javascript" src="./js/components/title.js"></script>
+
+    <script type="text/javascript" src="./js/components/grid.js"></script>
+    <script type="text/javascript" src="./js/components/row.js"></script>
+    <script type="text/javascript" src="./js/components/column.js"></script>
+
+    <script type="text/javascript" src="./js/components/cardGroup.js"></script>
+    <script type="text/javascript" src="./js/components/card.js"></script>
+
+    <script type="text/javascript">
+	    $( document ).ready(function() {
+	        
+
+			var headerMenu = new laurbe.NavBar({	
+					        				renderTo:'header',
+											title:'Amazing App',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'Users',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Friends',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Sessions',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+			headerMenu._render();
+
+
+			/**
+			* Simple form
+			**/
+	    	var formSimple = new laurbe.Container({
+	    		renderTo:'formSimple',
+	    		items: [
+						new laurbe.Form({
+								title:'Simple Form Title',
+								items:[
+									new laurbe.TextField({
+										label:'email',
+										value:'aucton@hotmail.com'
+									}),
+									new laurbe.TextField({
+										label:'age',
+										value:'25'
+									}),
+									new laurbe.TextField({
+										label:'Features',
+										placeholder:'suggestions placeholder..'
+									}),
+									new laurbe.Region({
+										
+										items:[
+												new laurbe.Button({
+													text:'boton A',
+													align:'float-right'
+												}),
+												new laurbe.Button({
+													text:'boton B',
+													align:'float-right'
+												})
+										]
+									})
+
+								]
+						})
+					
+				]
+	    	});
+		    formSimple._render();
+
+
+
+
+/**
+			* Simple form
+			**/
+	    	var userProfileForm = new laurbe.Layout({
+	    		renderTo:'userProfileForm',
+				title:'User Profile Layout Title',
+	    		items: [
+	    				new laurbe.Region({
+	    					fixedSize:'-4', //hace que no sean 50%, si no que esta region ocupe solo 3 de los 12
+	    					items:[
+								new laurbe.Image({
+									img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+									alt:'tom cruise',
+									onclick: function(){
+										alert('me han clickado y soy la imagen del tom cruise');
+									}
+								})
+							]
+	    				}),
+	    				new laurbe.Region({
+	    					items:[
+								new laurbe.Form({
+										items:[
+											new laurbe.TextField({
+												label:'email',
+												value:'aucton@hotmail.com'
+											}),
+											new laurbe.TextField({
+												label:'age',
+												value:'25'
+											}),
+											new laurbe.TextField({
+												label:'Features',
+												placeholder:'suggestions placeholder..'
+											}),
+											new laurbe.Region({
+										
+												items:[
+														new laurbe.Button({
+															text:'boton A',
+															align:'float-right'
+														}),
+														new laurbe.Button({
+															text:'boton B',
+															align:'float-right'
+														})
+												]
+											})
+
+										]
+								})
+	    					]
+	    				})
+	    				
+	    				
+
+						
+					
+				]
+	    	});
+
+	    	
+		    userProfileForm._render();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			/**
+			* Simple form As Grid
+			**/
+			var formAsGrid = new laurbe.Container({
+	    		renderTo:'formAsGrid',
+	    		items: [
+	    			new laurbe.Form({
+	    				title:'Form As Grid',
+	    				items:[
+	    					new laurbe.Row({
+			    				items:[
+											new laurbe.TextField({
+												label:'email',
+												value:'aucton@hotmail.com'
+											}),
+											new laurbe.TextField({
+												label:'age',
+												value:'25'
+											}),
+											new laurbe.TextField({
+												label:'Features',
+												placeholder:'vago y gandul'
+											})
+
+			    				]
+			    			}),
+							new laurbe.Row({
+			    				items:[
+											new laurbe.TextField({
+												label:'Location',
+												value:'Madrid'
+											}),
+											new laurbe.TextField({
+												label:'City',
+												value:'25'
+											}),
+											new laurbe.TextField({
+												label:'Genre',
+												placeholder:'male or female..'
+											})
+
+			    				]
+			    			})
+	    				]
+	    			})
+	    			
+					
+				]
+	    	});
+		    formAsGrid._render();
+
+
+
+			
+
+
+
+		});
+    </script> 
+  </body>
+</html>
+

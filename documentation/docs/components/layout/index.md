@@ -9,8 +9,8 @@ some_url: https://www.laurbeframework.com
 
 # Introduccion
 
-bienvenido y prueba nuestros fantasticos layouts
-
+Los Layouts son zonas de la pantalla que agruparan filas y columnas. Como cualquier Grid puede contener varias columnas en una misma fila.
+Se recomienda echar un vistazo al componente [laurbe.Grid](http://github.com/laurbeframework/components/Grid)
 === "API"
 
     Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
@@ -24,7 +24,9 @@ bienvenido y prueba nuestros fantasticos layouts
     { .annotate }
 
     1.  :woman_raising_hand: I'm an annotation as well!
+```javascript
 
+```
 === "Samples"
 
     | Method      | Description                          |

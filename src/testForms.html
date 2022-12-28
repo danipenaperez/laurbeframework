@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+  	<div id="layoutWaa"></div>
+
+  	<div id="formGrid"></div>
+	<div id="formGrid2"></div>
+	
+	<!-- jQuery library -->
+	<script src="./thirdparty/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="./thirdparty/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="./thirdparty/bootstrap.min.js"></script> 
+    <!-- Plugins jquery -->
+    <script src="./thirdparty/jquery.tmpl.min.js"></script>
+    
+    <!-- laurbe -->
+    <script type="text/javascript" src="./js/components/laurbe.js"></script>
+    <script type="text/javascript" src="./js/components/layout.js"></script>
+    <script type="text/javascript" src="./js/components/region.js"></script>
+
+    <script type="text/javascript" src="./js/components/navbar.js"></script>
+    <script type="text/javascript" src="./js/components/navbarMenuItem.js"></script>
+	<script type="text/javascript" src="./js/components/navbarbottom.js"></script>
+
+    <script type="text/javascript" src="./js/components/image.js"></script>
+        <script type="text/javascript" src="./js/components/button.js"></script>
+
+    <script type="text/javascript" src="./js/components/container.js"></script>
+    <script type="text/javascript" src="./js/components/form.js"></script>
+    <script type="text/javascript" src="./js/components/textField.js"></script>
+    
+    <script type="text/javascript">
+	    $( document ).ready(function() {
+	        
+
+			var headerMenu = new laurbe.NavBar({	
+					        				renderTo:'header',
+											title:'Amazing App',
+											items: [
+												new laurbe.NavBarMenuItem({
+													//id : 'menuitem1',
+													text:'Users',
+													selected: true
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Friends',
+													selected: false
+												}),
+												new laurbe.NavBarMenuItem({
+													text:'Sessions',
+													selected: false,
+													onclick:function(){
+														console.log('estoy clickando pero no sale el alert!!!');
+														alert('me han pulsado' +this.id);
+													}
+												})
+											]
+			});
+
+			headerMenu._render();
+
+	    	var layout = new laurbe.Layout({
+	    		renderTo:'layoutWaa',
+	    		items: [
+					
+					new laurbe.Region({
+						text:'',
+						fixedSize:'-2',
+						items:[
+							new laurbe.Button({
+								text:'amazing button',
+								wrapper:{
+									tag:'<div>', 
+									class:'d-flex justify-content-center align-self-center'
+								},
+								onclick:function(){
+									alert('amazing button execution');
+								}
+							})
+						]
+
+					}),
+					
+					new laurbe.Region({
+						text:'',
+						items:[
+							new laurbe.Form({
+								items:[
+									new laurbe.TextField({
+										label:'email',
+										value:'aucton@hotmail.com'
+									}),
+									new laurbe.TextField({
+										label:'edad',
+										value:'25'
+									}),
+									new laurbe.TextField({
+										label:'Features',
+										value:'vago y gandul'
+									})
+
+								]
+							})
+							
+						]
+					}),
+					new laurbe.Region({
+						text:'',
+						items:[
+							new laurbe.Image({
+								img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tom_Cruis.jpg/220px-Tom_Cruis.jpg',
+								alt:'tom cruise',
+								onclick: function(){
+									alert('me han clickado y soy la imagen del tom cruise');
+								}
+							})
+						]
+					})
+				]
+	    	});
+
+	        
+		    layout._render();
+
+
+		    
+
+			var layoutGrid = new laurbe.Layout({
+				renderTo:'formGrid',
+				items:[
+						new laurbe.Region({
+							text:'',
+							items:[
+								new laurbe.Form({
+									items:[
+										new laurbe.TextField({
+											//label:'email',
+											value:'aucton@hotmail.com'
+										}),
+										new laurbe.TextField({
+											//label:'edad',
+											value:'25'
+										}),
+										new laurbe.TextField({
+											//label:'Features',
+											value:'vago y gandul'
+										})
+
+									]
+								})
+							]
+						}),
+						new laurbe.Region({
+							text:'',
+							items:[
+								new laurbe.Form({
+									items:[
+										new laurbe.TextField({
+											value:'aucton@hotmail.com'
+										}),
+										new laurbe.TextField({
+											//label:'edad',
+											value:'25'
+										}),
+										new laurbe.TextField({
+											//label:'Features',
+											value:'vago y gandul'
+										})
+
+									]
+								})
+								
+							]
+						}),
+						new laurbe.Region({
+							text:'',
+							items:[
+								new laurbe.Form({
+									items:[
+										new laurbe.TextField({
+											//label:'email',
+											value:'aucton@hotmail.com'
+										}),
+										new laurbe.TextField({
+											//label:'edad',
+											value:'25'
+										}),
+										new laurbe.TextField({
+											//label:'Features',
+											value:'vago y gandul'
+										})
+
+									]
+								})
+								
+							]
+						})
+				]
+			});
+			layoutGrid._render();
+
+
+
+			var layoutGrid2 = new laurbe.Layout({
+				renderTo:'formGrid2',
+				items:[
+						new laurbe.Layout({ //Row 1
+								items:[
+									new laurbe.Region({
+										text:'region1.1'
+									}),
+									new laurbe.Region({
+										text:'region1.2'
+									}),
+									new laurbe.Region({
+										text:'region1.3'
+									})
+								]
+						}),	
+						new laurbe.Layout({ //Row 2
+								items:[
+									new laurbe.Region({
+										text:'region2.1'
+									}),
+									new laurbe.Region({
+										text:'region2.2'
+									}),
+									new laurbe.Region({
+										text:'region2.3'
+									})
+								]
+						}),	
+						new laurbe.Layout({ //Row 3
+								items:[
+									new laurbe.Region({
+										text:'region3.1'
+									}),
+									new laurbe.Region({
+										text:'region3.2'
+									}),
+									new laurbe.Region({
+										text:'region3.3'
+									})
+								]
+						})
+				]
+			});
+
+
+
+
+			layoutGrid2._render();
+
+
+	    });
+    </script> 
+  </body>
+</html>
