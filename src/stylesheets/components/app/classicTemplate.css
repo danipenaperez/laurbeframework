@@ -42,10 +42,14 @@ div[id="appMainViewContainer"] {
   color: gray !important; 
 }
 .nav-menu-item-text-color-white {
+  font-size: 1.25rem;
   color: white !important; 
+  font-family: 'Brush Script MT', cursive;
 }
 .nav-menu-item-text-color-white:hover, .nav-menu-item-text-color-white:active {
+  font-size: 1.25rem;
   color: white !important; 
+  font-family: 'Brush Script MT', cursive;
 }
 
 

@@ -39,7 +39,8 @@ laurbe.Region = function Region(args){
 			//text:'Region',
 			//align:'float-right',
 			fixedSize:'',
-			extraClass:'' 
+			extraClass:'' ,
+			extraStyle: ''
 
 	};
 	
