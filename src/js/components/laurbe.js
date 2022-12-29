@@ -104,14 +104,26 @@ var laurbe ={
 				if(this.template){
 					var self = this;
 					var templateInfo = {appendTo: self.ele, data: self.instanceProperties};
-					//always load to templateManager div container
-					$('#templateManager').load(laurbe.templateManager.templatePath+self.template.url, function(templateString,  ajaxObject, ajaxState){
+					
+					/** Load current component template , and render (appentTo) */
+					laurbe.templateManager._loadTemplate(self.template.url, function(){
 						$('#'+self.template.scriptId).tmpl(templateInfo.data).appendTo(templateInfo.appendTo);
 						self._afterRender();
 						if(self.onShow){
 							self.onShow(this);
 						}
 					});
+					
+					
+					//always load to templateManager div container
+					// $('#templateManager').load(laurbe.templateManager.templatePath+self.template.url, function(templateString,  ajaxObject, ajaxState){
+					// 	$('#'+self.template.scriptId).tmpl(templateInfo.data).appendTo(templateInfo.appendTo);
+					// 	self._afterRender();
+					// 	if(self.onShow){
+					// 		self.onShow(this);
+					// 	}
+					// });
+				 	
 				}
 				
 				// else{
@@ -165,18 +177,7 @@ var laurbe ={
 			**/
 			_appendChilds:function(items, renderNow){
 				var self = this;
-				// $.each(items, function( index, item ) {
-				// 	console.log('_appendChilds '+ self._getRenderChildWrapperId());
-				// 	self.instanceProperties.items.push(item);
-				// 	item.owner = self;//reference to parent laurbe object
-				//   	item.instanceProperties.renderTo = self._getRenderChildWrapperId();
-				//   	if(renderNow == true){
-				// 	  	item._render();
-				// 	}
-				// });
-
 				for  (i=0;i<items.length;i++){  // Maybe ensure synchronously
-					console.log('_appendChilds '+ self._getRenderChildWrapperId());
 					var item = items[i];
 					self.instanceProperties.items.push(item);
 					item.owner = self;//reference to parent laurbe object
@@ -351,6 +352,7 @@ var laurbe ={
 		templateManager:{
 			templatePath: '.',
 			initialized:false,
+			loadedTemplates: [],
 			/**Initialize a hidded div to store all loaded templates */
 			_init: function(){
 				if(!this.initialized){
@@ -366,7 +368,27 @@ var laurbe ={
 				console.log(this);
 				if(args.templatePath)
 					this.templatePath=args.templatePath;
-			}	
+			},
+			/**
+			 * Load template, verify if is not already loaded (cached)
+			 * @param {} templateURL 
+			 * @param {*} callback 
+			 */
+			_loadTemplate:function( templateURL,  callback){
+				console.log('llevamos estas templates ');
+				console.log(this.loadedTemplates);
+				if(this.loadedTemplates.includes(templateURL)){ //Already loaded
+					console.log('ya lo tenemos '+templateURL);
+					callback();
+				}else{
+					var _self = this;
+					$('#templateManager').load(laurbe.templateManager.templatePath+templateURL, function(templateString,  ajaxObject, ajaxState){
+						// _self.loadedTemplates.push(templateURL);
+						console.log('añadidio '+ templateURL);
+						callback();
+					});
+				}
+			}
 		},
 		modalDialogManager:{
 			templatePath: '.',
