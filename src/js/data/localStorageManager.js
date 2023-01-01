@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * Se podrian hacer varias implementaciones de DataStorage
  * Una que se  InMemoryStorage (que lo que haga es que lo meta en un objeto local, pero se pierde luego al cerrar)
@@ -49,3 +50,7 @@ laurbe.LocalStorageManager = function LocalStorageManager(args){
 
 	return instance;
 }
+
+return laurbe.LocalStorageManager;
+
+});

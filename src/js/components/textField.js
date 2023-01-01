@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -68,3 +69,7 @@ laurbe.TextField = function TextField(args){
 
 	return instance;
 }
+
+return laurbe.TextField;
+
+});

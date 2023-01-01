@@ -39,3 +39,6 @@ La llamada http la hace y esto ya esta mal. Habria que comprobar si la tiene y s
 
 ejemplo require
 https://github.com/requirejs/example-multipage
+
+EJEMPLOS CON EMCSA 6 import modules, creo que esta es la buena
+https://github.dev/mdn/js-examples/blob/main/module-examples/basic-modules/index.html

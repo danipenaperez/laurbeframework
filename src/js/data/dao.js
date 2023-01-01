@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -92,3 +93,7 @@ laurbe.RestDAO = function RestDAO(args){
 
 	return instance;
 }
+
+return laurbe.RestDAO;
+
+});

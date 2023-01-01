@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -84,3 +85,7 @@ laurbe.NavBarBottomMenuItem = function NavBarBottomMenuItem(args){
 
 	return instance;
 }
+
+return laurbe.NavBarBottomMenuItem;
+
+});

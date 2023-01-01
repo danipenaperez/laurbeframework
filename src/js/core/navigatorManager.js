@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -141,3 +142,7 @@ laurbe.NavigatorManager = function NavigatorManager(args){
 
 	return instance;
 }
+
+return laurbe.NavigatorManager;
+
+});

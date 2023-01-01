@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -56,3 +57,7 @@ laurbe.Region = function Region(args){
 
 	return instance;
 }
+
+return laurbe.Region;
+
+});

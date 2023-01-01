@@ -30,39 +30,203 @@
                 jquery: '/thirdparty/js/jquery.min',
                 bootstrap: '/thirdparty/js/bootstrap.bundle.min',
 
-                laurbeAPP:'/js/components/app/app'
+                laurbeAPP:'/js/components/app/app',
+                laurbeView:'/js/components/app/view',
+
+                laurbeScrollableCardListView:'/js/components/composite/scrollableCardListView',
+                laurbeSocialLoginView:'/js/components/composite/socialLoginView',
+
+                laurbeButton:'/js/components/button',
+                laurbeButtonGroup:'/js/components/buttonGroup',
+                laurbeCard:'/js/components/card',
+                laurbeCardGroup:'/js/components/cardGroup',
+
+                laurbeColumn:'/js/components/column',
+
+                laurbeComment:'/js/components/comment',
+                laurbeCommentsGroup:'/js/components/commentsGroup',
+
+                laurbeContainer:'/js/components/container',
+
+                laurbeForm:'/js/components/form',
+                laurbeGrid:'/js/components/grid',
+                laurbeImage:'/js/components/image',
+                laurbeLayout:'/js/components/layout',
+                laurbeModalDialog:'/js/components/modalDialog',
                 
+                laurbeNavBar:'/js/components/navbar',
+                laurbeNavBarBottom:'/js/components/navbarbottom',
+                laurbeNavBarBottomMenuItem:'/js/components/navbarBottomMenuItem',
+                laurbeNavBarMenuItem:'/js/components/navbarMenuItem',
+
+                laurbeRegion:'/js/components/region',
+                laurbeRow:'/js/components/row',
+
+                laurbeSpotifyAudio:'/js/components/spotifyAudio',
+                laurbeTextField:'/js/components/textField',
+                laurbeTextLink:'/js/components/textLink',
+                laurbeTitle:'/js/components/title',
+                laurbeVideo:'/js/components/video',
+                laurbeYouTubeVideo:'/js/components/youTubeVideo',
+
+                laurbeNavigatorManager:'/js/core/navigatorManager',
+                laurbeShareSocialManager:'/js/core/shareSocialManager',
+                laurbeDAO:'/js/data/dao',
+                laurbeLocalStorageManager:'/js/data/localStorageManager'
 
             }
             ,
             shim: {
-                jquerytmpl: {
-                    deps: ['jquery', 'laurbe']
-                },
-                bootstrap:{
-                    deps: ['jquery', 'laurbe']
-                },
-                laurbeAPP:{
-                    deps: ['jquery', 'laurbe']
-                }
+                jquerytmpl: {deps: ['jquery', 'laurbe']},
+                bootstrap:  {deps: ['jquery', 'laurbe']},
+                laurbeAPP:  {deps: ['jquery', 'laurbe']},
+                laurbeView: {deps: ['jquery', 'laurbe']},
+                laurbeScrollableCardListView: {deps: ['jquery', 'laurbe']},
+                laurbeSocialLoginView: {deps: ['jquery', 'laurbe']},
+                laurbeButton: {deps: ['jquery', 'laurbe']},
+                laurbeButtonGroup: {deps: ['jquery', 'laurbe']},
+                laurbeCard: {deps: ['jquery', 'laurbe']},
+                laurbeCardGroup: {deps: ['jquery', 'laurbe']},
+                laurbeColumn: {deps: ['jquery', 'laurbe']},
+                laurbeComment: {deps: ['jquery', 'laurbe']},
+                laurbeCommentsGroup: {deps: ['jquery', 'laurbe']},
+                laurbeContainer: {deps: ['jquery', 'laurbe']},
+                laurbeLayout: {deps: ['jquery', 'laurbe']},
+                laurbeModalDialog: {deps: ['jquery', 'laurbe']},
+                laurbeNavBar: {deps: ['jquery', 'laurbe']},
+                laurbeNavBarBottom: {deps: ['jquery', 'laurbe']},
+                laurbeNavBarBottomMenuItem: {deps: ['jquery', 'laurbe']},
+                laurbeNavBarMenuItem: {deps: ['jquery', 'laurbe']},
+                laurbeRegion: {deps: ['jquery', 'laurbe']},
+                laurbeRow: {deps: ['jquery', 'laurbe']},
+                laurbeSpotifyAudio: {deps: ['jquery', 'laurbe']},
+                laurbeTextField: {deps: ['jquery', 'laurbe']},
+                laurbeTextLink: {deps: ['jquery', 'laurbe']},
+                laurbeTitle: {deps: ['jquery', 'laurbe']},
+                laurbeVideo: {deps: ['jquery', 'laurbe']},
+                laurbeYouTubeVideo: {deps: ['jquery', 'laurbe']},
+                laurbeNavigatorManager: {deps: ['jquery', 'laurbe']},
+                laurbeShareSocialManager: {deps: ['jquery', 'laurbe']},
+                laurbeDAO: {deps: ['jquery', 'laurbe']},
+                laurbeLocalStorageManager: {deps: ['jquery', 'laurbe']}
+
                 
             }
             // waitSeconds: 3
         });
 
-        import {region} from "/js/components/region";
-
-        console.log('y region es '+region);
-        console.log(region);
-        require(['laurbeAPP', 'laurbe'], function (laurbeAPP, laurbe) {
+        require(['laurbeAPP', 'laurbeView', 'laurbeScrollableCardListView','laurbeSocialLoginView',
+        'laurbeButton','laurbeButtonGroup','laurbeCard','laurbeCardGroup','laurbeColumn',
+        'laurbeComment','laurbeCommentsGroup','laurbeContainer','laurbeLayout','laurbeModalDialog',
+        'laurbeNavBar','laurbeNavBarBottom','laurbeNavBarBottomMenuItem','laurbeNavBarMenuItem','laurbeRegion',
+        'laurbeRow','laurbeSpotifyAudio','laurbeTextField','laurbeTextLink','laurbeTitle',
+        'laurbeVideo','laurbeYouTubeVideo','laurbeNavigatorManager','laurbeShareSocialManager','laurbeDAO',
+        'laurbeLocalStorageManager',
+        'laurbe','jquery','jquerytmpl','bootstrap'], 
+        function (laurbeAPP, laurbeView, laurbeScrollableCardListView,laurbeSocialLoginView,
+        laurbeButton,laurbeButtonGroup,laurbeCard,laurbeCardGroup,laurbeColumn,
+        laurbeComment,laurbeCommentsGroup,laurbeContainer,laurbeLayout,laurbeModalDialog,
+        laurbeNavBar,laurbeNavBarBottom,laurbeNavBarBottomMenuItem,laurbeNavBarMenuItem,laurbeRegion,
+        laurbeRow,laurbeSpotifyAudio,laurbeTextField,laurbeTextLink,laurbeTitle,
+        laurbeVideo,laurbeYouTubeVideo,laurbeNavigatorManager,laurbeShareSocialManager,laurbeDAO,
+        laurbeLocalStorageManager,laurbe) {
    
             laurbe._init();
             console.log('y la urbe app es ');
-            var app = new laurbe.App({});
-            console.log('y la app es ');
-            console.log(app);
+            // var app = new laurbe.App({});
+            // console.log('y la app es ');
+            // console.log(app);
             // now append user name to the dom using jQuery
             $("#header").html('<h1>PACO</h1>');
+
+
+
+
+
+            var app = new laurbe.App({
+                                  title: 'Example layout 1',
+                                  navBar: {
+                                    brand: {
+                                      logoUrl: 'https://upload.wikimedia.org/wikinews/en/7/7e/International_Monetary_Fund_logo.svg'
+                                    },
+                                    searchTool: {
+                                      placeholder: 'looking for...'
+                                    }
+                                  },
+                                  views: [
+                                    new laurbe.View({
+                                      id: 'viewA_View',
+                                      navigator:{
+                                        menuName: 'Menu A',
+                                        extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                                      },
+                                      items: [
+                                        new laurbe.Region({
+                                          text: 'Region A.1',
+                                          extraClass:'bg-info' 
+                                        }),
+                                        new laurbe.Region({
+                                          text: 'Region A.2',
+                                          extraClass:'bg-danger' 
+                                        }),
+                                        new laurbe.Region({
+                                          text: 'Region A.3',
+                                          extraClass:'bg-warning' 
+                                        })
+                                      ]
+                                    }),
+                                    new laurbe.View({
+                                      id: 'viewB_View',
+                                      navigator:{
+                                        menuName: 'Menu B',
+                                        extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                                      },
+                                      items: [
+                                        new laurbe.Region({
+                                          text: 'Region A.1',
+                                          extraClass:'bg-warning', 
+                                          extraStyle:'height: 250px',
+                                          items:[
+                                                new laurbe.Region({
+                                                          text: 'Sub Region A.1.1',
+                                                          extraClass:'bg-success border border-dark rounded'
+                                                }), 
+                                                new laurbe.Region({
+                                                          text: 'Sub Region A.1.2',
+                                                          extraClass:'bg-secondary border border-dark rounded'
+                                                })
+                                          ]
+                                        }),
+                                        new laurbe.Region({
+                                          text: 'Region A.2',
+                                          extraClass:'bg-secondary' 
+                                        }),
+                                        new laurbe.Region({
+                                          text: 'Region A.3',
+                                          extraClass:'bg-success' 
+                                        })
+                                      ]
+                                    })
+                                  ],
+                                  dao: new laurbe.RestDAO({
+                                    basePath: '.'
+                                  }),
+                                  storageManager: new laurbe.LocalStorageManager({})
+                                  ,bottomNavBar: {
+                                    items: [
+                                      new laurbe.NavBarBottomMenuItem({
+                                        items: [
+                                          new laurbe.TextLink({
+                                            extraClass: 'nav-menu-item-text-color-white',
+                                            text:'Demo link copyrigth'
+                                          })
+                                        ]
+                                      })
+                                    ]
+                                  }
+                                });
+        app.init();
+
         });
 
 

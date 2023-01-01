@@ -1,5 +1,6 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
- * The menu item prototype
+ * The button
  */
 laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 	/**
@@ -70,3 +71,7 @@ laurbe.Button = function Button(args){
 
 	return instance;
 }
+
+return laurbe.Button;
+
+});

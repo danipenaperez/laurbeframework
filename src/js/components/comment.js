@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -83,3 +84,7 @@ laurbe.Comment = function Comment(args){
 
 	return instance;
 }
+
+return laurbe.Comment;
+
+});

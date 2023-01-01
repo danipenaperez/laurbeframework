@@ -1,11 +1,5 @@
 define('laurbe', ['jquery' ], function ($) {
 
-	alert('ha cargado jquery??');
-	console.log('jquery es ');
-	console.log($);
-
-
-
 	
 	/**
 	 * Main object namespace
@@ -422,7 +416,7 @@ define('laurbe', ['jquery' ], function ($) {
 			//Load Laurbe core compoenents
 			this._importLaurbeComponents();
 			
-			alert('esperando dime tu');
+			
 			// while(typeof $ == 'undefined'){console.log('blocking')};
 			// alert('available');
 

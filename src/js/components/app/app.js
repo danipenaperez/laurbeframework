@@ -1,6 +1,6 @@
 define(['laurbe','jquery'], function (laurbe, $) {
 
-	alert('soy la app y estoy cargando');
+	
 	console.log(laurbe);
 	console.log('¿ha salido algo');
 	/**
@@ -110,7 +110,7 @@ laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
 	**/
 	init:function(){
 		//0.load Thirdparty dependencies
-		this._loadThirdPartyDependencies();
+		// this._loadThirdPartyDependencies();
 		//1.Set core elements
 		this._setCoreElements(this.instanceProperties);
 		//2.Set the views
@@ -345,7 +345,7 @@ laurbe.App = function APP(args){
 
 	return instance;
 }
-alert('soy app js y me han cargado');
+
 return laurbe.APP;
 
 });

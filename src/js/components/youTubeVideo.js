@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -44,3 +45,7 @@ laurbe.YouTubeVideo = function YouTubeVideo(args){
 
 	return instance;
 }
+
+return laurbe.YouTubeVideo;
+
+});

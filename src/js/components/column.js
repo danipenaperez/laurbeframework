@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -80,3 +81,7 @@ laurbe.Column = function Column(args){
 
 	return instance;
 }
+
+return laurbe.Column;
+
+});

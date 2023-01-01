@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -49,3 +50,7 @@ laurbe.SocialLoginView = function SocialLoginView(args){
 
 	return instance;
 }
+
+return laurbe.SocialLoginView;
+
+});

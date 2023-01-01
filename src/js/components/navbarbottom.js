@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * Prototype Definition 
  */
@@ -97,3 +98,7 @@ laurbe.NavBarBottom = function NavBarBottom(args){
 	
 	return instance;
 }
+
+return laurbe.NavBarBottom;
+
+});

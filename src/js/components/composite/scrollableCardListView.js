@@ -1,4 +1,4 @@
-
+define(['laurbe','jquery'], function (laurbe, $) {
 laurbe.prototype.composite.ScrollableCardListView = $.extend({}, laurbe.prototype.View, {
 
 	type:'scrollableCardListView',
@@ -98,47 +98,9 @@ laurbe.ScrollableCardListView = function ScrollableCardListView(args){
 		})
 	);
 
-	//este metodo es el antiguo, ya que el loadData mete los items antes de pintar
-	//Lo bueno es como se hace en vulgus_app (scroollableview) que hace una llamada ajax y hace un appendChilds a algo que ya estaba vacio pero pintado(el grid principal)
-	// instance._loadData([
-	// 	{
-	// 		"title":"And Justice For All",
-	// 		"description": "Full Album Cover session",
-	// 		"tags":["Metal", "Metallica"],
-	// 		"img": "https://www.thomann.de/pics/bdb/128185/12948444_800.jpg"
-	
-	// 	},
-	// 	{
-	// 		"title":"Lucifer",
-	// 		"description": "Metal Lucifer",
-	// 		"tags":["Metal", "Lucifer"],
-	// 		"img": "https://img.playbuzz.com/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1510290568/rqjtxqblgt73758sw25c.jpg"
-			
-	// 	},
-	// 	{
-	// 		"title":"Pantera Sessions",
-	// 		"description": "Tocaremos los temas de Pantera del primer album",
-	// 		"tags":["Metal", "Pantera"],
-	// 		"img": "https://img.playbuzz.com/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1510292312/elspdi4xiptyndsvrt4p.jpg"
-			
-	// 	},
-	// 	{
-	// 		"title":"Sin Frenos",
-	// 		"description": "La muerte tiene un precio, exactamente 32,50 euros",
-	// 		"tags":["Metal", "Frenando"],
-	// 		"img": "https://img.playbuzz.com/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1510291227/hilegxyb9b47qlo2wxwo.jpg"
-			
-	// 	},
-	// 	{
-	// 		"title":"PAsa Picha",
-	// 		"description": "Somos los pros",
-	// 		"tags":["Metal", "Frenando"],
-	// 		"img": "https://img.playbuzz.com/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1510291227/hilegxyb9b47qlo2wxwo.jpg"
-			
-	// 	}
-	
-	// ]);
-
-
 	return instance;
 }
+
+return laurbe.ScrollableCardListView;
+
+});

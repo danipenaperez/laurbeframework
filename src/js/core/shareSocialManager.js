@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -61,3 +62,7 @@ laurbe.ShareSocialManager = function ShareSocialManager(args){
 
 	return instance;
 }
+
+return laurbe.ShareSocialManager;
+
+});

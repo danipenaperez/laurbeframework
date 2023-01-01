@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -81,3 +82,7 @@ laurbe.CommentsGroup = function CommentsGroup(args){
 
 	return instance;
 }
+
+return laurbe.CommentsGroup;
+
+});

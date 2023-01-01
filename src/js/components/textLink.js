@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -66,3 +67,7 @@ laurbe.TextLink = function TextLink(args){
 
 	return instance;
 }
+
+return laurbe.TextLink;
+
+});

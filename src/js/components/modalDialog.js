@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * Prototype Definition 
  */
@@ -101,3 +102,7 @@ laurbe.ModalDialog = function ModalDialog(args){
 	
 	return instance;
 }
+
+return laurbe.ModalDialog;
+
+});

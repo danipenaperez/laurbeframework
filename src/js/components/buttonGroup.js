@@ -1,3 +1,4 @@
+define(['laurbe','jquery'], function (laurbe, $) {
 /**
  * The menu item prototype
  */
@@ -75,3 +76,7 @@ laurbe.ButtonGroup = function ButtonGroup(args){
 
 	return instance;
 }
+
+return laurbe.ButtonGroup;
+
+});
