@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+
+    	<!--Favicones-->
+      <link rel="shortcut icon" href="../shared/images/fox-icon.ico" type="image/x-icon">
+      <link rel="icon" href="../shared/images/fox-icon.ico" type="image/x-icon">
+      <title>Emaple 1</title>
+  </head>
+  <body>
+
+  	<div id="header"></div>
+
+    <!-- laurbe -->
+    <script type="text/javascript" src="../../../../thirdparty/js/require.js"></script>
+
+    
+    <script type="text/javascript">
+	    require.config({
+            baseUrl: '../../../..',
+            paths: {
+                laurbe: '/js/components/laurbe',
+                jquerytmpl: '/thirdparty/js/jquery.tmpl.min',
+                jquery: '/thirdparty/js/jquery.min',
+                bootstrap: '/thirdparty/js/bootstrap.bundle.min',
+
+                laurbeAPP:'/js/components/app/app'
+                
+
+            }
+            ,
+            shim: {
+                jquerytmpl: {
+                    deps: ['jquery', 'laurbe']
+                },
+                bootstrap:{
+                    deps: ['jquery', 'laurbe']
+                },
+                laurbeAPP:{
+                    deps: ['jquery', 'laurbe']
+                }
+                
+            }
+            // waitSeconds: 3
+        });
+
+        import {region} from "/js/components/region";
+
+        console.log('y region es '+region);
+        console.log(region);
+        require(['laurbeAPP', 'laurbe'], function (laurbeAPP, laurbe) {
+   
+            laurbe._init();
+            console.log('y la urbe app es ');
+            var app = new laurbe.App({});
+            console.log('y la app es ');
+            console.log(app);
+            // now append user name to the dom using jQuery
+            $("#header").html('<h1>PACO</h1>');
+        });
+
+
+        // Start loading the main app file. Put all of
+        // your application logic in there.
+        // requirejs(['app/main']);
+
+    </script> 
+  </body>
+</html>
+

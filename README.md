@@ -36,3 +36,6 @@ y la app al hacer el init lo carga.
 3. Comprobar que templateManger al llamar 2 veces por una template de componente,  no la esta metiendo 2 veces en el <div id"templateManager">
 La llamada http la hace y esto ya esta mal. Habria que comprobar si la tiene y si la tiene, pues no se hace el load,  y se va directamente a pintarse.
 4.Navigation : Hay un problema por el cual se pone view_id=Loquesea# y se cuela la almohadilla, de manera que si refrescamos la pagina el metodo navigate busca la vista por id con la almohadilla y claro no encuentra nada
+
+ejemplo require
+https://github.com/requirejs/example-multipage

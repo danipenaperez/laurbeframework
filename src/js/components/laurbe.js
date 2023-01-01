@@ -1,7 +1,16 @@
-/**
- * Main object namespace
- */
-var laurbe ={
+define('laurbe', ['jquery' ], function ($) {
+
+	alert('ha cargado jquery??');
+	console.log('jquery es ');
+	console.log($);
+
+
+
+	
+	/**
+	 * Main object namespace
+	 */
+	var laurbe ={
 		logger: {
 			enabled:true,
 			log:function(obj){
@@ -9,6 +18,54 @@ var laurbe ={
 					console.log(obj);
 				}
 			}
+		},
+		dependencies:{
+			js: [
+				'/thirdparty/js/jquery.min.js',
+				'/thirdparty/js/bootstrap.min.js', 
+				'/thirdparty/js/jquery.tmpl.min.js',
+				'/thirdparty/js/popper.min.js'
+			],
+			css: [
+				'/thirdparty/css/bootstrap.min.css',
+				'/thirdparty/css/font-awesome.min.css'
+			] 
+		},
+		components:{
+			js: [
+				'/js/components/app/app.js',
+				'/js/components/app/view.js',
+				'/js/components/layout.js',
+				'/js/components/region.js',
+				'/js/components/navbar.js',
+				'/js/components/navbarMenuItem.js',
+				'/js/components/navbarBottomMenuItem.js',
+				'/js/components/navbarbottom.js',
+				'/js/components/image.js',
+				'/js/components/button.js',
+				'/js/components/buttonGroup.js',
+				'/js/components/textLink.js',
+				'/js/components/container.js',
+				'/js/components/form.js',
+				'/js/components/textField.js',
+				'/js/components/modalDialog.js',
+				'/js/components/grid.js',
+				'/js/components/row.js',
+				'/js/components/column.js',
+				'/js/components/cardGroup.js',
+				'/js/components/card.js',
+				'/js/components/youTubeVideo.js',
+				'/js/components/video.js',
+				'/js/components/spotifyAudio.js',
+				'/js/components/commentsGroup.js',
+				'/js/components/comment.js',
+				'/js/components/socialLoginView.js',
+				'/js/components/composite/scrollableCardListView.js',
+				'/js/data/dao.js',
+				'/js/data/localStorageManager.js',
+				'/js/core/navigatorManager.js',
+				'/js/core/shareSocialManager.js'
+			]
 		},
 		/**
 		 * Reference for all created elements
@@ -76,11 +133,11 @@ var laurbe ={
 				
 				if(this.instanceProperties.wrapper && this.instanceProperties.wrapper.tag){
 					this.ele = $(this.instanceProperties.wrapper.tag, { 
-											 'id':this.id+'Wrapper',
-											 'click': this.onclickHandler,
-											 'class': this.instanceProperties.wrapper.class
-											 //'html':'<span> soy el '+this.id+'</span>'
-								 			});
+											'id':this.id+'Wrapper',
+											'click': this.onclickHandler,
+											'class': this.instanceProperties.wrapper.class
+											//'html':'<span> soy el '+this.id+'</span>'
+											});
 					this.ele.appendTo(this.fatherElement);
 				}else{
 					this.ele = this.fatherElement; //father and elewrapper are the same object
@@ -99,8 +156,8 @@ var laurbe ={
 			
 			_render: function(){
 				if(!this.initialized){
-			  		this._init();
-			  	}
+					this._init();
+				}
 				if(this.template){
 					var self = this;
 					var templateInfo = {appendTo: self.ele, data: self.instanceProperties};
@@ -123,12 +180,9 @@ var laurbe ={
 					// 		self.onShow(this);
 					// 	}
 					// });
-				 	
+					
 				}
 				
-				// else{
-				// 	console.log('no tiene on show '+ this.id);
-				// }
 			},
 			/**
 			* Rebuild/reinitalize the entire element, and render
@@ -159,7 +213,7 @@ var laurbe ={
 					$.each(self.instanceProperties.items, function( index, item ) {
 						console.log(index);
 						item.owner = self;//reference to parent laurbe object
-					  	item._renderTo(self._getRenderChildWrapperId());
+						item._renderTo(self._getRenderChildWrapperId());
 					});
 					// for(item of self.instanceProperties.items){
 					// 	item.owner = self;//reference to parent laurbe object
@@ -181,9 +235,9 @@ var laurbe ={
 					var item = items[i];
 					self.instanceProperties.items.push(item);
 					item.owner = self;//reference to parent laurbe object
-				  	item.instanceProperties.renderTo = self._getRenderChildWrapperId();
-				  	if(renderNow == true){
-					  	item._render();
+					item.instanceProperties.renderTo = self._getRenderChildWrapperId();
+					if(renderNow == true){
+						item._render();
 					}
 				}
 
@@ -293,7 +347,7 @@ var laurbe ={
 			},
 			focusAndScrollToElement:function(elementId){
 				var el = document.getElementById(elementId);
-    			el.scrollIntoView(true);
+				el.scrollIntoView(true);
 			},
 			pairDataArraywise(arr,groupSize , func ){
 				groupSize = groupSize || 1;
@@ -332,6 +386,30 @@ var laurbe ={
 				link.media = 'all';
 				head.appendChild(link);
 				console.log('loaded CSS  from '+ laurbe.templateManager.templatePath+cssPath);
+			},
+			/**
+			 * Dinamically load JS file
+			 */
+			loadJS: function(url, callback){
+				//url is URL of external file, implementationCode is the code
+				//to be called from the file, location is the location to 
+				//insert the <script> element
+			
+				var scriptTag = document.createElement('script');
+				scriptTag.src = laurbe.templateManager.templatePath+url;
+				scriptTag.id= url;
+				// if(callback){
+					scriptTag.onload = function(){
+						
+						console.log(scriptTag.innerHTML);
+					};
+					scriptTag.onreadystatechange = function(){
+						console.log(scriptTag.innerHTML);
+					};
+				// }
+
+				document.body.appendChild(scriptTag);
+				
 			}
 		},
 
@@ -339,9 +417,57 @@ var laurbe ={
 		* Init framework
 		**/
 		_init:function(){
-			//create div to load template Manager
+			//Load thirdparty dependencies
+			this._importThirdPartyDependencies();
+			//Load Laurbe core compoenents
+			this._importLaurbeComponents();
+			
+			alert('esperando dime tu');
+			// while(typeof $ == 'undefined'){console.log('blocking')};
+			// alert('available');
+
+			// var waitForJQuery = setInterval(function () {
+			// 	if (typeof $ != 'undefined') {
+			// 		alert('esta cargado!! ');
+			// 		//create div to load template Manager
+			// 		this.templateManager._init();
+			// 		this.modalDialogManager._init();//create div to load modalDialog Manager
+			
+			// 		clearInterval(waitForJQuery);
+			// 	}else{
+			// 		console.log('no esta cargado');
+			// 	}
+			// }, 10);
+
 			this.templateManager._init();
 			this.modalDialogManager._init();//create div to load modalDialog Manager
+			
+			
+		},
+		/**
+		 * Load dependencies on page
+		 */
+		_importThirdPartyDependencies:function(){
+			var _self=this;
+			this.dependencies.css.forEach(function (val, index) {
+				console.log('loading css '+ val);
+				_self.utils.loadCSS(val);
+			});
+			this.dependencies.js.forEach(function (val, index) {
+				console.log('loading JS '+ val);
+				_self.utils.loadJS(val);
+			});
+		},
+		/**
+		 * Import Laurbe components JS Files
+		 */
+		_importLaurbeComponents:function(){
+			var _self=this;
+			
+			this.components.js.forEach(function (val, index) {
+				console.log('loading JS '+ val);
+				_self.utils.loadJS(val);
+			});
 		},
 		/**
 		* Template Manager
@@ -352,11 +478,14 @@ var laurbe ={
 		templateManager:{
 			templatePath: '.',
 			initialized:false,
-			loadedTemplates: [],
+			
 			/**Initialize a hidded div to store all loaded templates */
 			_init: function(){
 				if(!this.initialized){
-					$('<div/>', { 'id':'templateManager'}).appendTo('body');
+					// $('<div/>', { 'id':'templateManager'}).appendTo('body');
+					var templateManagerDiv = document.createElement('div');
+					templateManagerDiv.id="templateManager";
+					document.body.appendChild(templateManagerDiv);
 					console.log('templateManager Initialized OK.');
 				}else{
 					console.log('templateManager Already Initialized.');
@@ -364,30 +493,21 @@ var laurbe ={
 			},
 			/**public configuration overwrite */
 			_configure:function(args){
-				console.log("y this es ");
-				console.log(this);
 				if(args.templatePath)
 					this.templatePath=args.templatePath;
 			},
 			/**
 			 * Load template, verify if is not already loaded (cached)
+			 * intente verificar si ya habiamos cargado la templateURL pero falla :-( habria que volver a intentarlo)
 			 * @param {} templateURL 
 			 * @param {*} callback 
 			 */
 			_loadTemplate:function( templateURL,  callback){
-				console.log('llevamos estas templates ');
-				console.log(this.loadedTemplates);
-				if(this.loadedTemplates.includes(templateURL)){ //Already loaded
-					console.log('ya lo tenemos '+templateURL);
+				var _self = this;
+				$('#templateManager').load(laurbe.templateManager.templatePath+templateURL, function(templateString,  ajaxObject, ajaxState){
 					callback();
-				}else{
-					var _self = this;
-					$('#templateManager').load(laurbe.templateManager.templatePath+templateURL, function(templateString,  ajaxObject, ajaxState){
-						// _self.loadedTemplates.push(templateURL);
-						console.log('añadidio '+ templateURL);
-						callback();
-					});
-				}
+				});
+				
 			}
 		},
 		modalDialogManager:{
@@ -395,7 +515,11 @@ var laurbe ={
 			initialized:false,
 			_init: function(){
 				if(!this.initialized){
-					$('<div/>', { 'id':'modalDialogManager'}).appendTo('body');
+					//OLD $('<div/>', { 'id':'modalDialogManager'}).appendTo('body');
+					var modalDialogManagerDiv = document.createElement('div');
+					modalDialogManagerDiv.id="modalDialogManager";
+					document.body.appendChild(modalDialogManagerDiv);
+
 					console.log('modalDialogManager Initialized OK.');
 				}else{
 					console.log('modalDialogManager Already Initialized.');
@@ -424,21 +548,10 @@ var laurbe ={
 		}
 		
 
-};
+	};
 
-laurbe._init();
+    return laurbe;
+});
 
 
-/*****************************
- * PASAR A OTROS ARCHIVOS
- ****************************/
 
-/**
- *  Base de todas las vistas compuestas
- */
- laurbe.CompositeViewElement = {
-		/**
-		* String type definition
-		**/
-		type: 'laurbeBaseViewElement',
- }

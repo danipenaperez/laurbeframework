@@ -1,4 +1,9 @@
-/**
+define(['laurbe','jquery'], function (laurbe, $) {
+
+	alert('soy la app y estoy cargando');
+	console.log(laurbe);
+	console.log('¿ha salido algo');
+	/**
 
 **/
 laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
@@ -13,6 +18,17 @@ laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
 	* Info about APP Layout templates
 	**/
 	appLayoutTemplates:{
+		core:{ //Always thirdparty dependencies
+			js: ['/thirdparty/js/jquery.min.js',
+				 '/thirdparty/js/bootstrap.min.js', 
+				 '/thirdparty/js/jquery.tmpl.min.js',
+				 '/thirdparty/js/popper.min.js'],
+			css: [
+				'/thirdparty/css/bootstrap.min.css',
+				'/thirdparty/css/font-awesome.min.css'
+			] 
+		},
+
 		classic:{
 			scriptId : "appTemplate",
 			url: '/html/components/app/appClassicTemplate.html',
@@ -93,16 +109,18 @@ laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
 	*	The menu , based on views
 	**/
 	init:function(){
-		//0.Set core elements
+		//0.load Thirdparty dependencies
+		this._loadThirdPartyDependencies();
+		//1.Set core elements
 		this._setCoreElements(this.instanceProperties);
-		//1.Set the views
+		//2.Set the views
 		this._setViews(this.instanceProperties.views);
-		//2.Build The menu based on views
+		//3.Build The menu based on views
 		this._buildMenu();
-		//3.Render The Menu
+		//4.Render The Menu
 		this._render();
-
 	},
+	
 	/**
 	 * Initialize DAO or others core features
 	 * @param {} instanceProperties 
@@ -129,9 +147,13 @@ laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
 		//Get the selected appLayout
 		var appLayoutTemplate = this.appLayoutTemplates[this.instanceProperties.appLayoutTemplate];
 		$('#templateManager').load(laurbe.templateManager.templatePath+appLayoutTemplate.url, function(templateString,  ajaxObject, ajaxState){
+			
 			//1.Render APP Template and styles
 			$('#'+appLayoutTemplate.scriptId).tmpl({}).appendTo('body');
 			laurbe.utils.loadCSS(appLayoutTemplate.styles);
+
+			
+
 
 			//2.Render the menu
 			self.menu._selectMenuItem(self.menu.instanceProperties.items[0]); //by default select the first
@@ -323,3 +345,7 @@ laurbe.App = function APP(args){
 
 	return instance;
 }
+alert('soy app js y me han cargado');
+return laurbe.APP;
+
+});

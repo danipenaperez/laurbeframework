@@ -6,16 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="http://localhost:8888/stylesheets/components/app/classicTemplate.css">
-    <!--View and component styles-->
-     <link rel="stylesheet" href="./stylesheets/view/socialLoginView.css">
 
     	<!--Favicones-->
-      <link rel="shortcut icon" href="/laurbe/icon/fox-icon.ico" type="image/x-icon">
-      <link rel="icon" href="/laurbe/icon/fox-icon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="../shared/images/fox-icon.ico" type="image/x-icon">
+      <link rel="icon" href="../shared/images/fox-icon.ico" type="image/x-icon">
       <title>Emaple 1</title>
   </head>
   <body>
@@ -26,69 +21,43 @@
 
 
 	<!-- jQuery library -->
-	<script src="../../../../thirdparty/jquery.min.js"></script>
+	<!-- <script src="../../../../thirdparty/jquery.min.js"></script> -->
 	
 	<!-- Popper JS -->
-	<script src="../../../../thirdparty/popper.min.js"></script>
+	<!-- <script src="../../../../thirdparty/popper.min.js"></script> -->
 	
 	<!-- Latest compiled JavaScript -->
-	<script src="../../../../thirdparty/bootstrap.min.js"></script> 
+	<!-- <script src="../../../../thirdparty/bootstrap.min.js"></script>  -->
     
     <!-- Plugins jquery -->
-    <script src="../../../../thirdparty/jquery.tmpl.min.js"></script>
+    <!-- <script src="../../../../thirdparty/jquery.tmpl.min.js"></script> -->
     
     <!-- laurbe -->
+    <script type="text/javascript" src="../../../../thirdparty/js/require.js"></script>
     <script type="text/javascript" src="../../../../js/components/laurbe.js"></script>
-    <script type="text/javascript" src="../../../../js//components/layout.js"></script>
-    <script type="text/javascript" src="../../../../js//components/region.js"></script>
 
-    <script type="text/javascript" src="../../../../js//components/navbar.js"></script>
-    <script type="text/javascript" src="../../../../js//components/navbarMenuItem.js"></script>
-    <script type="text/javascript" src="../../../../js//components/navbarBottomMenuItem.js"></script>
-    <script type="text/javascript" src="../../../../js//components/navbarbottom.js"></script>
-    <script type="text/javascript" src="../../../../js//components/image.js"></script>
-    <script type="text/javascript" src="../../../../js//components/button.js"></script>
-    <script type="text/javascript" src="../../../../js//components/buttonGroup.js"></script>
-    <script type="text/javascript" src="../../../../js//components/textLink.js"></script>
+    <script>
+      // alert('voy a cargar');
+      // laurbe.configure({
+      //     templateManager:{
+      //         templatePath: 'http://localhost:8888'
+      //       }
+      //   });
+      // laurbe._init();
 
-    <script type="text/javascript" src="../../../../js//components/container.js"></script>
-    <script type="text/javascript" src="../../../../js//components/form.js"></script>
-    <script type="text/javascript" src="../../../../js//components/textField.js"></script>
-    <script type="text/javascript" src="../../../../js//components/modalDialog.js"></script>
-
-    <script type="text/javascript" src="../../../../js//components/grid.js"></script>
-    <script type="text/javascript" src="../../../../js//components/row.js"></script>
-    <script type="text/javascript" src="../../../../js//components/column.js"></script>
-
-    <script type="text/javascript" src="../../../../js//components/cardGroup.js"></script>
-    <script type="text/javascript" src="../../../../js//components/card.js"></script>
-
-	<script type="text/javascript" src="../../../../js//components/youTubeVideo.js"></script>
-	<script type="text/javascript" src="../../../../js//components/video.js"></script>
-
-	<script type="text/javascript" src="../../../../js//components/spotifyAudio.js"></script>
-
-    <script type="text/javascript" src="../../../../js//components/commentsGroup.js"></script>
-    <script type="text/javascript" src="../../../../js//components/comment.js"></script>
-
-
-    <script type="text/javascript" src="../../../../js//components/app/app.js"></script>
-    <script type="text/javascript" src="../../../../js//components/app/view.js"></script>
-    <script type="text/javascript" src="../../../../js//components/composite/socialLoginView.js"></script>
-    <script type="text/javascript" src="../../../../js//components/composite/scrollableCardListView.js"></script>
-
-    <!--Laurbe Core-->
-    <script type="text/javascript" src="../../../../js//data/dao.js"></script>
-    <script type="text/javascript" src="../../../../js//data/localStorageManager.js"></script>
-    <script type="text/javascript" src="../../../../js//core/navigatorManager.js"></script>
-    <script type="text/javascript" src="../../../../js//core/shareSocialManager.js"></script>
+      // alert('Sigo');
+    </script>
+   
 
 
     
     
     <script type="text/javascript">
 	    //$( document ).ready(function() {//only waits for DOM loaded
-	    $(window).on('load', function() { //will wait for all js downloaded
+	    // $(window).on('load', function() { //will wait for all js downloaded
+      
+        window.onload = function(){
+          alert('ejecutando on load');
         /**Overwrite default configuration**/
         laurbe.configure({
           templateManager:{
@@ -96,6 +65,8 @@
             }
         });
         
+        laurbe._init();
+
         var app = new laurbe.App({
                                   title: 'Example layout 1',
                                   navBar: {
@@ -142,11 +113,11 @@
                                           items:[
                                                 new laurbe.Region({
                                                           text: 'Sub Region A.1.1',
-                                                          extraClass:'bg-success'
+                                                          extraClass:'bg-success border border-dark rounded'
                                                 }), 
                                                 new laurbe.Region({
                                                           text: 'Sub Region A.1.2',
-                                                          extraClass:'bg-secondary'
+                                                          extraClass:'bg-secondary border border-dark rounded'
                                                 })
                                           ]
                                         }),
@@ -181,7 +152,7 @@
         app.init();
 			
 
-		});
+		};
     </script> 
   </body>
 </html>
