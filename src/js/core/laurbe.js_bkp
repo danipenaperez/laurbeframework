@@ -1,5 +1,6 @@
-define('laurbe', ['jquery' ], function ($) {
 
+import {laurbeAPP} from "./../components/app/app.js";
+import $ from "./../../thirdparty/js/jquery.module.js";
 	
 	/**
 	 * Main object namespace
@@ -12,6 +13,10 @@ define('laurbe', ['jquery' ], function ($) {
 					console.log(obj);
 				}
 			}
+		},
+		changeContent:function(){
+			console.log('Jquery es '+JQuery);
+			console.log('y la app es ' + laurbeAPP);
 		},
 		dependencies:{
 			js: [
@@ -544,8 +549,8 @@ define('laurbe', ['jquery' ], function ($) {
 
 	};
 
-    return laurbe;
-});
+export{laurbe};
+
 
 
 

@@ -1,8 +1,6 @@
-define(['laurbe','jquery'], function (laurbe, $) {
+import $ from "./../../../thirdparty/js/jquery.module.js";
+import { laurbe } from '../../core/laurbe.js';
 
-	
-	console.log(laurbe);
-	console.log('¿ha salido algo');
 	/**
 
 **/
@@ -346,6 +344,6 @@ laurbe.App = function APP(args){
 	return instance;
 }
 
-return laurbe.APP;
+var laurbeAPP = laurbe.App ;
 
-});
+export{laurbeAPP};
