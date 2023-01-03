@@ -2,11 +2,10 @@ import laurbe from '../../../../../js/core/laurbe.js';
 import $ from "./jquery.module.js";
 
 
-alert('he cargado');
 
 laurbe.logger.log('paco is my name');
 console.log(laurbe);
-alert(' y jquery es '+$);
+
 console.log($);
 
 $('#header').html('joseluis');
@@ -58,3 +57,55 @@ console.log(Image);
 var Layout = new laurbe.Layout({});
 console.log('Layout es');
 console.log(Layout);
+
+var ModalDialog = new laurbe.ModalDialog({});
+console.log('ModalDialog es');
+console.log(ModalDialog);
+
+var NavBar = new laurbe.NavBar({});
+console.log('NavBar es');
+console.log(NavBar);
+
+var NavBarBottom = new laurbe.NavBarBottom({});
+console.log('NavBarBottom es');
+console.log(NavBarBottom);
+
+var NavBarBottomMenuItem = new laurbe.NavBarBottomMenuItem({});
+console.log('NavBarBottomMenuItem es');
+console.log(NavBarBottomMenuItem);
+
+var NavBarMenuItem = new laurbe.NavBarMenuItem({});
+console.log('NavBarMenuItem es');
+console.log(NavBarMenuItem);
+
+var Region = new laurbe.Region({});
+console.log('Region es');
+console.log(Region);
+
+var Row = new laurbe.Row({});
+console.log('Row es');
+console.log(Row);
+
+var SpotifyAudio = new laurbe.SpotifyAudio({});
+console.log('SpotifyAudio es');
+console.log(SpotifyAudio);
+
+var TextField = new laurbe.TextField({});
+console.log('TextField es');
+console.log(TextField);
+
+var TextLink = new laurbe.TextLink({});
+console.log('TextLink es');
+console.log(TextLink);
+
+var Title = new laurbe.Title({});
+console.log('Title es');
+console.log(Title);
+
+var Video = new laurbe.Video({});
+console.log('Video es');
+console.log(Video);
+
+var YouTubeVideo = new laurbe.YouTubeVideo({});
+console.log('YouTubeVideo es');
+console.log(YouTubeVideo);
