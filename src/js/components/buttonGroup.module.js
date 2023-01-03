@@ -1,12 +1,15 @@
+import laurbe from "../core/core.module.js";
+import extend from "../core/common.module.js";
+import BaseBiew from "./baseView.module.js"
 
 /**
- * The button
+ * The menu item prototype
  */
-laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.ButtonGroup =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'button',
+	type: 'buttonGroup',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,11 +18,11 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "buttonTemplate",
-				url: '/html/components/form/buttonTemplate.html'
+				scriptId : "buttonGroupTemplate",
+				url: '/html/components/form/buttonGroupTemplate.html'
 	},
 	onclickHandler: function(ev){
-		
+		alert('soy Button group');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -39,7 +42,13 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 	onItemClicked:function (childItem){
 		console.log(childItem.id+ ' me avisa que le han clickado ');
 		console.log(this.instanceProperties.items);
-	}
+	},
+	/**
+	* Return the div Id where the child element must be append
+	**/
+	_getRenderChildWrapperId:function(){
+		return this.id+'_childsWrapper';
+	},
 		
 
 });
@@ -48,28 +57,30 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Button = function Button(args){
+laurbe.ButtonGroup = function ButtonGroup(args){
 	
 	/** Init values **/
 	var defaults = {
-			//text: 'button',
+			text: 'button',
 			//important do not use wrapper!!
 			type:'primary',
-			//align: 'float-right',
-			//extraClass:'btn-block'
+			//align: 'float-right'
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Button.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.ButtonGroup.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.Button, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.ButtonGroup, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-return laurbe.Button;
+
+console.log('Component BUttonGroup Loaded');
+
+export default laurbe;

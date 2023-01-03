@@ -14,10 +14,6 @@ import $ from "./../../thirdparty/js/jquery.module.js";
 				}
 			}
 		},
-		changeContent:function(){
-			console.log('Jquery es '+JQuery);
-			console.log('y la app es ' + laurbeAPP);
-		},
 		dependencies:{
 			js: [
 				'/thirdparty/js/jquery.min.js',
