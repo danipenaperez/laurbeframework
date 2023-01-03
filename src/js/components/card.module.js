@@ -1,6 +1,6 @@
 import laurbe from "../core/core.module.js";
 import extend from "../core/common.module.js";
-import BaseBiew from "./baseView.module.js"
+import BaseViewElement from "./baseView.module.js"
 
 /**
  * The menu item prototype

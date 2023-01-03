@@ -2,14 +2,11 @@ import laurbe from "../core/core.module.js";
 import extend from "../core/common.module.js";
 import BaseViewElement from "./baseView.module.js"
 
-/**
- * The menu item prototype
- */
-laurbe.prototype.ButtonGroup =  extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.Column =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'buttonGroup',
+	type: 'column',
 	/**
 	* The laurbe owner element
 	**/
@@ -18,11 +15,11 @@ laurbe.prototype.ButtonGroup =  extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "buttonGroupTemplate",
-				url: '/html/components/form/buttonGroupTemplate.html'
+				scriptId : "columnTemplate",
+				url: '/html/components/grid/columnTemplate.html'
 	},
 	onclickHandler: function(ev){
-		alert('soy Button group');
+		alert('soy container');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -57,30 +54,34 @@ laurbe.prototype.ButtonGroup =  extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.ButtonGroup = function ButtonGroup(args){
+laurbe.Column = function Column(args){
 	
 	/** Init values **/
 	var defaults = {
-			text: 'button',
-			//important do not use wrapper!!
-			type:'primary',
-			//align: 'float-right'
+			/**
+			wrapper:{
+				tag:'<div>',
+				class :'container'
+				//,class:'d-flex justify-content-center align-self-center'
+			}
+			**/
+			
+			
 	};
 	
 	/** Extends Defautls with args constructor **/
 	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.ButtonGroup.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Column.type) ;
 
 	/** Return the instance **/
-	var instance =  extend({}, laurbe.prototype.ButtonGroup, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.Column, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-
-console.log('Component BUttonGroup Loaded');
+console.log('Component Column Loaded');
 
 export default laurbe;
