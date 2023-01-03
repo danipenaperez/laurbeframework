@@ -109,3 +109,11 @@ console.log(Video);
 var YouTubeVideo = new laurbe.YouTubeVideo({});
 console.log('YouTubeVideo es');
 console.log(YouTubeVideo);
+
+var App = new laurbe.App({});
+console.log('App es');
+console.log(App);
+
+var View = new laurbe.View({});
+console.log('View es');
+console.log(View);
