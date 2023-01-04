@@ -117,3 +117,98 @@ console.log(App);
 var View = new laurbe.View({});
 console.log('View es');
 console.log(View);
+
+alert('ejecutando on load');
+/**Overwrite default configuration**/
+laurbe.configure({
+  templateManager:{
+      templatePath: 'http://localhost:8888'
+    }
+});
+
+laurbe._init();
+
+var app = new laurbe.App({
+                          title: 'Example layout 1',
+                          navBar: {
+                            brand: {
+                              logoUrl: 'https://upload.wikimedia.org/wikinews/en/7/7e/International_Monetary_Fund_logo.svg'
+                            },
+                            searchTool: {
+                              placeholder: 'looking for...'
+                            }
+                          },
+                          views: [
+                            new laurbe.View({
+                              id: 'viewA_View',
+                              navigator:{
+                                menuName: 'Menu A',
+                                extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                              },
+                              items: [
+                                new laurbe.Region({
+                                  text: 'Region A.1',
+                                  extraClass:'bg-info' 
+                                }),
+                                new laurbe.Region({
+                                  text: 'Region A.2',
+                                  extraClass:'bg-danger' 
+                                }),
+                                new laurbe.Region({
+                                  text: 'Region A.3',
+                                  extraClass:'bg-warning' 
+                                })
+                              ]
+                            }),
+                            new laurbe.View({
+                              id: 'viewB_View',
+                              navigator:{
+                                menuName: 'Menu B',
+                                extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                              },
+                              items: [
+                                new laurbe.Region({
+                                  text: 'Region A.1',
+                                  extraClass:'bg-warning', 
+                                  extraStyle:'height: 250px',
+                                  items:[
+                                        new laurbe.Region({
+                                                  text: 'Sub Region A.1.1',
+                                                  extraClass:'bg-success border border-dark rounded'
+                                        }), 
+                                        new laurbe.Region({
+                                                  text: 'Sub Region A.1.2',
+                                                  extraClass:'bg-secondary border border-dark rounded'
+                                        })
+                                  ]
+                                }),
+                                new laurbe.Region({
+                                  text: 'Region A.2',
+                                  extraClass:'bg-secondary' 
+                                }),
+                                new laurbe.Region({
+                                  text: 'Region A.3',
+                                  extraClass:'bg-success' 
+                                })
+                              ]
+                            })
+                          ],
+                        //   dao: new laurbe.RestDAO({
+                        //     basePath: '.'
+                        //   }),
+                        //   storageManager: new laurbe.LocalStorageManager({}),
+                          bottomNavBar: {
+                            items: [
+                              new laurbe.NavBarBottomMenuItem({
+                                items: [
+                                  new laurbe.TextLink({
+                                    extraClass: 'nav-menu-item-text-color-white',
+                                    text:'Demo link copyrigth'
+                                  })
+                                ]
+                              })
+                            ]
+                          }
+                        });
+app.init();
+

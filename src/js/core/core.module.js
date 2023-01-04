@@ -1,6 +1,18 @@
 
 
 var laurbe ={
+		dependencies:{
+			// js: [
+			// 	'/thirdparty/js/jquery.min.js',
+			// 	'/thirdparty/js/bootstrap.min.js', 
+			// 	'/thirdparty/js/jquery.tmpl.min.js',
+			// 	'/thirdparty/js/popper.min.js'
+			// ],
+			css: [
+				'/thirdparty/css/bootstrap.min.css',
+				'/thirdparty/css/font-awesome.min.css'
+			] 
+		},
         /**
 		 * Reference for all created elements
 		 */
@@ -28,7 +40,7 @@ var laurbe ={
 			//Load thirdparty dependencies
 			this._importThirdPartyDependencies();
 			//Load Laurbe core compoenents
-			this._importLaurbeComponents();
+			//this._importLaurbeComponents();
 			
 			
 			// while(typeof $ == 'undefined'){console.log('blocking')};
@@ -57,14 +69,17 @@ var laurbe ={
 		 */
 		_importThirdPartyDependencies:function(){
 			var _self=this;
+			console.log('y hthis es ');
+			console.log(this);
 			this.dependencies.css.forEach(function (val, index) {
 				console.log('loading css '+ val);
 				_self.utils.loadCSS(val);
 			});
-			this.dependencies.js.forEach(function (val, index) {
-				console.log('loading JS '+ val);
-				_self.utils.loadJS(val);
-			});
+			//Not work because not load code
+			// this.dependencies.js.forEach(function (val, index) {
+			// 	console.log('loading JS '+ val);
+			// 	_self.utils.loadJS(val);
+			// });
 		},
 		/**
 		 * Import Laurbe components JS Files
