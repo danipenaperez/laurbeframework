@@ -40,6 +40,10 @@ import "../components/youTubeVideo.module.js"
 import "../components/app/app.module.js"
 import "../components/app/view.module.js"
 
+import jQuery from "../../thirdparty/js/jquery.module.js";
+window.$ = window.jQuery = jQuery;
+console.log('soy el primer import');
+console.log(jQuery);
 
 
 export default laurbe;
