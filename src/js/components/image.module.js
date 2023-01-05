@@ -1,12 +1,12 @@
+import laurbe from "../core/core.module.js";
+import extend from "../core/common.module.js";
+import BaseViewElement from "./baseView.module.js"
 
-/**
- * The button
- */
-laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.Image =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'button',
+	type: 'image',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,11 +15,10 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "buttonTemplate",
-				url: '/html/components/form/buttonTemplate.html'
+				scriptId : "imageTemplate",
+				url: '/html/components/image/imageTemplate.html'
 	},
 	onclickHandler: function(ev){
-		
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -39,6 +38,12 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 	onItemClicked:function (childItem){
 		console.log(childItem.id+ ' me avisa que le han clickado ');
 		console.log(this.instanceProperties.items);
+	},
+	/**
+	* Return the div Id where the child element must be append
+	**/
+	_getRenderChildWrapperId:function(){
+		return this.id+'_childsWrapper';
 	}
 		
 
@@ -48,28 +53,31 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Button = function Button(args){
+laurbe.Image = function Image(args){
 	
 	/** Init values **/
 	var defaults = {
-			//text: 'button',
-			//important do not use wrapper!!
-			type:'primary',
-			//align: 'float-right',
-			//extraClass:'btn-block'
+			wrapper:{
+				tag:'<div>', 
+				class:'d-flex justify-content-center align-self-center'
+			}
+			//,width:"32"
+			//,height:"32"
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Button.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Image.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.Button, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.Image, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-return laurbe.Button;
+console.log('Component Image Loaded');
+
+export default laurbe;

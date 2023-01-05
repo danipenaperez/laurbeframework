@@ -1,10 +1,9 @@
-import $ from "./../../../thirdparty/js/jquery.module.js";
-import { laurbe } from '../../core/laurbe.js';
+import laurbe from "../../core/core.module.js";
+import extend from "../../core/common.module.js";
 
-	/**
 
-**/
-laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
+
+laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 	/**
 	*
 	**/
@@ -144,6 +143,9 @@ laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
 
 		//Get the selected appLayout
 		var appLayoutTemplate = this.appLayoutTemplates[this.instanceProperties.appLayoutTemplate];
+
+		// laurbe.templateManager
+
 		$('#templateManager').load(laurbe.templateManager.templatePath+appLayoutTemplate.url, function(templateString,  ajaxObject, ajaxState){
 			
 			//1.Render APP Template and styles
@@ -171,7 +173,7 @@ laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
 		//Set Views
 		this.views = this.instanceProperties.views;
 		//Set Directory View (ById)
-		for (index = 0; index < views.length; index++) {
+		for (var index = 0; index < views.length; index++) {
 			let currentView = views[index];
 			this.viewDirectory[currentView.instanceProperties.id] = currentView;
 		}
@@ -184,9 +186,8 @@ laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
 		var self=this;
 		
 		var menuItems = [];
-		//Add Items
-		$.each(this.instanceProperties.views, function( index, view ) {
-			
+
+		this.instanceProperties.views.forEach(function (view, index) {
 			var menuItem = new laurbe.NavBarMenuItem({
 				text:view.instanceProperties.navigator.menuName,
 				extraClass:view.instanceProperties.navigator.extraClass,
@@ -203,6 +204,25 @@ laurbe.prototype.App = $.extend({}, laurbe.prototype.BaseAPP, {
 				menuItem
 			);
 		});
+		//Add Items
+		// $.each(this.instanceProperties.views, function( index, view ) {
+			
+		// 	var menuItem = new laurbe.NavBarMenuItem({
+		// 		text:view.instanceProperties.navigator.menuName,
+		// 		extraClass:view.instanceProperties.navigator.extraClass,
+		// 		relatedView:view,
+		// 		selected: false,
+		// 		onclick:function(){
+		// 			self._navigate(this.relatedView.instanceProperties.id,null);
+		// 		}
+		// 	});
+
+		// 	view.relatedMenuItem=menuItem;
+			
+		// 	menuItems.push(
+		// 		menuItem
+		// 	);
+		// });
 
 		//Build Menus
 		this.menu = new laurbe.NavBar({	
@@ -332,18 +352,17 @@ laurbe.App = function APP(args){
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps = extend({}, defaults, args);
 
 	/**Sitio Id **/
 	//initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Layout.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.App, {instanceProperties:initializationProps});
+	var instance = extend({}, laurbe.prototype.App, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
+console.log('Component App Loaded');
 
-var laurbeAPP = laurbe.App ;
-
-export{laurbeAPP};
+export default laurbe;

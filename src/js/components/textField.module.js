@@ -1,12 +1,12 @@
+import laurbe from "../core/core.module.js";
+import extend from "../core/common.module.js";
+import BaseViewElement from "./baseView.module.js"
 
-/**
- * The button
- */
-laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.TextField =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'button',
+	type: 'textField',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,11 +15,11 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "buttonTemplate",
-				url: '/html/components/form/buttonTemplate.html'
+				scriptId : "textFieldTemplate",
+				url: '/html/components/form/textFieldTemplate.html'
 	},
 	onclickHandler: function(ev){
-		
+		console('TEXT FIELD PULSADO');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -48,28 +48,28 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Button = function Button(args){
+laurbe.TextField = function TextField(args){
 	
 	/** Init values **/
 	var defaults = {
-			//text: 'button',
-			//important do not use wrapper!!
-			type:'primary',
-			//align: 'float-right',
-			//extraClass:'btn-block'
+			//label: 'textField',
+			//value:'...'
+			
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Button.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.TextField.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.Button, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.TextField, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-return laurbe.Button;
+console.log('Component TextField Loaded');
+
+export default laurbe;

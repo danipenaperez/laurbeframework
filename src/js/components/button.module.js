@@ -1,8 +1,11 @@
+import laurbe from "../core/core.module.js";
+import extend from "../core/common.module.js";
+import BaseViewElement from "./baseView.module.js"
 
 /**
  * The button
  */
-laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.Button = extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
@@ -60,16 +63,19 @@ laurbe.Button = function Button(args){
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps = extend({}, defaults, args);
 
 	/**Sitio Id **/
 	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Button.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.Button, {instanceProperties:initializationProps});
+	var instance = extend({}, laurbe.prototype.Button, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-return laurbe.Button;
+
+console.log('Component BUtton Loaded');
+
+export default laurbe;

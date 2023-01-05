@@ -1,12 +1,12 @@
+import laurbe from "../core/core.module.js";
+import extend from "../core/common.module.js";
+import BaseViewElement from "./baseView.module.js"
 
-/**
- * The button
- */
-laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.TextLink =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'button',
+	type: 'textLink',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,11 +15,11 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "buttonTemplate",
-				url: '/html/components/form/buttonTemplate.html'
+				scriptId : "textLinkTemplate",
+				url: '/html/components/form/textLinkTemplate.html'
 	},
 	onclickHandler: function(ev){
-		
+		console('TEXT Link PULSADO');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -48,28 +48,26 @@ laurbe.prototype.Button = $.extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Button = function Button(args){
+laurbe.TextLink = function TextLink(args){
 	
 	/** Init values **/
 	var defaults = {
-			//text: 'button',
-			//important do not use wrapper!!
-			type:'primary',
-			//align: 'float-right',
-			//extraClass:'btn-block'
+		text: ''
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Button.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.TextLink.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.Button, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.TextLink, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-return laurbe.Button;
+console.log('Component TextLink Loaded');
+
+export default laurbe;
