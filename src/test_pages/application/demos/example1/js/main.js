@@ -1,7 +1,11 @@
 import laurbe from '../../../../../js/core/laurbe.js';
-import $ from "./jquery.module.js";
+import jQuery from "./jquery.module.js";
 
-
+window.$ = window.jQuery = jQuery;
+console.log('soy el primer import');
+console.log(jQuery);
+// import 'https://code.jquery.com/jquery-3.6.0.min.js'
+// import 'https://bowercdn.net/c/jquery-tmpl-latest/jquery.tmpl.js'
 
 laurbe.logger.log('paco is my name');
 console.log(laurbe);

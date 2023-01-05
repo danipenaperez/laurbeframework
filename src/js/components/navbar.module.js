@@ -18,13 +18,14 @@ laurbe.prototype.NavBar =  extend({}, laurbe.BaseViewElement, {
 	* Force a click over a item menu
 	**/
 	_selectMenuItem:function(menuItem){
-		 each(this.instanceProperties.items, function( index, item ) {
+		this.instanceProperties.items.forEach(function (item, index) {
 			if(menuItem.instanceProperties.id == item.instanceProperties.id){
 				item.setActive(true);
 			}else{
 				item.setActive(false);
 			}
 		});
+
 	},
 	/**
 	* Return the div Id where the child element must be append
@@ -36,7 +37,7 @@ laurbe.prototype.NavBar =  extend({}, laurbe.BaseViewElement, {
 		console.log(eventItem.id+ ' me avisa que le han clickado ');
 		console.log('sus hermanos son ');
 		console.log(this.instanceProperties.items);
-		 each(this.instanceProperties.items, function( index, item ) {
+		 $.each(this.instanceProperties.items, function( index, item ) {
 		  		if(item.id==eventItem.id){
 			  		item.setActive(true);
 			  	}else{

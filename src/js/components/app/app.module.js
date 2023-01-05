@@ -143,6 +143,9 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 
 		//Get the selected appLayout
 		var appLayoutTemplate = this.appLayoutTemplates[this.instanceProperties.appLayoutTemplate];
+
+		// laurbe.templateManager
+
 		$('#templateManager').load(laurbe.templateManager.templatePath+appLayoutTemplate.url, function(templateString,  ajaxObject, ajaxState){
 			
 			//1.Render APP Template and styles
