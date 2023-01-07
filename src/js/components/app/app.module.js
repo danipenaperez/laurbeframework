@@ -226,7 +226,7 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 
 		//Build Menus
 		this.menu = new laurbe.NavBar({	
-										id: 'navbar_'+self.instanceProperties.id,
+										id: 'navbar_'+self.instanceProperties.id, //The navbar has appNameRefernce
 				        				renderTo:'appMenuContainer',
 										title:this.instanceProperties.title,
 										items:menuItems,
