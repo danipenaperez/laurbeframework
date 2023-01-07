@@ -226,9 +226,11 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 
 		//Build Menus
 		this.menu = new laurbe.NavBar({	
+										id: 'navbar_'+self.instanceProperties.id,
 				        				renderTo:'appMenuContainer',
 										title:this.instanceProperties.title,
 										items:menuItems,
+										theme:laurbe.themes['ligth'], 
           								brand:this.instanceProperties.navBar.brand,
           								searchTool:this.instanceProperties.navBar.searchTool
 
@@ -338,6 +340,7 @@ laurbe.App = function APP(args){
 	
 	/** Init values for laurbe.navBar **/
 	var defaults = {
+			id:'annonymousAPP',
 			/**
 			 *  the App title and name
 			**/
@@ -355,12 +358,13 @@ laurbe.App = function APP(args){
 	var initializationProps = extend({}, defaults, args);
 
 	/**Sitio Id **/
-	//initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Layout.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Layout.type) ;
 
 	/** Return the instance **/
 	var instance = extend({}, laurbe.prototype.App, {instanceProperties:initializationProps});
 
-
+	console.log('la instance es ');
+	console.log(instance);
 	return instance;
 }
 console.log('Component App Loaded');

@@ -40,10 +40,18 @@ import "../components/youTubeVideo.module.js"
 import "../components/app/app.module.js"
 import "../components/app/view.module.js"
 
+import "../../stylesheets/themes/themes.module.js"
+
 import jQuery from "../../thirdparty/js/jquery.module.js";
 window.$ = window.jQuery = jQuery;
 console.log('soy el primer import');
 console.log(jQuery);
-
+// import '../../thirdparty/js/bootstrap.js'
+// console.log('he cargado bootstrap');
+// console.log(bootstrap);
+// // window.bootstrap = bootstrap;
+// bootstrap.$ = bootstrap.jQuery = jQuery;
+// window.global={};
+// import "../../thirdparty/js/popper.min.js";
 
 export default laurbe;

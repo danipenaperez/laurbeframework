@@ -4,6 +4,7 @@ import laurbe from '../../../../../js/core/laurbe.js';
 // console.log('soy el primer import');
 // console.log(jQuery);
 
+// import '../../../../../thirdparty/js/popper.js'
 
 // import 'https://code.jquery.com/jquery-3.6.0.min.js'
 // import 'https://bowercdn.net/c/jquery-tmpl-latest/jquery.tmpl.js'
@@ -13,7 +14,7 @@ console.log(laurbe);
 
 console.log($);
 
-$('#header').html('joseluis');
+// $('#header').html('joseluis');
 var button = new laurbe.Button({});
 console.log('ybutton es');
 console.log(button);
@@ -135,6 +136,7 @@ laurbe._init();
 
 var app = new laurbe.App({
                           title: 'Example layout 1',
+                          theme: 'ligth',
                           navBar: {
                             brand: {
                               logoUrl: 'https://upload.wikimedia.org/wikinews/en/7/7e/International_Monetary_Fund_logo.svg'
@@ -147,8 +149,8 @@ var app = new laurbe.App({
                             new laurbe.View({
                               id: 'viewA_View',
                               navigator:{
-                                menuName: 'Menu A',
-                                extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                                menuName: 'Menu A'
+                                // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
                               },
                               items: [
                                 new laurbe.Region({
@@ -168,8 +170,8 @@ var app = new laurbe.App({
                             new laurbe.View({
                               id: 'viewB_View',
                               navigator:{
-                                menuName: 'Menu B',
-                                extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                                menuName: 'Menu B'
+                                // extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
                               },
                               items: [
                                 new laurbe.Region({
@@ -216,4 +218,6 @@ var app = new laurbe.App({
                           }
                         });
 app.init();
+
+console.log('el app id es '+ app.id);
 

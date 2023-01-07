@@ -77,6 +77,12 @@ laurbe.prototype.NavBar =  extend({}, laurbe.BaseViewElement, {
  */
 laurbe.NavBar = function NavBar(args){
 	
+	console.log('y los themes son ');
+	console.log(laurbe.themes);
+	let theme = laurbe.themes['dark'];
+	console.log('el theme elegido es ');
+	console.log(theme);
+
 	/** Init values for laurbe.navBar **/
 	var navBarDefaults = {
 			title:'defaultTitle',
@@ -86,6 +92,7 @@ laurbe.NavBar = function NavBar(args){
 			brand:{
 				logoUrl:'https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-outline.svg'
 			},
+			// theme:theme,
 			fixedTop:false,
 			//bg_color: 'bg-dark',  
 			items: []
