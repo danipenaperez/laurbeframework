@@ -1,6 +1,8 @@
 <script id="navbarWrapperTemplate" type="text/x-custom-template">
-  	<nav id="${id}" class="navbar navbar-expand-lg ${theme.navbar}">
+  	<nav id="${id}" class="navbar navbar-expand-lg ${theme.navbar} ${position}">
+      {{if centered}}
       <div class="container">
+      {{/if}}
         <a class="navbar-brand" href="#">
           <img class="mr-3" src="${brand.logoUrl}" alt="" width="48" height="48">
        </a>
@@ -30,6 +32,8 @@
           <a class="navbar-brand" href="#"><img class="rounded-circle" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" height="45" width="45"> </a>
           
         </div>
-   	  </div>
+      {{if centered}}
+      </div> 
+      {{/if}}
     </nav>
 </script>

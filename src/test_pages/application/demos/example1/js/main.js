@@ -138,6 +138,7 @@ var app = new laurbe.App({
                           title: 'Example layout 1',
                           theme: 'ligth',
                           navBar: {
+                            position:'fixed-bottom',  //TODO: pass args to navbar object on createNavbar on app.module.js
                             brand: {
                               logoUrl: 'https://upload.wikimedia.org/wikinews/en/7/7e/International_Monetary_Fund_logo.svg'
                             },
@@ -177,7 +178,7 @@ var app = new laurbe.App({
                                 new laurbe.Region({
                                   text: 'Region A.1',
                                   extraClass:'bg-warning', 
-                                  extraStyle:'height: 250px',
+                                  extraStyle:'height: 5550px',
                                   items:[
                                         new laurbe.Region({
                                                   text: 'Sub Region A.1.1',

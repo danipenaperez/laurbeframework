@@ -8,6 +8,13 @@
     padding: 1em;
     border: 10px solid #DFEAF2;
   }
+  /**
+  Esto se debe usar cuando se pone el navbar fixed-top
+
+body{
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}    */
 /**
 *  Main div container
 **/
@@ -17,7 +24,7 @@ div[id="appMainViewContainer"] {
   background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #025268 4px ), repeating-linear-gradient( #6065a555, #6065a5 );
   padding-top: 25px;
   padding-bottom: 60px;
-  position: fixed;
+  /**position: fixed;  Esto hace que no haya scroll, Si se pone se extira y hace la pantalla fija, hay que huir de ello creo yo**/
   height: 100%;
   width: 100%;
 }
