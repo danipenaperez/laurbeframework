@@ -127,7 +127,7 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 			this.dao=instanceProperties.dao;
 		if(instanceProperties.storageManager)
 			this.storageManager=instanceProperties.storageManager;
-
+		
 		//Always exists on laurbe app, but could be overwrite in app definition
 		if(!instanceProperties.navigatorManager)
 			this.navigatorManager = new laurbe.NavigatorManager({relatedApp:this});
@@ -262,7 +262,24 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 	 * @param {*} args 
 	 */
 	_navigate:function(viewId, args){
-		//0.Validations
+		//0.Security
+		if(true){
+			// this.instanceProperties.security.login._renderTo('appMainViewContainer');
+
+			let loginView = new laurbe.View({
+				id: 'loginView',
+				items: [
+					this.instanceProperties.security.login
+				]
+			  });
+
+			  loginView._renderTo('security');
+			  $('#loginShowBtn').click();
+
+
+		}
+		// alert('acabo de renderizar el login');
+		//1.Validations
 		var targetViewID= viewId != undefined ? viewId :this.navigatorManager.getCurrentViewId();
 		if(!targetViewID){//calculate
 			targetViewID=this.views[0].instanceProperties.id;
@@ -270,6 +287,10 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 		//Sanitize 
 		targetViewID = targetViewID.replace('#','');  //The a href="#" stain the URL adding # at the end and this broke the navigationmanager._navigate
 
+		var random_boolean = Math.random() < 0.5;
+		if(random_boolean){
+			//$('#loginShowBtn').click();
+		}
 		//1.Store Navigation info
 		this.navigatorManager.storeNavigationInfo(targetViewID, args);
 		//2.Show the view

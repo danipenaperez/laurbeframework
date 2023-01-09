@@ -137,8 +137,12 @@ laurbe._init();
 var app = new laurbe.App({
                           title: 'Example layout 1',
                           theme: 'ligth',
+                          security:{
+                            enabled:true,
+                            login: new laurbe.SocialLoginView({})
+                          },
                           navBar: {
-                            position:'fixed-bottom',  //TODO: pass args to navbar object on createNavbar on app.module.js
+                            position:'fixed-top',  //TODO: pass args to navbar object on createNavbar on app.module.js
                             brand: {
                               logoUrl: 'https://upload.wikimedia.org/wikinews/en/7/7e/International_Monetary_Fund_logo.svg'
                             },
@@ -147,6 +151,16 @@ var app = new laurbe.App({
                             }
                           },
                           views: [
+                            // new laurbe.View({
+                            //   id: 'loginView',
+                            //   navigator:{
+                            //     menuName: 'Ellogin'
+                            //     // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                            //   },
+                            //   items: [
+                            //     new laurbe.SocialLoginView({})
+                            //   ]
+                            // }),
                             new laurbe.View({
                               id: 'viewA_View',
                               navigator:{

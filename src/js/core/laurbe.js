@@ -9,6 +9,7 @@ import "./modalDialog.module.js"
 import "./localStorageManager.module.js"
 import "./navigator.module.js"
 import "./shareSocialManager.module.js"
+import "../data/dao.module.js"
 
 /**COMPONENTS */
 import "../components/baseView.module.js"
@@ -39,6 +40,7 @@ import "../components/video.module.js"
 import "../components/youTubeVideo.module.js"
 import "../components/app/app.module.js"
 import "../components/app/view.module.js"
+import "../components/composite/socialLogin.module.js"
 
 import "../../stylesheets/themes/themes.module.js"
 
