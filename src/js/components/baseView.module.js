@@ -187,13 +187,13 @@ var BaseViewElement ={
    **/
    onclickHandler: function(ev){
        if(true){
-           console.log('laurbe.OnclickHandler()')
-           // console.log('el evento es');
-           // console.log(ev);
-           // console.log(' y el elemento es');
-           // console.log(this);
-           // console.log('y el laurbe element es ');
-           // console.log(laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')]);
+           console.log('laurbe.OnclickHandler(), revisa que tu html tiene <div id=${id} porque si no, no resuelve el id y no encuentra el onclick');
+        //    console.log('el evento es');
+        //    console.log(ev);
+        //    console.log(' y el elemento es');
+        //    console.log(this);
+        //    console.log('y el laurbe element es ');
+        //    console.log(laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')]);
        }
    },
    /**

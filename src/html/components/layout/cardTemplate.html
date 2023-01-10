@@ -39,36 +39,40 @@
 					<div style="float: left;">
 						<p class="card-text "><small class="text-muted">${footMessage}</small></p>
 					</div>	
-				</div>	
-				<div class="col">
-					<div style="float: right;">
-						<div class="social">
-							<a href="whatsapp://send?text=http://www.google.es?q=busqueda" data-action="share/whatsapp/share">
-								<i class="fa fa-whatsapp" style="font-size: 1.5em;"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-share-alt" style="font-size: 1.5em;"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-heart" style="font-size: 1.5em;"></i>
-							</a>
-							
+				</div>
+				{{if template.shareSocial}}		
+					<div class="col">
+						<div style="float: right;">
+							<div class="social">
+								<a href="whatsapp://send?text=http://www.google.es?q=busqueda" data-action="share/whatsapp/share">
+									<i class="fa fa-whatsapp" style="font-size: 1.5em;"></i>
+								</a>
+								<a href="#">
+									<i class="fa fa-share-alt" style="font-size: 1.5em;"></i>
+								</a>
+								<a href="#">
+									<i class="fa fa-heart" style="font-size: 1.5em;"></i>
+								</a>
+								
+							</div>
 						</div>
 					</div>
-				</div>
+				{{/if}}
 			</div>
 		</div>
 		<!-- <div class="card-footer d-none d-sm-block">  -->
-		<div class="card-footer"> 	
-			<div id="${id}_cneeded">
-				<img class="card-top-rigth-icon" src="./icon/drum-set.png" alt="${img.alt}"> </img>
-				<img class="card-top-rigth-icon" src="./icon/bass-guitar-clav.png" alt="${img.alt}"> </img>
-				<img class="card-top-rigth-icon" src="./icon/electric-guitar-clav.png" alt="${img.alt}"> </img>
-				<img class="card-top-rigth-icon" src="./icon/microphone-with-wire.png" alt="${img.alt}"> </img>
-				<img class="card-top-rigth-icon" src="./icon/piano.png" alt="piano"> </img>
+		{{if template.footer}}	
+			<div class="card-footer"> 	
+				<div id="${id}_cneeded">
+					<img class="card-top-rigth-icon" src="./icon/drum-set.png" alt="${img.alt}"> </img>
+					<img class="card-top-rigth-icon" src="./icon/bass-guitar-clav.png" alt="${img.alt}"> </img>
+					<img class="card-top-rigth-icon" src="./icon/electric-guitar-clav.png" alt="${img.alt}"> </img>
+					<img class="card-top-rigth-icon" src="./icon/microphone-with-wire.png" alt="${img.alt}"> </img>
+					<img class="card-top-rigth-icon" src="./icon/piano.png" alt="piano"> </img>
+				</div>
+			<small class="text-muted">Last updated 3 mins ago</small>
 			</div>
-	       <small class="text-muted">Last updated 3 mins ago</small>
-	    </div>
+		{{/if}}
   </div>
 </script>   
 

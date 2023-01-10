@@ -37,6 +37,9 @@ y la app al hacer el init lo carga.
 La llamada http la hace y esto ya esta mal. Habria que comprobar si la tiene y si la tiene, pues no se hace el load,  y se va directamente a pintarse.
 4. Navigation : Hay un problema por el cual se pone view_id=Loquesea# y se cuela la almohadilla, de manera que si refrescamos la pagina el metodo navigate busca la vista por id con la almohadilla y claro no encuentra nada
 
+5. Cargar CSS en los propios elementos 
+6. El jumbotron tiene la plantilla a pincho, hay que partirla en componentes
+
 5.BaseView todo extiende de baseview pero en verdad es baseviewElement, hay que aclarar todo este asunto para que no haya ambiguedad
 ejemplo require
 https://github.com/requirejs/example-multipage

@@ -124,7 +124,6 @@ var View = new laurbe.View({});
 console.log('View es');
 console.log(View);
 
-alert('ejecutando on load');
 /**Overwrite default configuration**/
 laurbe.configure({
   templateManager:{
@@ -135,8 +134,8 @@ laurbe.configure({
 laurbe._init();
 
 var app = new laurbe.App({
-                          title: 'Example layout 1',
-                          theme: 'ligth',
+                          title: 'Garcia Barber Shop',
+                          theme: 'dark', //'ligth',
                           security:{
                             enabled:true,
                             login: new laurbe.SocialLoginView({})
@@ -144,23 +143,104 @@ var app = new laurbe.App({
                           navBar: {
                             position:'fixed-top',  //TODO: pass args to navbar object on createNavbar on app.module.js
                             brand: {
-                              logoUrl: 'https://upload.wikimedia.org/wikinews/en/7/7e/International_Monetary_Fund_logo.svg'
+                              logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM8uXhVk-H56P7eVwwth5qnFm8-zEWIYsY1A&usqp=CAU'
                             },
                             searchTool: {
                               placeholder: 'looking for...'
                             }
                           },
                           views: [
-                            // new laurbe.View({
-                            //   id: 'loginView',
-                            //   navigator:{
-                            //     menuName: 'Ellogin'
-                            //     // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
-                            //   },
-                            //   items: [
-                            //     new laurbe.SocialLoginView({})
-                            //   ]
-                            // }),
+                            new laurbe.View({
+                              id: 'jumbontron',
+                              navigator:{
+                                menuName: 'jumbotron'
+                                // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                              },
+                              items: [
+                                  new laurbe.CardGroup({
+                                    items: [
+                                        new laurbe.Card({
+                                          title:'Card1',
+                                          text:'Novedades de la herramieta, conectate y sientete conectado',
+                                          footMessage:'footermeeess',
+                                          img:{
+                                            src: 'https://mdbcdn.b-cdn.net/img/new/slides/041.webp'
+                                            ,
+                                            alt: 'mi imagen'
+                                          }
+                      
+                      
+                                        }),	
+                                        new laurbe.Card({
+                                          title:'Card2',
+                                          text:'Si quiere convertirte en chef este es tu lugar',
+                                          footMessage:'footermeeess',
+                                          img:{
+                                            src: 'https://www.paradigmadigital.com/wp-content/uploads/2019/03/testKotlin-01.jpg',
+                                            alt: 'mi imagen'
+                                          },
+                                          onclick:function(){
+                                            console.log('estoy clickando pero no sale el alert!!!');
+                                            alert('me han pulsado' +this.id);
+                                          }
+                                        })
+                                    ]
+                                  })
+                                ]
+                            }),
+                            new laurbe.View({
+                              id: 'maps',
+                              navigator:{
+                                menuName: 'maps'
+                                // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                              },
+                              items: [
+                                new laurbe.Maps({
+                                  location:{ 
+                                    lat: 40.67299325724363,
+                                    lng: -4.090292276699187
+                                    
+                                  } ,
+                                  onclickHandler: function(){
+                                    alert('soy el maps');
+                                  }
+                                })
+                              ]
+                            }),
+                            new laurbe.View({
+                              id: 'jumbotrones',
+                              navigator:{
+                                menuName: 'jumbotrones'
+                                // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                              },
+                              items: [
+                                new laurbe.JumbotronGroup({
+                                  items:[
+                                    new laurbe.Jumbotron({
+                                        title:'Pedir citacion',
+                                        description: 'mis movidas uno',
+                                        onclick:function(){
+                                          alert('Vamos a pedir una cita');
+                                        }
+                                    }),
+                                    new laurbe.Jumbotron({
+                                      title:'Anular citacion',
+                                      description: 'mis movidas dos',
+                                      onclick:function(){
+                                        alert('Anulando citas');
+                                      }
+                                    }),
+                                    new laurbe.Jumbotron({
+                                      title:'Consutar citas',
+                                      description: 'Consulta tus citas facilmente',
+                                      onclick:function(){
+                                        alert('Consultando citas');
+                                      }
+                                    })
+                                  ]
+                                })
+                              ]
+                            }),
                             new laurbe.View({
                               id: 'viewA_View',
                               navigator:{
@@ -213,8 +293,24 @@ var app = new laurbe.App({
                                   extraClass:'bg-success' 
                                 })
                               ]
-                            })
+                            }),
+                            new laurbe.View({
+                              id: 'aboutUs',
+                              navigator:{
+                                menuName: 'Sobre Nosotros'
+                                // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                              },
+                              items: [
+                                new laurbe.Jumbotron({
+                                  text: 'Somos buena gente y nos gusta cortar el pelo',
+                                  onclickHandler: function(){
+                                    alert('soy el jumbotronaco');
+                                  }
+                                })
+                              ]
+                            }),
                           ],
+                          
                         //   dao: new laurbe.RestDAO({
                         //     basePath: '.'
                         //   }),

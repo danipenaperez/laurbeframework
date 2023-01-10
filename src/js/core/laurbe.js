@@ -1,4 +1,8 @@
 import laurbe from "./core.module.js"
+
+
+
+
 /**CORE */
 import "./logger.module.js"
 import "./utils.module.js"
@@ -24,6 +28,8 @@ import "../components/container.module.js"
 import "../components/form.module.js"
 import "../components/grid.module.js"
 import "../components/image.module.js"
+import "../components/jumbotron.module.js"
+import "../components/jumbotronGroup.module.js"
 import "../components/layout.module.js"
 import "../components/modalDialog.module.js"
 import "../components/navbar.module.js"
@@ -41,13 +47,16 @@ import "../components/youTubeVideo.module.js"
 import "../components/app/app.module.js"
 import "../components/app/view.module.js"
 import "../components/composite/socialLogin.module.js"
-
+import "../components/maps.module.js"
 import "../../stylesheets/themes/themes.module.js"
 
 import jQuery from "../../thirdparty/js/jquery.module.js";
 window.$ = window.jQuery = jQuery;
 console.log('soy el primer import');
 console.log(jQuery);
+
+
+
 // import '../../thirdparty/js/bootstrap.js'
 // console.log('he cargado bootstrap');
 // console.log(bootstrap);

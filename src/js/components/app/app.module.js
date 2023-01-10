@@ -230,7 +230,7 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 				        				renderTo:'appMenuContainer',
 										title:this.instanceProperties.title,
 										items:menuItems,
-										theme:laurbe.themes['ligth'],
+										theme:laurbe.themes[this.instanceProperties.theme],
 										position: this.instanceProperties.navBar.position ,
           								brand:this.instanceProperties.navBar.brand,
           								searchTool:this.instanceProperties.navBar.searchTool

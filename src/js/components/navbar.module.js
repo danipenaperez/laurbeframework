@@ -122,16 +122,23 @@ laurbe.NavBar = function NavBar(args){
 	
 	/** Return the instance **/
 	var instance =  extend({}, laurbe.prototype.NavBar, {instanceProperties:initializationProps});
+	
+	
 	console.log('y el position es ')
 	console.log(instance.instanceProperties.position);
 	if('fixed-top' == instance.instanceProperties.position){
 		console.log('es top');
-		document.body.style['min-height'] = '75rem';
+		console.log('es top');
+		console.log('es top');
+		// document.body.style['min-height'] = '75rem'; si dejo esto, saca siempre scroll y hay que calcular, asi que mal, lo quito
 		document.body.style['padding-top'] = '4.5rem';
 	}else if('fixed-bottom' == instance.instanceProperties.position){
-		console.log('es top');
+		console.log('fixed-bottom');
+		console.log('fixed-bottom');
+		console.log('fixed-bottom');
 		// document.body.style['min-height'] = '75rem';
-		// document.body.style['padding-top'] = '4.5rem';
+		document.body.style['padding-top'] = '0px';
+		document.body.style['padding-bottom'] = '2.5rem';
 	}else if('fixed-left'== instance.instanceProperties.position){
 		//referenced https://github.com/mladenplavsic/bootstrap-navbar-sidebar
 
