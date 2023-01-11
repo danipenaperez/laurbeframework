@@ -78,6 +78,9 @@ var utils = {
 			addClassToElement: function (elementId, clazz){
 				document.getElementById(elementId).classList.add(clazz);
 			},
+			removeClassToElement: function (elementId, clazz){
+				document.getElementById(elementId).classList.remove(clazz);
+			},
 			/**
 			 * Dinamically load JS file
 			 */

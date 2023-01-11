@@ -20,8 +20,8 @@ laurbe.prototype.Wizard =  extend({}, laurbe.BaseViewElement, {
     /**
      * Reference for current step
      */
-    currentStep: null
-    ,
+    currentStep: null,
+    currentIndexStep: 0,
 	onclickHandler: function(ev){
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
@@ -54,14 +54,60 @@ laurbe.prototype.Wizard =  extend({}, laurbe.BaseViewElement, {
      */
     initShow:function(){
         alert(' inicializando el wizard');
-        this.currentStep= this.instanceProperties.steps[0];
+        
+        this.setBreadCamp(0);
+        // this.currentStep= this.instanceProperties.steps[0];
         console.log('y el current step es ');
         console.log(this.currentStep);
         alert(' voy a setear '+'wizard_breadCamp_'+this.currentStep.id);
-        laurbe.utils.addClassToElement( 'wizard_breadCamp_'+this.currentStep.id,  'progressbar-selected-index');
 
         
+        // laurbe.utils.addClassToElement( 'wizard_breadCamp_'+this.currentStep.id,  'progressbar-selected-index');
+        // laurbe.utils.addClassToElement( 'wizard_breadCamp_'+this.currentStep.id,  'active');
+        // this.instanceProperties.steps.forEach(function (item, index) {
+        //     if(index>0){
+        //         laurbe.utils.addClassToElement( 'wizard_breadCamp_'+item.id,  'progressbar-selected-index'); 
+        //     }
+        // });
+        
 
+        //Bind buttons 
+        $('#'+'nextButton_wizard_'+this.id).on('click', this.onNext);
+        $('#'+'previousButton_wizard_'+this.id ).on('click', this.onPrevious);
+        console.log('#'+'wizard_'+this.id+'_nextButton');
+
+    },
+    setBreadCamp:function(currentStepIndex){
+        let targetIndexStep = currentStepIndex || 0;
+        let targetStep = this.instanceProperties.steps[targetIndexStep];
+        let self = this;
+        console.log('y this es ');
+        console.log(this);
+        this.instanceProperties.steps.forEach(function (item, index) {
+            laurbe.utils.addClassToElement( 'wizard_breadCamp_'+item.id,  'progressbar-selected-index');
+            console.log('estoy comparando '+ targetStep.id +  ' con ' + item.id);
+            if(targetStep.id == item.id){
+                laurbe.utils.addClassToElement( 'wizard_breadCamp_'+item.id,  'active'); 
+            }else{
+                laurbe.utils.removeClassToElement( 'wizard_breadCamp_'+item.id,  'active'); 
+
+            }
+        });
+        this.currentIndexStep=targetIndexStep;
+        this.currentStep=targetStep;
+    },
+    onNext:function(){
+        
+        console.log(this.id);
+        let wizardID = this.id.replace('nextButton_wizard_', '');
+        let wizard = laurbe.Directory[wizardID];
+        wizard.setBreadCamp(wizard.currentIndexStep+1);
+    },
+    onPrevious:function(){
+        console.log(this.id);
+        let wizardID = this.id.replace('previousButton_wizard_', '');
+        let wizard = laurbe.Directory[wizardID];
+        wizard.setBreadCamp(wizard.currentIndexStep-1);
     },
     /**
      * Show the specified step content, and update menu breadcomp
@@ -108,8 +154,14 @@ laurbe.Wizard = function Wizard(args){
 
 	/** Return the instance **/
 	var instance =  extend({}, laurbe.prototype.Wizard, {instanceProperties:initializationProps});
+
     /**LOAD CSS */
     laurbe.utils.loadCSS('/stylesheets/components/composite/wizard/wizard.css');
+
+    /** Add references step to Divs */
+    instance.instanceProperties.steps.forEach(function (item, index) {
+        item.parentWizardId=instance.instanceProperties.id;
+    });
 
 	return instance;
 }
