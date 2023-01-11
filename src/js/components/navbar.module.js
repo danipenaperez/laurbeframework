@@ -90,7 +90,8 @@ laurbe.NavBar = function NavBar(args){
 				tag:'<div>'
 			},
 			brand:{
-				logoUrl:'https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-outline.svg'
+				logoUrl:'https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-outline.svg',
+				extraClass:'rounded-circle'
 			},
 			// theme:theme,
 			/**

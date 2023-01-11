@@ -75,6 +75,9 @@ var utils = {
 				head.appendChild(link);
 				console.log('loaded CSS  from '+ laurbe.templateManager.templatePath+cssPath);
 			},
+			addClassToElement: function (elementId, clazz){
+				document.getElementById(elementId).classList.add(clazz);
+			},
 			/**
 			 * Dinamically load JS file
 			 */

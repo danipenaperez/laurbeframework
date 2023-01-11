@@ -122,7 +122,6 @@ var BaseViewElement ={
        //self.bindEvents();
        if(self.instanceProperties.items){
            $.each(self.instanceProperties.items, function( index, item ) {
-               console.log(index);
                item.owner = self;//reference to parent laurbe object
                item._renderTo(self._getRenderChildWrapperId());
            });

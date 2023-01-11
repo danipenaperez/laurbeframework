@@ -1,8 +1,5 @@
 import laurbe from "./core.module.js"
 
-
-
-
 /**CORE */
 import "./logger.module.js"
 import "./utils.module.js"
@@ -48,6 +45,7 @@ import "../components/app/app.module.js"
 import "../components/app/view.module.js"
 import "../components/composite/socialLogin.module.js"
 import "../components/maps.module.js"
+import "../components/composite/wizard.module.js"
 import "../../stylesheets/themes/themes.module.js"
 
 import jQuery from "../../thirdparty/js/jquery.module.js";

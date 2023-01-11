@@ -143,8 +143,9 @@ var app = new laurbe.App({
                           navBar: {
                             position:'fixed-top',  //TODO: pass args to navbar object on createNavbar on app.module.js
                             brand: {
-                              logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM8uXhVk-H56P7eVwwth5qnFm8-zEWIYsY1A&usqp=CAU'
-                            },
+                              logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM8uXhVk-H56P7eVwwth5qnFm8-zEWIYsY1A&usqp=CAU',
+                              extraClass:'rounded-circle'
+			                      },
                             searchTool: {
                               placeholder: 'looking for...'
                             }
@@ -204,6 +205,18 @@ var app = new laurbe.App({
                                   onclickHandler: function(){
                                     alert('soy el maps');
                                   }
+                                })
+                              ]
+                            }),
+                            new laurbe.View({
+                              id: 'wizard',
+                              navigator:{
+                                menuName: 'Wizard'
+                                // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                              },
+                              items: [
+                                new laurbe.Wizard({
+                                  
                                 })
                               ]
                             }),
