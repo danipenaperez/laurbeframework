@@ -127,7 +127,7 @@ console.log(View);
 /**Overwrite default configuration**/
 laurbe.configure({
   templateManager:{
-      templatePath: 'http://localhost:8888'
+      templatePath: 'http://192.168.1.44:8888'
     }
 });
 
@@ -135,7 +135,7 @@ laurbe._init();
 
 var app = new laurbe.App({
                           title: 'Barber Shop',
-                          theme: 'dark', //'ligth',
+                          theme: 'ligth',//'dark', //'ligth',
                           security:{
                             enabled:true,
                             login: new laurbe.SocialLoginView({})

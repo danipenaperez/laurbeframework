@@ -94,26 +94,27 @@ var calendar = {
         this.c(this.nextMonth, this.nextYear, 1);
 
         //Set listeners 
+        var self = this;
         this.switchButton.on("click", function () {
             let $ =window.$;
             var clicked = $(this);
             var generateCalendars = function (e) {
-                var nextDatesFirst = getAdjacentMonth(month, year, e);
-                var nextDatesSecond = getAdjacentMonth(nextMonth, nextYear, e);
-                month = nextDatesFirst[0];
-                year = nextDatesFirst[1];
-                nextMonth = nextDatesSecond[0];
-                nextYear = nextDatesSecond[1];
+                var nextDatesFirst = self.getAdjacentMonth(self.month, self.year, e);
+                var nextDatesSecond = self.getAdjacentMonth(self.nextMonth, self.nextYear, e);
+                self.month = nextDatesFirst[0];
+                self.year = nextDatesFirst[1];
+                self.nextMonth = nextDatesSecond[0];
+                self.nextYear = nextDatesSecond[1];
     
-                c(month, year, 0);
-                c(nextMonth, nextYear, 1);
+                self.c(self.month, self.year, 0);
+                self.c(self.nextMonth, self.nextYear, 1);
             };
             if (clicked.attr("class").indexOf("left") != -1) {
                 generateCalendars("previous");
             } else {
                 generateCalendars("next");
             }
-            clickedElement = bothCals.find(".calendar_content").find("div");
+            self.clickedElement = self.bothCals.find(".calendar_content").find("div");
         });
     },
 

@@ -26,7 +26,7 @@ laurbe.prototype.Calendar =  extend({}, laurbe.BaseViewElement, {
 				url: '/html/components/calendar/calendarTemplate.html'
 	},
 	onclickHandler: function(ev){
-		alert('soy container');
+		console.log('onClickHander del calendar');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
