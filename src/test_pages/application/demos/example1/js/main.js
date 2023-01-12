@@ -127,14 +127,14 @@ console.log(View);
 /**Overwrite default configuration**/
 laurbe.configure({
   templateManager:{
-      templatePath: 'http://localhost:8888'
+      templatePath: 'http://192.168.1.44:8888'
     }
 });
 
 laurbe._init();
 
 var app = new laurbe.App({
-                          title: 'Garcia Barber Shop',
+                          title: 'Barber Shop',
                           theme: 'dark', //'ligth',
                           security:{
                             enabled:true,
@@ -216,7 +216,80 @@ var app = new laurbe.App({
                               },
                               items: [
                                 new laurbe.Wizard({
-                                  
+                                        title:'Nueva Cita',
+                                        description: 'Creando nueva cita',
+                                        steps:[
+                                            new laurbe.WizardStep({  
+                                                                    stepTitle:'Datos', 
+                                                                    formTitle:'Datos personales' , 
+                                                                    description: 'dame tus datos',
+                                                                    items:[
+                                                                        new laurbe.Form({
+                                                                            items:[
+                                                                                new laurbe.TextField({
+                                                                                    //label:'email',
+                                                                                    value:'aucton@hotmail.com'
+                                                                                }),
+                                                                                new laurbe.TextField({
+                                                                                    //label:'edad',
+                                                                                    value:'25'
+                                                                                }),
+                                                                                new laurbe.TextField({
+                                                                                    //label:'Features',
+                                                                                    value:'vago y gandul'
+                                                                                })
+                                        
+                                                                            ]
+                                                                        })
+                                                                    ]
+                                                                }),
+                                            new laurbe.WizardStep({ 
+                                                                    stepTitle:'Pagamientos', 
+                                                                    formTitle:'DAtos Bancarios' , 
+                                                                    description: 'como vas a pagar' , 
+                                                                    items:[
+                                                                        new laurbe.Image({
+                                                                            img_src: 'https://cronicaglobal.elespanol.com/uploads/s1/21/10/73/63/europapress-4382401-paz-padilla-imagen-archivo.jpeg',
+                                                                            alt:'Paz padilla',
+                                                                            onclick: function(){
+                                                                                alert('me han clickado y soy la imagen del '+this.alt);
+                                                                                loadMore();
+                                        
+                                                                            }
+                                                                        })
+                                                                    ]
+                                                                }),
+                            
+                                            new laurbe.WizardStep({
+                                                                stepTitle:'Ya veo', formTitle:'Gafas personales' , description: 'pues yo no veo nada', 
+                                                                items:[
+                                                                    new laurbe.Maps({
+                                                                      location:{ 
+                                                                        lat: 40.67299325724363,
+                                                                        lng: -4.090292276699187
+                                                                        
+                                                                      } ,
+                                                                      onclickHandler: function(){
+                                                                        alert('soy el maps');
+                                                                      }
+                                                                    })
+                                                                ] 
+                                            }),
+                                            new laurbe.WizardStep({
+                                                                    stepTitle:'Finalizar', formTitle:'Datos personales' , description: 'terminar', 
+                                                                  items:[
+                                                                      new laurbe.Image({
+                                                                          img_src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Rafael_Nadal_%2812054444625%29.jpg/500px-Rafael_Nadal_%2812054444625%29.jpg',
+                                                                          alt:'Nadal',
+                                                                          onclick: function(){
+                                                                              alert('me han clickado y soy la imagen del '+this.alt);
+                                                                              loadMore();
+                                                  
+                                                                          }
+                                                                      })
+                                                                  ] 
+                                              })
+                                        ]
                                 })
                               ]
                             }),

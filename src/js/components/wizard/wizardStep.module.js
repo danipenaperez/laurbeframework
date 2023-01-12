@@ -11,16 +11,17 @@ laurbe.prototype.WizardStep =  extend({}, laurbe.BaseViewElement, {
 	**/
 	type: 'wizardStep',
 	/**
-	* The laurbe owner element
+	* flag for initialization of current Object
 	**/
-	owner:null,
+	initialized:false,
 	/**
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "cardTemplate",
+				scriptId : "wizardStepTemplate",
 				url: '/html/components/wizard/wizardStepTemplate.html'
 	},
+
 	onclickHandler: function(ev){
 		console.log('laurbe.Card.onclickHandler()');
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
@@ -61,6 +62,7 @@ laurbe.WizardStep = function WizardStep(args){
 	
 	/** Init values **/
 	var defaults = {
+			items:[],
 			/**
 			wrapper:{
 				tag:'<div>',

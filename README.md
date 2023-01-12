@@ -46,3 +46,9 @@ https://github.com/requirejs/example-multipage
 
 EJEMPLOS CON EMCSA 6 import modules, creo que esta es la buena
 https://github.dev/mdn/js-examples/blob/main/module-examples/basic-modules/index.html
+
+!!BACKGROUND IMAGES GENERATOR!!
+https://bgjar.com/
+
+IDEAS ESTILOS:
+https://codepen.io/ig_design/pen/XWXZaGb

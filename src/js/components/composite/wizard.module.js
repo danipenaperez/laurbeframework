@@ -53,13 +53,17 @@ laurbe.prototype.Wizard =  extend({}, laurbe.BaseViewElement, {
      * Manage initialization and first navigation
      */
     initShow:function(){
-        alert(' inicializando el wizard');
         
+        this.instanceProperties.steps.forEach(function (item, index) {
+            item._renderTo('stepWrapperContent_'+item.instanceProperties.id);
+        });
+
+
         this.setBreadCamp(0);
         // this.currentStep= this.instanceProperties.steps[0];
         console.log('y el current step es ');
         console.log(this.currentStep);
-        alert(' voy a setear '+'wizard_breadCamp_'+this.currentStep.id);
+        
 
         
         // laurbe.utils.addClassToElement( 'wizard_breadCamp_'+this.currentStep.id,  'progressbar-selected-index');
@@ -80,18 +84,25 @@ laurbe.prototype.Wizard =  extend({}, laurbe.BaseViewElement, {
     setBreadCamp:function(currentStepIndex){
         let targetIndexStep = currentStepIndex || 0;
         let targetStep = this.instanceProperties.steps[targetIndexStep];
+        console.log('targetStep es ');
+        console.log(targetStep);
         let self = this;
         console.log('y this es ');
         console.log(this);
         this.instanceProperties.steps.forEach(function (item, index) {
-            laurbe.utils.addClassToElement( 'wizard_breadCamp_'+item.id,  'progressbar-selected-index');
-            console.log('estoy comparando '+ targetStep.id +  ' con ' + item.id);
-            if(targetStep.id == item.id){
-                laurbe.utils.addClassToElement( 'wizard_breadCamp_'+item.id,  'active'); 
-            }else{
-                laurbe.utils.removeClassToElement( 'wizard_breadCamp_'+item.id,  'active'); 
 
+            console.log(item);
+            console.log(item.instanceProperties.id);
+            laurbe.utils.addClassToElement( 'wizard_breadCamp_'+item.instanceProperties.id,  'progressbar-selected-index');
+            console.log('estoy comparando '+ targetStep.instanceProperties.id +  ' con ' + item.instanceProperties.id);
+            if(targetStep.instanceProperties.id == item.instanceProperties.id){
+                laurbe.utils.addClassToElement( 'wizard_breadCamp_'+item.instanceProperties.id,  'active'); 
+                $('#'+'stepWrapperContent_'+item.instanceProperties.id).show();
+            }else{
+                laurbe.utils.removeClassToElement( 'wizard_breadCamp_'+item.instanceProperties.id,  'active'); 
+                $('#'+'stepWrapperContent_'+item.instanceProperties.id).hide();
             }
+
         });
         this.currentIndexStep=targetIndexStep;
         this.currentStep=targetStep;
@@ -128,14 +139,76 @@ laurbe.Wizard = function Wizard(args){
 	
 	/** Init values **/
 	var defaults = {
-			items:[],
-            title:'Wizard Untiled',
+			title:'Wizard Untiled',
             description: 'Use this wizard to create account',
             steps:[
-                {id: 'data', stepTitle:'Datos', formTitle:'Datos personales' , description: 'dame tus datos' },
-                {id: 'payes', stepTitle:'Pagamientos', formTitle:'DAtos Bancarios' , description: 'como vas a pagar' },
-                {id: 'ver', stepTitle:'Ya veo', formTitle:'Gafas personales' , description: 'pues yo no veo nada' },
-                {id: 'finish', stepTitle:'Finalizar', formTitle:'Datos personales' , description: 'terminar' }
+                new laurbe.WizardStep({ //id: 'data', 
+                                        stepTitle:'Datos', 
+                                        formTitle:'Datos personales' , 
+                                        description: 'dame tus datos',
+                                        items:[
+                                            new laurbe.Form({
+                                                items:[
+                                                    new laurbe.TextField({
+                                                        //label:'email',
+                                                        value:'aucton@hotmail.com'
+                                                    }),
+                                                    new laurbe.TextField({
+                                                        //label:'edad',
+                                                        value:'25'
+                                                    }),
+                                                    new laurbe.TextField({
+                                                        //label:'Features',
+                                                        value:'vago y gandul'
+                                                    })
+            
+                                                ]
+                                            })
+                                        ]
+                                    }),
+                new laurbe.WizardStep({ //id: 'payes', 
+                                        stepTitle:'Pagamientos', 
+                                        formTitle:'DAtos Bancarios' , 
+                                        description: 'como vas a pagar' , 
+                                        items:[
+                                            new laurbe.Image({
+                                                img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
+                                                alt:'Amrio casa',
+                                                onclick: function(){
+                                                    alert('me han clickado y soy la imagen del '+this.alt);
+                                                    loadMore();
+            
+                                                }
+                                            })
+                                        ]
+                                    }),
+
+                new laurbe.WizardStep({//id: 'ver', 
+                                    stepTitle:'Ya veo', formTitle:'Gafas personales' , description: 'pues yo no veo nada', 
+                items:[
+                    new laurbe.Image({
+                        img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
+                        alt:'Amrio casa',
+                        onclick: function(){
+                            alert('me han clickado y soy la imagen del '+this.alt);
+                            loadMore();
+
+                        }
+                    })
+                ] }),
+                new laurbe.WizardStep({//id: 'finish', 
+                                        stepTitle:'Finalizar', formTitle:'Datos personales' , description: 'terminar', 
+                items:[
+                    new laurbe.Image({
+                        img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
+                        alt:'Amrio casa',
+                        onclick: function(){
+                            alert('me han clickado y soy la imagen del '+this.alt);
+                            loadMore();
+
+                        }
+                    })
+                ] })
             ]
 			// wrapper:{
 			// 	tag:'<div>', 

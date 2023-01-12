@@ -73,13 +73,24 @@ var BaseViewElement ={
            var self = this;
            var templateInfo = {appendTo: self.ele, data: self.instanceProperties};
            
+
            /** Load current component template , and render (appentTo) */
+           
            laurbe.templateManager._loadTemplate(self.template.url, function(){
-               $('#'+self.template.scriptId).tmpl(templateInfo.data).appendTo(templateInfo.appendTo);
-               self._afterRender();
-               if(self.onShow){
-                   self.onShow(this);
+               console.log(' y resulta que es');
+               if(document.getElementById(self.template.scriptId)){
+                    console.log(document.getElementById(self.template.scriptId));
+                    console.log($('#'+self.template.scriptId));
+                    $('#'+self.template.scriptId).tmpl(templateInfo.data).appendTo(templateInfo.appendTo);
+                    self._afterRender();
+                    if(self.onShow){
+                        self.onShow(this);
+                    }
+               }else{
+                    alert('Has cargado la template '+ self.template.url + ' pero el <script id= no concuerda con '+self.template.scriptId);
+                    throw 'Has cargado la template '+ self.template.url + ' pero el <script id= no concuerda con '+self.template.scriptId;
                }
+               
            });
            
            
