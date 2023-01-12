@@ -127,7 +127,7 @@ console.log(View);
 /**Overwrite default configuration**/
 laurbe.configure({
   templateManager:{
-      templatePath: 'http://192.168.1.44:8888'
+      templatePath: 'http://localhost:8888'
     }
 });
 
@@ -387,11 +387,8 @@ var app = new laurbe.App({
                                 // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
                               },
                               items: [
-                                new laurbe.Jumbotron({
-                                  text: 'Somos buena gente y nos gusta cortar el pelo',
-                                  onclickHandler: function(){
-                                    alert('soy el jumbotronaco');
-                                  }
+                                new laurbe.Calendar({
+                                  
                                 })
                               ]
                             }),
