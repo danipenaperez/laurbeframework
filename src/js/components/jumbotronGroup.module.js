@@ -1,12 +1,12 @@
-define(['laurbe','jquery'], function (laurbe, $) {
-/**
- * The menu item prototype
- */
-laurbe.prototype.Row = $.extend({}, laurbe.BaseViewElement, {
+import laurbe from "../core/core.module.js";
+import extend from "../core/common.module.js";
+import BaseViewElement from "./baseView.module.js"
+
+laurbe.prototype.JumbotronGroup =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'row',
+	type: 'jumbotronGroup',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,11 +15,10 @@ laurbe.prototype.Row = $.extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "rowTemplate",
-				url: '/html/components/grid/rowTemplate.html'
+				scriptId : "jumbotronGroupTemplate",
+				url: '/html/components/jumbotron/jumbotronGroupTemplate.html'
 	},
 	onclickHandler: function(ev){
-		alert('soy container');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -45,7 +44,7 @@ laurbe.prototype.Row = $.extend({}, laurbe.BaseViewElement, {
 	**/
 	_getRenderChildWrapperId:function(){
 		return this.id+'_childsWrapper';
-	},
+	}
 		
 
 });
@@ -54,34 +53,33 @@ laurbe.prototype.Row = $.extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Row = function Row(args){
+laurbe.JumbotronGroup = function JumbotronGroup(args){
 	
 	/** Init values **/
 	var defaults = {
-			/**
-			wrapper:{
-				tag:'<div>',
-				class :'container'
-				//,class:'d-flex justify-content-center align-self-center'
-			}
-			**/
-			
-			
+			items:[]
+			// wrapper:{
+			// 	tag:'<div>', 
+			// 	class:'d-flex justify-content-center align-self-center'
+			// }
+			//,width:"32"
+			//,height:"32"
+            
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Row.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.JumbotronGroup.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.Row, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.JumbotronGroup, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-return laurbe.Row;
+console.log('Component JumbotronGroup Loaded');
 
-});
+export default laurbe;

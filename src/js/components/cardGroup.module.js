@@ -63,7 +63,16 @@ laurbe.CardGroup = function CardGroup(args){
 	
 	/** Init values **/
 	var defaults = {
-			items:[]
+			items:[],
+			style: {
+				/**
+				 * Por defecto las cards interiores tendran un padding a izquierda y derecha
+				 */
+				lateralSpacing:true
+			},
+			wrapper:{
+				extraClass: ""
+			}
 			/**
 			wrapper:{
 				tag:'<div>',
@@ -83,6 +92,12 @@ laurbe.CardGroup = function CardGroup(args){
 	/** Return the instance **/
 	var instance =  extend({}, laurbe.prototype.CardGroup, {instanceProperties:initializationProps});
 
+	/**
+	 * Processing
+	 */
+	if(true == instance.instanceProperties.style.lateralSpacing){ //hace que las cards no esten pegadas a los bordes
+		instance.instanceProperties.wrapper.extraStyle="padding-left: .75rem ;padding-right: .75rem ";
+	}
 
 	return instance;
 }

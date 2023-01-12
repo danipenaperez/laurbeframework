@@ -33,9 +33,6 @@ laurbe.prototype.Card =  extend({}, laurbe.BaseViewElement, {
 		if(currentObject.owner && currentObject.owner.onChildItemEvent){
 			currentObject.owner.onChildItemEvent(ev, ev, currentObject);
 		}
-
-		
-
 	},
 	onItemClicked:function (childItem){
 		console.log('laurbe.Card.onItemClicked()');
@@ -71,6 +68,10 @@ laurbe.Card = function Card(args){
 				//,class:'d-flex justify-content-center align-self-center'
 			}
 			**/
+			template:{
+				shareSocial:false,
+				footer: false
+			}
 			
 	};
 	

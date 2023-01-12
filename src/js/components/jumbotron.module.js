@@ -1,12 +1,15 @@
-define(['laurbe','jquery'], function (laurbe, $) {
+import laurbe from "../core/core.module.js";
+import extend from "../core/common.module.js";
+import BaseViewElement from "./baseView.module.js"
+
 /**
- * The menu item prototype
+ * The button
  */
-laurbe.prototype.Column = $.extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.Jumbotron = extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'column',
+	type: 'jumbotron',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,37 +18,26 @@ laurbe.prototype.Column = $.extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "columnTemplate",
-				url: '/html/components/grid/columnTemplate.html'
+				scriptId : "jumbotronTemplate",
+				url: '/html/components/jumbotron/jumbotronTemplate.html'
 	},
 	onclickHandler: function(ev){
-		alert('soy container');
-		console.log(this);
+		console.log('laurbe.Jumbotron.onclickHandler()');
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
 			currentObject.instanceProperties.onclick(ev);
 		}else{
 			console.log('no hay event definido para '+currentObject.id);
 		}
-
 		//up the notification
 		if(currentObject.owner && currentObject.owner.onChildItemEvent){
 			currentObject.owner.onChildItemEvent(ev, ev, currentObject);
 		}
-
-		
-
 	},
 	onItemClicked:function (childItem){
 		console.log(childItem.id+ ' me avisa que le han clickado ');
 		console.log(this.instanceProperties.items);
-	},
-	/**
-	* Return the div Id where the child element must be append
-	**/
-	_getRenderChildWrapperId:function(){
-		return this.id+'_childsWrapper';
-	},
+	}
 		
 
 });
@@ -54,34 +46,32 @@ laurbe.prototype.Column = $.extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Column = function Column(args){
+laurbe.Jumbotron = function Jumbotron(args){
 	
 	/** Init values **/
 	var defaults = {
-			/**
-			wrapper:{
-				tag:'<div>',
-				class :'container'
-				//,class:'d-flex justify-content-center align-self-center'
+			title: 'Not Defined',
+			//important do not use wrapper!!
+            description: 'Push this button to do something....',
+			style:{
+				titleExtraClass: 'nav-menu-item-typo'
 			}
-			**/
-			
-			
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps = extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Column.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Jumbotron.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.Column, {instanceProperties:initializationProps});
+	var instance = extend({}, laurbe.prototype.Jumbotron, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-return laurbe.Column;
 
-});
+console.log('Component Jumbotron Loaded');
+
+export default laurbe;

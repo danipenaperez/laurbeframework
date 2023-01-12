@@ -19,7 +19,7 @@ laurbe.prototype.TextField =  extend({}, laurbe.BaseViewElement, {
 				url: '/html/components/form/textFieldTemplate.html'
 	},
 	onclickHandler: function(ev){
-		console('TEXT FIELD PULSADO');
+		console.log('TEXT FIELD PULSADO');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){

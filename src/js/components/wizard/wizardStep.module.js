@@ -1,43 +1,42 @@
-define(['laurbe','jquery'], function (laurbe, $) {
+import laurbe from "../../core/core.module.js";
+import extend from "../../core/common.module.js";
+
+
 /**
  * The menu item prototype
  */
-laurbe.prototype.CommentsGroup = $.extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.WizardStep =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'commentsGroup',
+	type: 'wizardStep',
 	/**
-	* The laurbe owner element
+	* flag for initialization of current Object
 	**/
-	owner:null,
+	initialized:false,
 	/**
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "commentsGroupTemplate",
-				url: '/html/components/layout/commentsGroupTemplate.html'
+				scriptId : "wizardStepTemplate",
+				url: '/html/components/wizard/wizardStepTemplate.html'
 	},
+
 	onclickHandler: function(ev){
-		alert('soy container');
-		console.log(this);
+		console.log('laurbe.Card.onclickHandler()');
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
 			currentObject.instanceProperties.onclick(ev);
 		}else{
 			console.log('no hay event definido para '+currentObject.id);
 		}
-
 		//up the notification
 		if(currentObject.owner && currentObject.owner.onChildItemEvent){
 			currentObject.owner.onChildItemEvent(ev, ev, currentObject);
 		}
-
-		
-
 	},
 	onItemClicked:function (childItem){
-		console.log(childItem.id+ ' me avisa que le han clickado ');
+		console.log('laurbe.Card.onItemClicked()');
 		console.log(this.instanceProperties.items);
 	},
 	/**
@@ -46,7 +45,12 @@ laurbe.prototype.CommentsGroup = $.extend({}, laurbe.BaseViewElement, {
 	_getRenderChildWrapperId:function(){
 		return this.id+'_childsWrapper';
 	},
-		
+	onShow: function(){
+		// console.log('pues han hecho onShow en un Card'+ this.id);
+		if(this.instanceProperties.onShow)
+			this.instanceProperties.onShow(this);
+	}
+	
 
 });
 
@@ -54,12 +58,11 @@ laurbe.prototype.CommentsGroup = $.extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.CommentsGroup = function CommentsGroup(args){
+laurbe.WizardStep = function WizardStep(args){
 	
 	/** Init values **/
 	var defaults = {
-			title:null,
-			items:[]
+			items:[],
 			/**
 			wrapper:{
 				tag:'<div>',
@@ -67,22 +70,26 @@ laurbe.CommentsGroup = function CommentsGroup(args){
 				//,class:'d-flex justify-content-center align-self-center'
 			}
 			**/
+			template:{
+				shareSocial:false,
+				footer: false
+			}
 			
 	};
 	
 	/** Extends Defautls with args constructor **/
-	var initializationProps = $.extend({}, defaults, args);
+	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.CommentsGroup.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.WizardStep.type) ;
 
 	/** Return the instance **/
-	var instance = $.extend({}, laurbe.prototype.CommentsGroup, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.WizardStep, {instanceProperties:initializationProps});
 
 
 	return instance;
 }
 
-return laurbe.CommentsGroup;
+console.log('Component WizardStep Loaded');
 
-});
+export default laurbe;

@@ -73,13 +73,24 @@ var BaseViewElement ={
            var self = this;
            var templateInfo = {appendTo: self.ele, data: self.instanceProperties};
            
+
            /** Load current component template , and render (appentTo) */
+           
            laurbe.templateManager._loadTemplate(self.template.url, function(){
-               $('#'+self.template.scriptId).tmpl(templateInfo.data).appendTo(templateInfo.appendTo);
-               self._afterRender();
-               if(self.onShow){
-                   self.onShow(this);
+               console.log(' y resulta que es');
+               if(document.getElementById(self.template.scriptId)){
+                    console.log(document.getElementById(self.template.scriptId));
+                    console.log($('#'+self.template.scriptId));
+                    $('#'+self.template.scriptId).tmpl(templateInfo.data).appendTo(templateInfo.appendTo);
+                    self._afterRender();
+                    if(self.onShow){
+                        self.onShow(this);
+                    }
+               }else{
+                    alert('Has cargado la template '+ self.template.url + ' pero el <script id= no concuerda con '+self.template.scriptId);
+                    throw 'Has cargado la template '+ self.template.url + ' pero el <script id= no concuerda con '+self.template.scriptId;
                }
+               
            });
            
            
@@ -122,7 +133,6 @@ var BaseViewElement ={
        //self.bindEvents();
        if(self.instanceProperties.items){
            $.each(self.instanceProperties.items, function( index, item ) {
-               console.log(index);
                item.owner = self;//reference to parent laurbe object
                item._renderTo(self._getRenderChildWrapperId());
            });
@@ -187,13 +197,13 @@ var BaseViewElement ={
    **/
    onclickHandler: function(ev){
        if(true){
-           console.log('laurbe.OnclickHandler()')
-           // console.log('el evento es');
-           // console.log(ev);
-           // console.log(' y el elemento es');
-           // console.log(this);
-           // console.log('y el laurbe element es ');
-           // console.log(laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')]);
+           console.log('laurbe.OnclickHandler(), revisa que tu html tiene <div id=${id} porque si no, no resuelve el id y no encuentra el onclick');
+        //    console.log('el evento es');
+        //    console.log(ev);
+        //    console.log(' y el elemento es');
+        //    console.log(this);
+        //    console.log('y el laurbe element es ');
+        //    console.log(laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')]);
        }
    },
    /**
