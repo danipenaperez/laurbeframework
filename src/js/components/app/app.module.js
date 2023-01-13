@@ -31,6 +31,11 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 			url: '/html/components/app/appClassicTemplate.html',
 			styles:'/stylesheets/components/app/classicTemplate.css'
 		},
+		modern:{
+			scriptId : "modernTemplate",
+			url: '/html/components/app/modernTemplate.html',
+			styles:'/stylesheets/components/app/modernTemplate.css'
+		},
 		dashboard:{
 			scriptId : "appTemplate",
 			url: '/html/components/app/appDashboardTemplate.html',

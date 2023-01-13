@@ -148,7 +148,9 @@ laurbe.NavBar = function NavBar(args){
 	}else if('fixed-right'== instance.instanceProperties.position){
 		//referenced https://github.com/mladenplavsic/bootstrap-navbar-sidebar
 		laurbe.utils.loadCSS('/thirdparty/css/navbar-fixed-rigth.css'); //TODO: No funciona bien con el brand y overflow de textos largos
-		
+	}else if('transparent-top'== instance.instanceProperties.position){
+		//referenced https://github.com/mladenplavsic/bootstrap-navbar-sidebar
+		laurbe.utils.loadCSS('/thirdparty/css/navbar-fixed-rigth.css'); //TODO: No funciona bien con el brand y overflow de textos largos
 	}
 	
 	return instance;

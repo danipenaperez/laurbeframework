@@ -1,5 +1,5 @@
 <script id="navbarWrapperTemplate" type="text/x-custom-template">
-  	<nav id="${id}" class="navbar navbar-expand-lg ${theme.navbar} ${position}">
+  	<nav id="${id}" class="navbar navbar-expand-lg ${theme.navbar.extraClass} ${position}" style="${theme.navbar.extraStyle}">
       {{if centered}}
       <div class="container">
       {{/if}}
@@ -13,7 +13,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbars_${id}" >
+        <div class="collapse navbar-collapse ${theme.navbarMenuItems.extraClass}" id="navbars_${id}" >
           
             
           <ul class="navbar-nav mr-auto" id="${id}_childsWrapper" > 

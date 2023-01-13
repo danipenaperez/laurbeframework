@@ -47,6 +47,7 @@ import "../components/composite/socialLogin.module.js"
 import "../components/maps.module.js"
 import "../components/composite/wizard.module.js"
 import "../components/wizard/wizardStep.module.js"
+import "../components/calendar.module.js"
 import "../../stylesheets/themes/themes.module.js"
 
 import jQuery from "../../thirdparty/js/jquery.module.js";
