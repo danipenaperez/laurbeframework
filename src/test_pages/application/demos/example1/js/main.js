@@ -127,7 +127,7 @@ console.log(View);
 /**Overwrite default configuration**/
 laurbe.configure({
   templateManager:{
-      templatePath: 'http://192.168.1.44:8888'
+      templatePath: 'http://localhost:8888'
     }
 });
 
@@ -135,13 +135,14 @@ laurbe._init();
 
 var app = new laurbe.App({
                           title: 'Barber Shop',
-                          theme: 'ligth',//'dark', //'ligth',
+                          theme: 'modern', //'peluqueriaCanina',//'dark', //'ligth',
+                          appLayoutTemplate:'modern',
                           security:{
                             enabled:true,
                             login: new laurbe.SocialLoginView({})
                           },
                           navBar: {
-                            position:'fixed-top',  //TODO: pass args to navbar object on createNavbar on app.module.js
+                            position:'fixed-bottom',  //TODO: pass args to navbar object on createNavbar on app.module.js
                             brand: {
                               logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM8uXhVk-H56P7eVwwth5qnFm8-zEWIYsY1A&usqp=CAU',
                               extraClass:'rounded-circle'

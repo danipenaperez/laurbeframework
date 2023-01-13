@@ -23,13 +23,13 @@ var calendar = {
         "November",
         "December"],
     daysArray : [
-        "Sunday",
         "Monday",
         "Tuesday",
         "Wednesday",
         "Thursday",
         "Friday",
-        "Saturday"],
+        "Saturday",
+        "Sunday"],
 
 //Aqui
     cal1:null,
@@ -126,9 +126,11 @@ var calendar = {
         var r = 0;
         var u = false;
         while (!u) {
+            
             if (this.daysArray[r] == calMonthArray[0].weekday) {
                 u = true
             } else {
+                
                 calendar.datesBody.append('<div class="blank"></div>');
                 r++;
             }
@@ -277,7 +279,7 @@ var calendar = {
     },
     makeWeek: function (week) {
         week.empty();
-        for (var e = 0; e < 7; e++) {
+        for (var e = 0; e < 7; e++) { 
             week.append("<div>" + this.daysArray[e].substring(0, 3) + "</div>")
         }
     },

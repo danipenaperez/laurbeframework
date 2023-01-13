@@ -3,15 +3,43 @@ import laurbe from "../../js/core/core.module.js";
 
 let themes = {
     default:{
-        navbar : "navbar-light bg-light", 
+        navbar : {
+            extraClass: "navbar-light bg-light",
+            extraStyle: ""
+        } ,
+        navbarMenuItems:{
+            extraClass: " "
+        } ,
         navbarMenuItem: ""
     },
     ligth: {
-        navbar : "navbar-light bg-light", 
+        navbar : {
+            extraClass: "navbar-light bg-light",
+            extraStyle: ""
+        } ,
+        navbarMenuItems:{
+            extraClass: ""
+        } ,
         navbarMenuItem: ""
     }, 
     dark: {
-        navbar : "navbar-dark  bg-dark", 
+        navbar : {
+            extraClass: "navbar-dark  bg-dark",
+            extraStyle: ""
+        } ,
+        navbarMenuItems:{
+            extraClass: " "
+        } ,
+        navbarMenuItem: ""
+    },
+    modern:{
+        navbar : {
+            extraClass: "navbar-dark navbar-transparent-on-collapse ",
+            extraStyle: ""
+        },
+        navbarMenuItems:{
+            extraClass: "navbar-ul-transparent-on-collapse "
+        } ,
         navbarMenuItem: ""
     }
 
