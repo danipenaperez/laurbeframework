@@ -1,6 +1,6 @@
 import laurbe from "../core/core.module.js";
 import extend from "../core/common.module.js";
-import calendar from "../../thirdparty/js/calendar.js";
+import calendar from "../../thirdparty/js/calendar_one_clck.js";
 
 console.log('y el calendar es ');
 console.log(calendar);

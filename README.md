@@ -55,3 +55,6 @@ https://codepen.io/ig_design/pen/XWXZaGb
 
 CALENDARIOS:
 https://colorlib.com/wp/bootstrap-calendars/
+
+LOGO:
+https://www.logomaker.com/es/
