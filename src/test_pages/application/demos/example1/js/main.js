@@ -264,16 +264,12 @@ var app = new laurbe.App({
                                             new laurbe.WizardStep({
                                                                 stepTitle:'Ya veo', formTitle:'Gafas personales' , description: 'pues yo no veo nada', 
                                                                 items:[
-                                                                    new laurbe.Maps({
-                                                                      location:{ 
-                                                                        lat: 40.67299325724363,
-                                                                        lng: -4.090292276699187
-                                                                        
-                                                                      } ,
-                                                                      onclickHandler: function(){
-                                                                        alert('soy el maps');
-                                                                      }
-                                                                    })
+                                                                  new laurbe.Profile({
+                                  
+                                                                  }),
+                                                                  new laurbe.Profile({
+                                  
+                                                                  })
                                                                 ] 
                                             }),
                                             new laurbe.WizardStep({
@@ -393,6 +389,18 @@ var app = new laurbe.App({
                                 })
                               ]
                             }),
+                            new laurbe.View({
+                              id: 'Profile',
+                              navigator:{
+                                menuName: 'Profile'
+                                // ,extraClass: 'nav-menu-item-text-color-black nav-menu-item-typo'
+                              },
+                              items: [
+                                new laurbe.Profile({
+                                  
+                                })
+                              ]
+                            })
                           ],
                           
                         //   dao: new laurbe.RestDAO({
