@@ -1,12 +1,11 @@
-import laurbe from "../core/core.module.js";
-import extend from "../core/common.module.js";
+import laurbe from "../../../core/core.module.js";
+import extend from "../../../core/common.module.js";
 
-
-laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.Profile =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'container',
+	type: 'profile',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,11 +14,15 @@ laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "containerTemplate",
-				url: '/html/components/layout/containerTemplate.html'
+				scriptId : "profileTemplate",
+				url: '/html/components/composite/profile/profileTemplate.html'
 	},
+    /**
+     * Reference for current step
+     */
+    currentStep: null,
+    currentIndexStep: 0,
 	onclickHandler: function(ev){
-		console.log('Container Pulsado');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -32,9 +35,6 @@ laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
 		if(currentObject.owner && currentObject.owner.onChildItemEvent){
 			currentObject.owner.onChildItemEvent(ev, ev, currentObject);
 		}
-
-		
-
 	},
 	onItemClicked:function (childItem){
 		console.log(childItem.id+ ' me avisa que le han clickado ');
@@ -46,6 +46,10 @@ laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
 	_getRenderChildWrapperId:function(){
 		return this.id+'_childsWrapper';
 	},
+    onShow: function(){
+        console.log('mostrando profile');
+    }
+   
 		
 
 });
@@ -54,35 +58,29 @@ laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Container = function Container(args){
+laurbe.Profile = function Profile(args){
 	
 	/** Init values **/
 	var defaults = {
-		
-			wrapper:{
-				tag:'<div>',
-				class :'container'
-				//,class:'d-flex justify-content-center align-self-center'
-			},
-			marginTop:'mt-5'
-			//childsWrapperStyle:'text-align:center'
-			
-			
+			name:'',
+			img:''
 	};
 	
 	/** Extends Defautls with args constructor **/
 	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Container.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Profile.type) ;
 
 	/** Return the instance **/
-	var instance =  extend({}, laurbe.prototype.Container, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.Profile, {instanceProperties:initializationProps});
 
+    /**LOAD CSS */
+    laurbe.utils.loadCSS('/stylesheets/components/composite/profile/profile.css');
 
 	return instance;
 }
 
-console.log('Component Container Loaded');
+console.log('Component Wizard Loaded');
 
 export default laurbe;

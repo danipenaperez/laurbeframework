@@ -245,3 +245,8 @@ select.list-dt:focus {
     font-family: FontAwesome;
     content: "\f023"
 }
+
+.wizard-buttons-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
