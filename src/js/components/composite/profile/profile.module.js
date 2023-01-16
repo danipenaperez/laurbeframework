@@ -62,7 +62,8 @@ laurbe.Profile = function Profile(args){
 	
 	/** Init values **/
 	var defaults = {
-			
+			name:'',
+			img:''
 	};
 	
 	/** Extends Defautls with args constructor **/

@@ -69,7 +69,12 @@ laurbe.CardGroup = function CardGroup(args){
 				 * Por defecto las cards interiores tendran un padding a izquierda y derecha
 				 */
 				lateralSpacing:true
+				
 			},
+			/**
+			 * Horizontal, vertical or null 
+			 */
+			scrolling:null,
 			wrapper:{
 				extraClass: ""
 			}
@@ -96,9 +101,17 @@ laurbe.CardGroup = function CardGroup(args){
 	 * Processing
 	 */
 	if(true == instance.instanceProperties.style.lateralSpacing){ //hace que las cards no esten pegadas a los bordes
-		instance.instanceProperties.wrapper.extraStyle="padding-left: .75rem ;padding-right: .75rem ";
+		//instance.instanceProperties.wrapper.extraStyle="padding-left: .75rem ;padding-right: .75rem ";
+		//Lo quito porque por defecto he decidido dejar padding a todos lados
 	}
-
+	/**
+	 * SCrolling
+	 */
+	if('horizontal' == instance.instanceProperties.scrolling){
+		instance.instanceProperties.wrapper.extraClass='scrolling-wrapper';
+		laurbe.utils.loadCSS('/stylesheets/components/card/cardGroup.css');
+	}
+	
 	return instance;
 }
 

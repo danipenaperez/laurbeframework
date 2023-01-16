@@ -127,7 +127,7 @@ console.log(View);
 /**Overwrite default configuration**/
 laurbe.configure({
   templateManager:{
-      templatePath: 'http://localhost:8888'
+      templatePath: 'http://192.168.1.44:8888'
     }
 });
 
@@ -160,6 +160,7 @@ var app = new laurbe.App({
                               },
                               items: [
                                   new laurbe.CardGroup({
+                                    scrolling:'horizontal',
                                     items: [
                                         new laurbe.Card({
                                           title:'Card1',
@@ -228,15 +229,15 @@ var app = new laurbe.App({
                                                                         new laurbe.Form({
                                                                             items:[
                                                                                 new laurbe.TextField({
-                                                                                    //label:'email',
+                                                                                    label:'email',
                                                                                     value:'aucton@hotmail.com'
                                                                                 }),
                                                                                 new laurbe.TextField({
-                                                                                    //label:'edad',
+                                                                                    label:'edad',
                                                                                     value:'25'
                                                                                 }),
                                                                                 new laurbe.TextField({
-                                                                                    //label:'Features',
+                                                                                    label:'Features',
                                                                                     value:'vago y gandul'
                                                                                 })
                                         
@@ -264,12 +265,43 @@ var app = new laurbe.App({
                                             new laurbe.WizardStep({
                                                                 stepTitle:'Ya veo', formTitle:'Gafas personales' , description: 'pues yo no veo nada', 
                                                                 items:[
-                                                                  new laurbe.Profile({
-                                  
-                                                                  }),
-                                                                  new laurbe.Profile({
-                                  
+                                                                  new laurbe.Carousel({
+                                                                    items:[
+                                                                      new laurbe.CarouselItem({
+                                                                        items:[
+                                                                          new laurbe.Profile({
+                                                                            name:'Vladimir',
+                                                                            img:'https://i2-prod.walesonline.co.uk/news/uk-news/article23927263.ece/ALTERNATES/s1200c/0_F038F02A-D11F-11EC-A042-0A2111BCB09D.jpg',
+                                                                            legend:' Soy un hijo puta pero hare brillar tu pelo tanto que tus amigos fliparan'
+                                                                          })
+                                                                        ]
+                                                                      }),
+                                                                      new laurbe.CarouselItem({
+                                                                        items:[
+                                                                          new laurbe.Profile({
+                                                                            name:'Paco',
+                                                                            img:'https://i.imgur.com/JgYD2nQ.jpg',
+                                                                            legend:'Especializado en barberia y corte oriental, esta noche triunfas fijo!.'
+                                                                          })
+                                                                        ]
+                                                                        
+                                                                      })
+                                                                    ]
                                                                   })
+                                                                  /**
+                                                                  new laurbe.CardGroup({
+                                                                    scrolling:'horizontal',
+                                                                    items:[
+                                                                      new laurbe.Profile({
+                                  
+                                                                      }),
+                                                                      new laurbe.Profile({
+                                      
+                                                                      })
+                                                                    ]
+                                                                  })
+                                                                  **/
+                                                                  
                                                                 ] 
                                             }),
                                             new laurbe.WizardStep({

@@ -1,12 +1,12 @@
 import laurbe from "../core/core.module.js";
 import extend from "../core/common.module.js";
+import BaseViewElement from "./baseView.module.js"
 
-
-laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.Carousel =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'container',
+	type: 'carousel',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,11 +15,11 @@ laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "containerTemplate",
-				url: '/html/components/layout/containerTemplate.html'
+				scriptId : "carouselTemplate",
+				url: '/html/components/layout/carouselTemplate.html'
 	},
 	onclickHandler: function(ev){
-		console.log('Container Pulsado');
+		alert('soy container');
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -46,6 +46,11 @@ laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
 	_getRenderChildWrapperId:function(){
 		return this.id+'_childsWrapper';
 	},
+	onShow:function(){
+		laurbe.logger.log('estoy haciendo onshow de una carousel '+this.id );
+		if(this.instanceProperties.onShow)
+			this.instanceProperties.onShow(this);
+	}
 		
 
 });
@@ -54,19 +59,32 @@ laurbe.prototype.Container =  extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Container = function Container(args){
+laurbe.Carousel = function Carousel(args){
 	
 	/** Init values **/
 	var defaults = {
-		
+			items:[],
+			style: {
+				/**
+				 * Por defecto las cards interiores tendran un padding a izquierda y derecha
+				 */
+				lateralSpacing:true
+				
+			},
+			/**
+			 * Horizontal, vertical or null 
+			 */
+			scrolling:null,
+			wrapper:{
+				extraClass: ""
+			}
+			/**
 			wrapper:{
 				tag:'<div>',
 				class :'container'
 				//,class:'d-flex justify-content-center align-self-center'
-			},
-			marginTop:'mt-5'
-			//childsWrapperStyle:'text-align:center'
-			
+			}
+			**/
 			
 	};
 	
@@ -74,15 +92,19 @@ laurbe.Container = function Container(args){
 	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Container.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Carousel.type) ;
 
 	/** Return the instance **/
-	var instance =  extend({}, laurbe.prototype.Container, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.Carousel, {instanceProperties:initializationProps});
 
-
+	/**Set active the first item */
+	console.log('LA INSTANCE DE ITEMES ES ');
+	console.log(instance);
+	instance.instanceProperties.items[0].instanceProperties.first=true;
+	
 	return instance;
 }
 
-console.log('Component Container Loaded');
+console.log('Component Carousel Loaded');
 
 export default laurbe;
