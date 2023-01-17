@@ -128,6 +128,10 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 	 * @param {} instanceProperties 
 	 */
 	_setCoreElements:function(instanceProperties){
+		if(!instanceProperties.securityManager){
+			this.securityManager= new laurbe.SecurityManager({});	
+			this.securityManager._init();
+		}	
 		if(instanceProperties.dao)
 			this.dao=instanceProperties.dao;
 		if(instanceProperties.storageManager)
@@ -139,6 +143,7 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 		//Always exists on laurbe app, but could be overwrite in app definition
 		if(!instanceProperties.shareSocialManager)
 			this.shareSocialManager = new laurbe.ShareSocialManager({});	
+		
 	},	
 	/**
 	* Render the base html structure based on template
@@ -156,9 +161,6 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 			//1.Render APP Template and styles
 			$('#'+appLayoutTemplate.scriptId).tmpl({}).appendTo('body');
 			laurbe.utils.loadCSS(appLayoutTemplate.styles);
-
-			
-
 
 			//2.Render the menu
 			self.menu._selectMenuItem(self.menu.instanceProperties.items[0]); //by default select the first
@@ -260,6 +262,9 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 		$('#appMainViewContainer').empty();
 		this.currentView = view;
 		view._renderTo('appMainViewContainer');
+
+		
+
 	},
 	/**
 	 * Show the desired view and add to navigation history
@@ -267,41 +272,34 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 	 * @param {*} args 
 	 */
 	_navigate:function(viewId, args){
+		var self = this;
 		//0.Security
-		if(true){
-			// this.instanceProperties.security.login._renderTo('appMainViewContainer');
+		this.securityManager.checkLogged(function(){
+			//1.Validations
+			var targetViewID= viewId != undefined ? viewId :self.navigatorManager.getCurrentViewId();
+			if(!targetViewID){//calculate
+				targetViewID=self.views[0].instanceProperties.id;
+			}
+			//Sanitize 
+			targetViewID = targetViewID.replace('#','');  //The a href="#" stain the URL adding # at the end and this broke the navigationmanager._navigate
 
-			let loginView = new laurbe.View({
-				id: 'loginView',
-				items: [
-					this.instanceProperties.security.login
-				]
-			  });
-
-			  loginView._renderTo('security');
-			  $('#loginShowBtn').click();
-
-
-		}
+			var random_boolean = Math.random() < 0.5;
+			if(random_boolean){
+				//$('#loginShowBtn').click();
+			}
+			//1.Store Navigation info
+			self.navigatorManager.storeNavigationInfo(targetViewID, args);
+			//2.Show the view
+			var targetView = self.viewDirectory[targetViewID];
+			self.menu._selectMenuItem(targetView.relatedMenuItem);
+			self._showView(targetView);
+		});
+		
 		// alert('acabo de renderizar el login');
-		//1.Validations
-		var targetViewID= viewId != undefined ? viewId :this.navigatorManager.getCurrentViewId();
-		if(!targetViewID){//calculate
-			targetViewID=this.views[0].instanceProperties.id;
-		}
-		//Sanitize 
-		targetViewID = targetViewID.replace('#','');  //The a href="#" stain the URL adding # at the end and this broke the navigationmanager._navigate
+		
 
-		var random_boolean = Math.random() < 0.5;
-		if(random_boolean){
-			//$('#loginShowBtn').click();
-		}
-		//1.Store Navigation info
-		this.navigatorManager.storeNavigationInfo(targetViewID, args);
-		//2.Show the view
-		var targetView = this.viewDirectory[targetViewID];
-		this.menu._selectMenuItem(targetView.relatedMenuItem);
-		this._showView(targetView);
+
+
 	},
 	_bindGlobalEvents:function(app){
 		// Referencia https://www.yogihosting.com/jquery-infinite-scroll/
