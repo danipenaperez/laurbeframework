@@ -1,32 +1,28 @@
 import laurbe from "../core/core.module.js";
 import extend from "../core/common.module.js";
-import calendar from "../../thirdparty/js/calendar_one_clck.js";
+import BaseViewElement from "./baseView.module.js"
 
-console.log('y el calendar es ');
-console.log(calendar);
-
-laurbe.prototype.Calendar =  extend({}, laurbe.BaseViewElement, {
+/**
+ * The menu item prototype
+ */
+laurbe.prototype.ChoiceButtonList =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'calendar',
+	type: 'choiceButtonList',
 	/**
 	* The laurbe owner element
 	**/
 	owner:null,
-    /**
-     * Main core
-     */
-    engine:calendar,
 	/**
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "calendarTemplate",
-				url: '/html/components/calendar/calendarTemplate.html'
+				scriptId : "choiceButtonListTemplate",
+				url: '/html/components/choice/choiceButtonListTemplate.html'
 	},
 	onclickHandler: function(ev){
-		console.log('onClickHander del calendar');
+		
 		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
@@ -53,16 +49,6 @@ laurbe.prototype.Calendar =  extend({}, laurbe.BaseViewElement, {
 	_getRenderChildWrapperId:function(){
 		return this.id+'_childsWrapper';
 	},
-    /**
-     * On show loading
-     * @param {} args 
-     */
-    onShow:function(args){
-        
-        console.log(this.engine);
-        this.engine.init();
-        
-    }
 		
 
 });
@@ -71,39 +57,29 @@ laurbe.prototype.Calendar =  extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Calendar = function Calendar(args){
+laurbe.ChoiceButtonList = function ChoiceButtonList(args){
 	
 	/** Init values **/
 	var defaults = {
-        style:{
-            custom:'min-height: 600px;width: 100%;'
-        },
-        /**
-        wrapper:{
-            tag:'<div>',
-            class :'container'
-            //,class:'d-flex justify-content-center align-self-center'
-        }
-        **/
+			//important do not use wrapper!!
 			
-			
+			//align: 'float-right'
 	};
 	
 	/** Extends Defautls with args constructor **/
 	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Calendar.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.ChoiceButtonList.type) ;
 
 	/** Return the instance **/
-	var instance =  extend({}, laurbe.prototype.Calendar, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.ChoiceButtonList, {instanceProperties:initializationProps});
 
-        /**LOAD CSS */
-        laurbe.utils.loadCSS('/stylesheets/components/calendar/calendar.css');
 
 	return instance;
 }
 
-console.log('Component Calendar Loaded');
+
+console.log('Component ChoiceButtonList Loaded');
 
 export default laurbe;

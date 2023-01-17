@@ -50,6 +50,6 @@ laurbe.SocialLoginView = function SocialLoginView(args){
 	return instance;
 }
 
-console.log('Component Login view Loaded');
+console.log('Component Social Login view Loaded');
 
 export default laurbe;

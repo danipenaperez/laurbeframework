@@ -75,23 +75,20 @@ var BaseViewElement ={
            
 
            /** Load current component template , and render (appentTo) */
-           
-           laurbe.templateManager._loadTemplate(self.template.url, function(){
-               console.log(' y resulta que es');
-               if(document.getElementById(self.template.scriptId)){
-                    console.log(document.getElementById(self.template.scriptId));
-                    console.log($('#'+self.template.scriptId));
-                    $('#'+self.template.scriptId).tmpl(templateInfo.data).appendTo(templateInfo.appendTo);
+            laurbe.templateManager._loadTemplate(self.template.url, function(){
+                if(document.getElementById(self.template.scriptId)){
+                    //He probado con $('#'+self.template.scriptId).clone() y sigue siendo null la siguiente vez
+                    $('#'+self.template.scriptId).clone().tmpl(templateInfo.data).appendTo(templateInfo.appendTo);
                     self._afterRender();
                     if(self.onShow){
                         self.onShow(this);
                     }
-               }else{
-                    alert('Has cargado la template '+ self.template.url + ' pero el <script id= no concuerda con '+self.template.scriptId);
-                    throw 'Has cargado la template '+ self.template.url + ' pero el <script id= no concuerda con '+self.template.scriptId;
-               }
-               
-           });
+                }else{
+                        alert('Has cargado la template '+ self.template.url + ' pero el <script id= no concuerda con '+self.template.scriptId);
+                        throw 'Has cargado la template '+ self.template.url + ' pero el <script id= no concuerda con '+self.template.scriptId;
+                }
+            });
+            
            
            
            //always load to templateManager div container
