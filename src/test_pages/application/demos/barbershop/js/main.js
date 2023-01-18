@@ -127,7 +127,7 @@ console.log(View);
 /**Overwrite default configuration**/
 laurbe.configure({
   templateManager:{
-      templatePath: 'http://192.168.1.44:8888'
+      templatePath: 'http://localhost:8888'
     }
 });
 

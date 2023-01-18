@@ -3,6 +3,11 @@
       {{if centered}}
       <div class="container">
       {{/if}}
+        <!--LEFT MENU RESPONSIVE-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars_${id}" aria-controls="navbars_${id}" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
         <a class="navbar-brand" href="#">
           <img class="mr-3 ${brand.extraClass}" src="${brand.logoUrl}" alt="" width="48" height="48">
        </a>
@@ -11,9 +16,20 @@
           <!--${title}-->
           <img src="./images/logoPeluqueriaCanina.png" alt="..."  height="48" ></img>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars_${id}" aria-controls="navbars_${id}" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <!-- RIGTH MENU ACTION RESPONSIVE-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars_${id}" aria-controls="navbars_${id}" aria-expanded="false" aria-label="Toggle navigation" >
+          <span class="fa fa-solid fa-user ">
+            <span class="badge rounded-pill badge-notification bg-danger">9</span>
+          </span>
         </button>
+
+        <!-- BAkcup
+        <a href="" class="text-white">
+            <i class="fa fa-solid fa-user fa-2x"></i>
+            <span class="badge rounded-pill badge-notification bg-danger">9</span>
+        </a>
+      -->
+      
 
         <div class="collapse navbar-collapse ${theme.navbarMenuItems.extraClass}" id="navbars_${id}" >
           

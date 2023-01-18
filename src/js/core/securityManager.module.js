@@ -42,13 +42,53 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
         let loginView = new laurbe.View({
             id: 'loginView',
             items: [
-                //new laurbe.SocialLoginView({}),
-                new laurbe.PhoneLoginView({onSuccess:function(view){
-                                                    view.close();
-                                                    self.continue();
-                                                }})
+                new laurbe.PhoneLoginView({
+                    id:'phoneLoginDialog',     
+                    onSuccess:function(view){
+                            view.close();
+                            $('#validateCodeLoginDialog_ShowBtn').click();
+                    }
+                }),
+                new laurbe.ValidateCodeLoginView({     
+                    id:'validateCodeLoginDialog',
+                    onSuccess:function(view){
+                            view.close();
+                            self.continue();
+                    }
+                })
+                // , new laurbe.Wizard({
+                //         title:'Alta Nueva',
+                //         description: 'Darse de Alta',
+                //         steps:[
+                //             new laurbe.WizardStep({
+                //                                 stepTitle:'Telefono', formTitle:'' , description: '', 
+                //                                 items:[
+                //                                     new laurbe.PhoneLoginView({     
+                //                                         onSuccess:function(view){
+                //                                                 view.close();
+                //                                                 self.continue();
+                //                                         }
+                //                                     })
+                //                                 ] 
+                //             }),
+                //             new laurbe.WizardStep({
+                //                 stepTitle:'Finalizado', formTitle:'Registrado OK' , description: 'Vas a quedar to guapo', 
+                //                 items:[
+                //                     new laurbe.Image({
+                //                     img_src: 'https://i.pinimg.com/originals/e8/06/52/e80652af2c77e3a73858e16b2ffe5f9a.gif',
+                //                     alt:'Finalizado',
+                //                     onclick: function(){
+                                    
+                //                     }
+                //                 })
+                //                 ] 
+                //             })
+                //         ]
+                // })
             ]
         });
+
+
         loginView._renderTo('securityManager');
         this.loginView=loginView;
     },
@@ -64,7 +104,7 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
         if(!this.isLoggedIn){
             this.continue=callback;
             setTimeout(() => {
-                $('#loginShowBtn').click();  //TODO: Change it
+                $('#phoneLoginDialog_ShowBtn').click();  //TODO: Change it
                 this.isLoggedIn =true;
               }, 1000)
             

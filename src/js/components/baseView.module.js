@@ -189,6 +189,12 @@ var BaseViewElement ={
        this.fatherElement.empty();//jquery visual destroy
        // console.log('internal destroy END');
    },
+   hide:function(){
+    this.fatherElement.hide(); 
+   },
+   show: function(){
+    this.fatherElement.show();
+   },
    /**
    * default onclick framework handlers
    **/
