@@ -1,0 +1,138 @@
+{
+    "202112":{
+        "Vladimir":{
+            "202112200930":
+                {
+                    "clientId": "668348923",
+                    "end": "202201200959",
+                    "observations": "corte a lo profesional loco"
+                 },
+            
+            "202112201000":
+                {
+                    "clientId": "668472459",
+                    "end": "202201201029",
+                    "observations": ""
+                 },
+            
+            "202112211030":
+            {
+                "clientId": "668472459",
+                "end": "202201201059",
+                "observations": ""
+             }
+        },
+        "Paz":{
+            "202112240945":
+            {
+                "clientId": "668348923",
+                "end": "202201201014",
+                "observations": "corte a lo profesional loco"
+            },
+            "202201201015":
+            {
+                "clientId": "668472264",
+                "end": "202201201044",
+                "observations": "Unas mechas to chulas"
+            },
+            "202201201200":
+            {
+                "clientId": "668472724",
+                "end": "202201201229",
+                "observations": ""
+             }
+        }     
+    },
+    "20220121":{
+        "Vladimir":{
+            "202201200930":
+                {
+                    "clientId": "668348923",
+                    "end": "202201200959",
+                    "observations": "corte a lo profesional loco"
+                 },
+            
+            "202201201000":
+                {
+                    "clientId": "668472459",
+                    "end": "202201201029",
+                    "observations": ""
+                 },
+            
+            "202201201030":
+            {
+                "clientId": "668472459",
+                "end": "202201201059",
+                "observations": ""
+             }
+        },
+        "Paz":{
+            "202201200945":
+            {
+                "clientId": "668348923",
+                "end": "202201201014",
+                "observations": "corte a lo profesional loco"
+            },
+            "202201201015":
+            {
+                "clientId": "668472264",
+                "end": "202201201044",
+                "observations": "Unas mechas to chulas"
+            },
+            "202201201200":
+            {
+                "clientId": "668472724",
+                "end": "202201201229",
+                "observations": ""
+             }
+        }     
+    },
+    "20220122":{
+        "Vladimir":{
+            "202201200930":
+                {
+                    "clientId": "668348923",
+                    "end": "202201200959",
+                    "observations": "corte a lo profesional loco"
+                 },
+            
+            "202201201000":
+                {
+                    "clientId": "668472459",
+                    "end": "202201201029",
+                    "observations": ""
+                 },
+            
+            "202201201030":
+            {
+                "clientId": "668472459",
+                "end": "202201201059",
+                "observations": ""
+             }
+        },
+        "Paz":{
+            "202201200945":
+            {
+                "clientId": "668348923",
+                "end": "202201201014",
+                "observations": "corte a lo profesional loco"
+            },
+            "202201201015":
+            {
+                "clientId": "668472264",
+                "end": "202201201044",
+                "observations": "Unas mechas to chulas"
+            },
+            "202201201200":
+            {
+                "clientId": "668472724",
+                "end": "202201201229",
+                "observations": ""
+             }
+        }     
+    }
+}
+        
+
+    
+

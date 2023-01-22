@@ -259,7 +259,11 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 		if(!view.initialized){
 			view._init();
 		}
+		
 		$('#appMainViewContainer').empty();
+		// if(this.currentView)
+		// 	this.currentView.hide();
+		
 		this.currentView = view;
 		view._renderTo('appMainViewContainer');
 

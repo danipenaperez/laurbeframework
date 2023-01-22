@@ -149,7 +149,7 @@ var BaseViewElement ={
    **/
    _appendChilds:function(items, renderNow){
        var self = this;
-       for  (i=0;i<items.length;i++){  // Maybe ensure synchronously
+       for  (let i=0;i<items.length;i++){  // Maybe ensure synchronously
            var item = items[i];
            self.instanceProperties.items.push(item);
            item.owner = self;//reference to parent laurbe object
@@ -190,6 +190,7 @@ var BaseViewElement ={
        // console.log('internal destroy END');
    },
    hide:function(){
+    console.log('father element es '+this.fatherElement.id);
     this.fatherElement.hide(); 
    },
    show: function(){
