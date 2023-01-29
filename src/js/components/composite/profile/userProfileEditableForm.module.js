@@ -1,12 +1,11 @@
-import laurbe from "../core/core.module.js";
-import extend from "../core/common.module.js";
-import BaseViewElement from "./baseView.module.js"
+import laurbe from "../../../core/core.module.js";
+import extend from "../../../core/common.module.js";
 
-laurbe.prototype.Column =  extend({}, laurbe.BaseViewElement, {
+laurbe.prototype.UserProfileEditableForm =  extend({}, laurbe.BaseViewElement, {
 	/**
 	* String type definition
 	**/
-	type: 'column',
+	type: 'userProfileEditableForm',
 	/**
 	* The laurbe owner element
 	**/
@@ -15,10 +14,16 @@ laurbe.prototype.Column =  extend({}, laurbe.BaseViewElement, {
 	* This object is from template, so this is the template info
 	**/
 	template: {
-				scriptId : "columnTemplate",
-				url: '/html/components/grid/columnTemplate.html'
+				scriptId : "userProfileEditableFormTemplate",
+				url: '/html/components/composite/profile/userProfileEditableFormTemplate.html'
 	},
+    /**
+     * Reference for current step
+     */
+    currentStep: null,
+    currentIndexStep: 0,
 	onclickHandler: function(ev){
+		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
 			currentObject.instanceProperties.onclick(ev);
@@ -30,9 +35,6 @@ laurbe.prototype.Column =  extend({}, laurbe.BaseViewElement, {
 		if(currentObject.owner && currentObject.owner.onChildItemEvent){
 			currentObject.owner.onChildItemEvent(ev, ev, currentObject);
 		}
-
-		
-
 	},
 	onItemClicked:function (childItem){
 		console.log(childItem.id+ ' me avisa que le han clickado ');
@@ -44,6 +46,10 @@ laurbe.prototype.Column =  extend({}, laurbe.BaseViewElement, {
 	_getRenderChildWrapperId:function(){
 		return this.id+'_childsWrapper';
 	},
+    onShow: function(){
+        console.log('mostrando profile');
+    }
+   
 		
 
 });
@@ -52,34 +58,29 @@ laurbe.prototype.Column =  extend({}, laurbe.BaseViewElement, {
 /**
  * Constructor definition
  */
-laurbe.Column = function Column(args){
+laurbe.UserProfileEditableForm = function UserProfileEditableForm(args){
 	
 	/** Init values **/
 	var defaults = {
-			/**
-			wrapper:{
-				tag:'<div>',
-				class :'container'
-				//,class:'d-flex justify-content-center align-self-center'
-			}
-			**/
-			
-			
+			name:'',
+			img:''
 	};
 	
 	/** Extends Defautls with args constructor **/
 	var initializationProps =  extend({}, defaults, args);
 
 	/**Sitio Id **/
-	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.Column.type) ;
+	initializationProps.id =  initializationProps.id || laurbe.utils.getIdFor(laurbe.prototype.UserProfileEditableForm.type) ;
 
 	/** Return the instance **/
-	var instance =  extend({}, laurbe.prototype.Column, {instanceProperties:initializationProps});
+	var instance =  extend({}, laurbe.prototype.UserProfileEditableForm, {instanceProperties:initializationProps});
 
+    /**LOAD CSS */
+    laurbe.utils.loadCSS('/stylesheets/components/composite/profile/userProfileEditableForm.css');
 
 	return instance;
 }
 
-console.log('Component Column Loaded');
+console.log('Component UserProfileEditableForm Loaded');
 
 export default laurbe;

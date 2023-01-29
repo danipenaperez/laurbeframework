@@ -46,6 +46,9 @@ laurbe.ValidateCodeLoginView = function ValidateCodeLoginView(args){
 	
 	/** Init values for laurbe.navBar **/
 	var defaults = {
+		security:{
+			title:'Login to MyApp'
+		},
 		onSuccess:function(){
 			console.log('not Defined on Success behavour');
 		}

@@ -1,11 +1,19 @@
 {
     "id":"A3eS32",
     "name": "BarberShop",
-    "logoUrl": "./images/log.png",
+    "logoUrl": "./images/barber-logo1.png",
     "location":{ 
         "lat": 40.67299325724363,
         "lng": -4.090292276699187
         
+    },
+    "contactInfo":{
+        "phone": "91 860 56 82",
+        "email": "contact@barbershop-guadarrama.com"
+    },
+    "security":{
+        "enabled": true,
+        "type": "phoneValidation"
     },
     "services":[
         {

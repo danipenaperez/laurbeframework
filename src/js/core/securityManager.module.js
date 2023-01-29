@@ -1,6 +1,7 @@
 import laurbe from "./core.module.js";
 import extend from "./common.module.js";
 
+
 laurbe.prototype.SecurityManager =  extend({}, {}, {
     /**
      * Flag to indicate current session status
@@ -15,7 +16,7 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
      */ 
     loginView:null,
     templates:{
-        'phoneNumber': ' ',
+        'phoneNumber': '',
         'socialLogin': ''
     },
     templatePath: '.',
@@ -39,54 +40,35 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
     **/
     _preLoadLogin:function(){
         var self=this;
-        let loginView = new laurbe.View({
-            id: 'loginView',
-            items: [
-                new laurbe.PhoneLoginView({
-                    id:'phoneLoginDialog',     
-                    onSuccess:function(view){
-                            view.close();
-                            $('#validateCodeLoginDialog_ShowBtn').click();
-                    }
-                }),
-                new laurbe.ValidateCodeLoginView({     
-                    id:'validateCodeLoginDialog',
-                    onSuccess:function(view){
-                            view.close();
-                            self.continue();
-                    }
-                })
-                // , new laurbe.Wizard({
-                //         title:'Alta Nueva',
-                //         description: 'Darse de Alta',
-                //         steps:[
-                //             new laurbe.WizardStep({
-                //                                 stepTitle:'Telefono', formTitle:'' , description: '', 
-                //                                 items:[
-                //                                     new laurbe.PhoneLoginView({     
-                //                                         onSuccess:function(view){
-                //                                                 view.close();
-                //                                                 self.continue();
-                //                                         }
-                //                                     })
-                //                                 ] 
-                //             }),
-                //             new laurbe.WizardStep({
-                //                 stepTitle:'Finalizado', formTitle:'Registrado OK' , description: 'Vas a quedar to guapo', 
-                //                 items:[
-                //                     new laurbe.Image({
-                //                     img_src: 'https://i.pinimg.com/originals/e8/06/52/e80652af2c77e3a73858e16b2ffe5f9a.gif',
-                //                     alt:'Finalizado',
-                //                     onclick: function(){
-                                    
-                //                     }
-                //                 })
-                //                 ] 
-                //             })
-                //         ]
-                // })
-            ]
-        });
+        let loginView;
+        console.log(this);
+        alert('alla voy security del tipo '+ this.instanceProperties.type);
+        if(this.instanceProperties.type == 'phoneValidation'){
+            loginView = new laurbe.View({
+                id: 'loginView',
+                items: [
+                    new laurbe.PhoneLoginView({
+                        id:'phoneLoginDialog', 
+                        title:' Welcome to '+this.instanceProperties.appName,    
+                        onSuccess:function(view){
+                                view.close();
+                                $('#validateCodeLoginDialog_ShowBtn').click();
+                        }
+                    }),
+                    new laurbe.ValidateCodeLoginView({     
+                        id:'validateCodeLoginDialog',
+                        title:' Verify Code to  access to '+this.instanceProperties.appName, 
+                        onSuccess:function(view){
+                                view.close();
+                                self.continue();
+                        }
+                    })
+                ]
+            });
+        }else{
+            alert(' no hay instance properties type '+ this.instanceProperties.type);
+        }
+        
 
 
         loginView._renderTo('securityManager');
@@ -121,16 +103,18 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
  */
 laurbe.SecurityManager = function SecurityManager(args){
 	
+    alert ('haciendo new del security manager '+ args );
 	/** Init values **/
 	var defaults = {
+        type:'no esta definido',
+
 	};
 	
 	/** Extends Defautls with args constructor **/
 	var initializationProps =  extend({}, defaults, args);
 
 	/** Return the instance **/
-	var instance =  extend({}, laurbe.prototype.SecurityManager, initializationProps);
-
+	var instance =  extend({}, laurbe.prototype.SecurityManager, {instanceProperties:initializationProps});
 
 	return instance;
 }

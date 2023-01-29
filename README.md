@@ -49,6 +49,8 @@ https://github.dev/mdn/js-examples/blob/main/module-examples/basic-modules/index
 
 !!BACKGROUND IMAGES GENERATOR!!
 https://bgjar.com/
+https://coolbackgrounds.io/
+
 
 IDEAS ESTILOS:
 https://codepen.io/ig_design/pen/XWXZaGb

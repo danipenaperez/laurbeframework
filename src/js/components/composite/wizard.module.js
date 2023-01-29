@@ -141,75 +141,7 @@ laurbe.Wizard = function Wizard(args){
 	var defaults = {
 			title:'Wizard Untiled',
             description: 'Use this wizard to create account',
-            steps:[
-                new laurbe.WizardStep({ //id: 'data', 
-                                        stepTitle:'Datos', 
-                                        formTitle:'Datos personales' , 
-                                        description: 'dame tus datos',
-                                        items:[
-                                            new laurbe.Form({
-                                                items:[
-                                                    new laurbe.TextField({
-                                                        //label:'email',
-                                                        value:'aucton@hotmail.com'
-                                                    }),
-                                                    new laurbe.TextField({
-                                                        //label:'edad',
-                                                        value:'25'
-                                                    }),
-                                                    new laurbe.TextField({
-                                                        //label:'Features',
-                                                        value:'vago y gandul'
-                                                    })
-            
-                                                ]
-                                            })
-                                        ]
-                                    }),
-                new laurbe.WizardStep({ //id: 'payes', 
-                                        stepTitle:'Pagamientos', 
-                                        formTitle:'DAtos Bancarios' , 
-                                        description: 'como vas a pagar' , 
-                                        items:[
-                                            new laurbe.Image({
-                                                img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
-                                                alt:'Amrio casa',
-                                                onclick: function(){
-                                                    alert('me han clickado y soy la imagen del '+this.alt);
-                                                    loadMore();
-            
-                                                }
-                                            })
-                                        ]
-                                    }),
-
-                new laurbe.WizardStep({//id: 'ver', 
-                                    stepTitle:'Ya veo', formTitle:'Gafas personales' , description: 'pues yo no veo nada', 
-                items:[
-                    new laurbe.Image({
-                        img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
-                        alt:'Amrio casa',
-                        onclick: function(){
-                            alert('me han clickado y soy la imagen del '+this.alt);
-                            loadMore();
-
-                        }
-                    })
-                ] }),
-                new laurbe.WizardStep({//id: 'finish', 
-                                        stepTitle:'Finalizar', formTitle:'Datos personales' , description: 'terminar', 
-                items:[
-                    new laurbe.Image({
-                        img_src: 'http://es.web.img2.acsta.net/c_215_290/medias/nmedia/18/92/45/07/20200361.jpg',
-                        alt:'Amrio casa',
-                        onclick: function(){
-                            alert('me han clickado y soy la imagen del '+this.alt);
-                            loadMore();
-
-                        }
-                    })
-                ] })
-            ]
+            steps:[ ]
 			// wrapper:{
 			// 	tag:'<div>', 
 			// 	class:'d-flex justify-content-center align-self-center'

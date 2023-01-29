@@ -94,6 +94,10 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 	 */
 	bottomMenu:null,
 	/**
+	 * Preload function
+	 */
+	onInit:null,
+	/**
 	* Footer
 	**/
 	footer:{
@@ -119,7 +123,13 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 		this._setViews(this.instanceProperties.views);
 		//3.Build The menu based on views
 		this._buildMenu();
-		//4.Render The Menu
+		//4. Preload Data if needed
+		if(this.instanceProperties.onInit){
+			this.instanceProperties.onInit(this);
+		}else{
+			alert('no hay oninit');
+		}	
+		//5.Render The Menu
 		this._render();
 	},
 	
@@ -129,7 +139,7 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 	 */
 	_setCoreElements:function(instanceProperties){
 		if(!instanceProperties.securityManager){
-			this.securityManager= new laurbe.SecurityManager({});	
+			this.securityManager= new laurbe.SecurityManager(this.instanceProperties.security);	
 			this.securityManager._init();
 		}	
 		if(instanceProperties.dao)
@@ -392,8 +402,6 @@ laurbe.App = function APP(args){
 	/** Return the instance **/
 	var instance = extend({}, laurbe.prototype.App, {instanceProperties:initializationProps});
 
-	console.log('la instance es ');
-	console.log(instance);
 	return instance;
 }
 console.log('Component App Loaded');

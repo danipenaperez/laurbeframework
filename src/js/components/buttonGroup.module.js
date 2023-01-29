@@ -22,8 +22,6 @@ laurbe.prototype.ButtonGroup =  extend({}, laurbe.BaseViewElement, {
 				url: '/html/components/form/buttonGroupTemplate.html'
 	},
 	onclickHandler: function(ev){
-		alert('soy Button group');
-		console.log(this);
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
 			currentObject.instanceProperties.onclick(ev);

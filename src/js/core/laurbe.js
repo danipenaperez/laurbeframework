@@ -54,22 +54,12 @@ import "../components/maps.module.js"
 import "../components/composite/wizard.module.js"
 import "../components/wizard/wizardStep.module.js"
 import "../components/composite/profile/profile.module.js"
+import "../components/composite/profile/userProfileEditableForm.module.js"
 import "../components/calendar.module.js"
 import "../../stylesheets/themes/themes.module.js"
 
 import jQuery from "../../thirdparty/js/jquery.module.js";
+
 window.$ = window.jQuery = jQuery;
-console.log('soy el primer import');
-console.log(jQuery);
-
-
-
-// import '../../thirdparty/js/bootstrap.js'
-// console.log('he cargado bootstrap');
-// console.log(bootstrap);
-// // window.bootstrap = bootstrap;
-// bootstrap.$ = bootstrap.jQuery = jQuery;
-// window.global={};
-// import "../../thirdparty/js/popper.min.js";
 
 export default laurbe;

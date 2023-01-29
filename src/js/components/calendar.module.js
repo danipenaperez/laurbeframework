@@ -2,8 +2,6 @@ import laurbe from "../core/core.module.js";
 import extend from "../core/common.module.js";
 import calendar from "../../thirdparty/js/calendar_one_clck.js";
 
-console.log('y el calendar es ');
-console.log(calendar);
 
 laurbe.prototype.Calendar =  extend({}, laurbe.BaseViewElement, {
 	/**
@@ -45,7 +43,6 @@ laurbe.prototype.Calendar =  extend({}, laurbe.BaseViewElement, {
 	},
 	onItemClicked:function (childItem){
 		console.log(childItem.id+ ' me avisa que le han clickado ');
-		console.log(this.instanceProperties.items);
 	},
 	/**
 	* Return the div Id where the child element must be append
@@ -59,7 +56,6 @@ laurbe.prototype.Calendar =  extend({}, laurbe.BaseViewElement, {
      */
     onShow:function(args){
         
-        console.log(this.engine);
         this.engine.init();
         
     }
@@ -98,8 +94,8 @@ laurbe.Calendar = function Calendar(args){
 	/** Return the instance **/
 	var instance =  extend({}, laurbe.prototype.Calendar, {instanceProperties:initializationProps});
 
-        /**LOAD CSS */
-        laurbe.utils.loadCSS('/stylesheets/components/calendar/calendar.css');
+    /**LOAD CSS */	
+    laurbe.utils.loadCSS('/stylesheets/components/calendar/calendar.css');
 
 	return instance;
 }

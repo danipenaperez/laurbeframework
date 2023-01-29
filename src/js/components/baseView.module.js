@@ -25,6 +25,10 @@ var BaseViewElement ={
    **/
    initialized:false,
    /**
+    * Model Object Data
+    */
+   model:null,
+   /**
    * Returns the id
    **/
    _getName: function(){
@@ -195,6 +199,17 @@ var BaseViewElement ={
    },
    show: function(){
     this.fatherElement.show();
+   },
+   /**
+    * Use it to set the data related with current Element
+    * @param {*} args 
+    */
+   updateModel:function(model){
+    if(this.instanceProperties.updateModel){
+        this.instanceProperties.updateModel(model);
+    }else{
+        console.log('Not defined behaviour for this element.');
+    }
    },
    /**
    * default onclick framework handlers

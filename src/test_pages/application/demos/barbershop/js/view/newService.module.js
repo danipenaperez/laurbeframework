@@ -20,7 +20,7 @@ var newServiceView = new laurbe.View({
                                               items:[
                                                 new laurbe.Profile({
                                                   name:'Vladimir',
-                                                  img:'https://i2-prod.walesonline.co.uk/news/uk-news/article23927263.ece/ALTERNATES/s1200c/0_F038F02A-D11F-11EC-A042-0A2111BCB09D.jpg',
+                                                  img:'./images/user_Vladimir.jpg',
                                                   legend:' Soy un hijo puta..... <b>pero hare brillar tu pelo tanto que tus amigos fliparan</b>'
                                                 })
                                               ]
@@ -59,7 +59,7 @@ var newServiceView = new laurbe.View({
                       stepTitle:'Finalizado', formTitle:'Reserva completada' , description: 'Vas a quedar to guapo', 
                       items:[
                           new laurbe.Image({
-                            img_src: 'https://i.pinimg.com/originals/e8/06/52/e80652af2c77e3a73858e16b2ffe5f9a.gif',
+                            img_src: '/images/success.gif',
                             alt:'Finalizado',
                             onclick: function(){
                             

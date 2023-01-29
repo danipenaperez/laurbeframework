@@ -1,5 +1,7 @@
 import laurbe from "./core.module.js";
 
+
+
 var utils = {
     
 			id:0,
@@ -73,7 +75,6 @@ var utils = {
 				link.href = laurbe.templateManager.templatePath+cssPath;
 				link.media = 'all';
 				head.appendChild(link);
-				console.log('loaded CSS  from '+ laurbe.templateManager.templatePath+cssPath);
 			},
 			addClassToElement: function (elementId, clazz){
 				document.getElementById(elementId).classList.add(clazz);
@@ -94,7 +95,6 @@ var utils = {
 				scriptTag.id= url;
 				// if(callback){
 					scriptTag.onload = function(){
-						
 						console.log(scriptTag.innerHTML);
 					};
 					scriptTag.onreadystatechange = function(){

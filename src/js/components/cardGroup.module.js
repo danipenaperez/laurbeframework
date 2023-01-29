@@ -19,8 +19,7 @@ laurbe.prototype.CardGroup =  extend({}, laurbe.BaseViewElement, {
 				url: '/html/components/layout/cardGroupTemplate.html'
 	},
 	onclickHandler: function(ev){
-		alert('soy container');
-		console.log(this);
+
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
 			currentObject.instanceProperties.onclick(ev);
