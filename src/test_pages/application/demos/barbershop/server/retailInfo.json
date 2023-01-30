@@ -1,0 +1,51 @@
+{
+    "id":"A3eS32",
+    "name": "BarberShop",
+    "logoUrl": "./images/barber-logo1.png",
+    "location":{ 
+        "lat": 40.67299325724363,
+        "lng": -4.090292276699187
+        
+    },
+    "contactInfo":{
+        "phone": "91 860 56 82",
+        "email": "contact@barbershop-guadarrama.com"
+    },
+    "security":{
+        "enabled": true,
+        "type": "phoneValidation"
+    },
+    "services":[
+        {
+            "id":"Vladimir",
+            "name": "Vladimir",
+            "description": "Soy un hijo puta... pero hare brillar tu pelo.",
+            "photo": "./images/user_Vladimir.jpg",
+            "reputation": "5/5",
+            "opiniones":[
+                {
+                    "refBy": "Paco",
+                    "description": "Un profesional como la copa de un pino"
+                }
+            ],
+            "available": "09:00-21:00",
+            "serviceDurationDefault": "30m"
+        },
+        {
+            "id":"Rupert",
+            "name": "Rupert",
+            "description": "Te voy a dejar fino filipino",
+            "photo": "./images/rupert.jpeg",
+            "reputation": "4/5",
+            "opiniones":[
+                {
+                    "refBy": "Jose",
+                    "description": "Me corto el pelo un poco regular"
+                }
+            ],
+            "available": "09:00-21:00",
+            "duration": "30m"
+        }
+        
+    ]
+}

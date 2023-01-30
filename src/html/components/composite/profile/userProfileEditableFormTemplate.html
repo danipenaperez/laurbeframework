@@ -1,0 +1,33 @@
+<script id="userProfileEditableFormTemplate" type="text/x-custom-template">
+<div class="row justify-content-center mt-0">
+  <div class="container d-flex justify-content-center align-items-center mt-3 ">
+    <div class="card">
+       <div class="upper">
+          <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid">
+       </div>
+       <div class="user text-center">
+          <div class="container d-flex justify-content-center align-items-center profile-rounded-image">
+             <img id="${id}_image_Profile" src="${img}" class="rounded-circle" width="80">
+          </div>
+       </div>
+       <div class="text-center">
+          <form id="msform">
+             <fieldset>
+                <div class="form-card">
+                   <h2 class="fs-title">Account Information</h2>
+                   <label for="email"  style="">Email</label>
+                   <input type="email" name="email" id="${id}_field_email" placeholder="Email" />
+                   <label for="uname"  style="">UserName</label> 
+                   <input type="text" name="uname" id="${id}_field_userName" placeholder="UserName" /> 
+                   <label for="birth"  style="">Birth</label> 
+                   <input type="text" name="birth" id="${id}_field_userBirth" placeholder="DD-MM-YYYY" /> 
+                </div>
+                <!-- <input type="button" name="next" class="next action-button" value="Next Step" /> -->
+             </fieldset>
+          </form>
+          <button id="${id}_chooseButton" class="btn btn-primary btn-sm follow">Elegir</button>
+       </div>
+    </div>
+  </div>
+</div> 
+ </script>

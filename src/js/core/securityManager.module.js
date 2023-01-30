@@ -1,6 +1,7 @@
 import laurbe from "./core.module.js";
 import extend from "./common.module.js";
 
+
 laurbe.prototype.SecurityManager =  extend({}, {}, {
     /**
      * Flag to indicate current session status
@@ -15,7 +16,7 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
      */ 
     loginView:null,
     templates:{
-        'phoneNumber': ' ',
+        'phoneNumber': '',
         'socialLogin': ''
     },
     templatePath: '.',
@@ -39,16 +40,36 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
     **/
     _preLoadLogin:function(){
         var self=this;
-        let loginView = new laurbe.View({
-            id: 'loginView',
-            items: [
-                //new laurbe.SocialLoginView({}),
-                new laurbe.PhoneLoginView({onSuccess:function(view){
-                                                    view.close();
-                                                    self.continue();
-                                                }})
-            ]
-        });
+        let loginView;
+        
+        if(this.instanceProperties.type == 'phoneValidation'){
+            loginView = new laurbe.View({
+                id: 'loginView',
+                items: [
+                    new laurbe.PhoneLoginView({
+                        id:'phoneLoginDialog', 
+                        title:' Welcome to '+this.instanceProperties.appName,    
+                        onSuccess:function(view){
+                                view.close();
+                                $('#validateCodeLoginDialog_ShowBtn').click();
+                        }
+                    }),
+                    new laurbe.ValidateCodeLoginView({     
+                        id:'validateCodeLoginDialog',
+                        title:' Verify Code to  access to '+this.instanceProperties.appName, 
+                        onSuccess:function(view){
+                                view.close();
+                                self.continue();
+                        }
+                    })
+                ]
+            });
+        }else{
+            alert(' no hay instance properties type '+ this.instanceProperties.type);
+        }
+        
+
+
         loginView._renderTo('securityManager');
         this.loginView=loginView;
     },
@@ -64,7 +85,7 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
         if(!this.isLoggedIn){
             this.continue=callback;
             setTimeout(() => {
-                $('#loginShowBtn').click();  //TODO: Change it
+                $('#phoneLoginDialog_ShowBtn').click();  //TODO: Change it
                 this.isLoggedIn =true;
               }, 1000)
             
@@ -81,16 +102,17 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
  */
 laurbe.SecurityManager = function SecurityManager(args){
 	
-	/** Init values **/
+    /** Init values **/
 	var defaults = {
+        type:'no esta definido',
+
 	};
 	
 	/** Extends Defautls with args constructor **/
 	var initializationProps =  extend({}, defaults, args);
 
 	/** Return the instance **/
-	var instance =  extend({}, laurbe.prototype.SecurityManager, initializationProps);
-
+	var instance =  extend({}, laurbe.prototype.SecurityManager, {instanceProperties:initializationProps});
 
 	return instance;
 }

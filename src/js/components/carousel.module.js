@@ -19,8 +19,7 @@ laurbe.prototype.Carousel =  extend({}, laurbe.BaseViewElement, {
 				url: '/html/components/layout/carouselTemplate.html'
 	},
 	onclickHandler: function(ev){
-		alert('soy container');
-		console.log(this);
+
 		var currentObject = laurbe.Directory[ev.currentTarget.id.replace('Wrapper','')];
 		if(currentObject.instanceProperties.onclick){
 			currentObject.instanceProperties.onclick(ev);
@@ -47,7 +46,6 @@ laurbe.prototype.Carousel =  extend({}, laurbe.BaseViewElement, {
 		return this.id+'_childsWrapper';
 	},
 	onShow:function(){
-		laurbe.logger.log('estoy haciendo onshow de una carousel '+this.id );
 		if(this.instanceProperties.onShow)
 			this.instanceProperties.onShow(this);
 	}
@@ -98,8 +96,6 @@ laurbe.Carousel = function Carousel(args){
 	var instance =  extend({}, laurbe.prototype.Carousel, {instanceProperties:initializationProps});
 
 	/**Set active the first item */
-	console.log('LA INSTANCE DE ITEMES ES ');
-	console.log(instance);
 	instance.instanceProperties.items[0].instanceProperties.first=true;
 	
 	return instance;

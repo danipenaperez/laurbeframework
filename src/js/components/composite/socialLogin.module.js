@@ -35,6 +35,9 @@ laurbe.SocialLoginView = function SocialLoginView(args){
 	
 	/** Init values for laurbe.navBar **/
 	var defaults = {
+		security:{
+			title:'Login to MyApp'
+		}
 	};
 	
 	/** Extends Defautls with args constructor **/

@@ -46,6 +46,7 @@ laurbe.PhoneLoginView = function PhoneLoginView(args){
 	
 	/** Init values for laurbe.navBar **/
 	var defaults = {
+		title:'Login to MyApp',
 		onSuccess:function(){
 			console.log('not Defined on Success behavour');
 		}

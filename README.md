@@ -49,6 +49,8 @@ https://github.dev/mdn/js-examples/blob/main/module-examples/basic-modules/index
 
 !!BACKGROUND IMAGES GENERATOR!!
 https://bgjar.com/
+https://coolbackgrounds.io/
+
 
 IDEAS ESTILOS:
 https://codepen.io/ig_design/pen/XWXZaGb
@@ -58,3 +60,24 @@ https://colorlib.com/wp/bootstrap-calendars/
 
 LOGO:
 https://www.logomaker.com/es/
+
+
+DATOS:
+¿Tener un DAO y subscribir las vistas/elementos a los eventos de cuando llegan los datos?
+
+VEntajas:
+- Solo con una llamada, podemos actualizar varias vistas (siempre que esas vistas esten en modo "hide" y no en modo "destroy/load")
+- Este modo  podriamos usar comunicacion asincrona (SSE , websockets, etc..)
+- Guarda el estado de la pantalla aun cuando no se esta visualizando
+
+
+¿Se destruyen las vistas?
+Se deberia poder elegir entre el modo "hide" que debe tener, si es ocultarse o si es destruirse
+HIDE: La vista pasa a oculta, por lo cual se quedan los datos que hubiera en pantalla
+    -es mas rapida la carga
+    - Es util en listados, ya que podemos seguir navegando desde donde lo dejamos (por ejemplo un listado de productos),
+    ya que si no fuera asi deberiamos volver a cargar otra vez y volver a recorrer desde el principio del scroll de la pantalla.
+
+DESTROY: La vista se destruye y cuando se accede a ella, se vuelve a renderizar completamente
+    - Es mas limpia y no corres el riesgo de dejar cosas antiguas.
+    - Es mas lento

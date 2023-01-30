@@ -1,0 +1,17 @@
+{
+    "id":"668472459",
+    "name": "Paco Martinez",
+    "imageProfile": "https://i.imgur.com/JgYD2nQ.jpg",
+    "email": "pacoGuadarrama@google.es",
+    "status": "PENDING_MOBILE_VALIDATION",
+    "security": {
+        "keypass": "#sd32DCW"
+    },
+    "birth": "21-21-1978",
+    "scheduled":{
+        "20220121":{
+            "service":"Corte de Pelo"
+        }
+    }
+
+}
