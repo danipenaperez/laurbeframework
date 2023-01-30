@@ -41,8 +41,7 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
     _preLoadLogin:function(){
         var self=this;
         let loginView;
-        console.log(this);
-        alert('alla voy security del tipo '+ this.instanceProperties.type);
+        
         if(this.instanceProperties.type == 'phoneValidation'){
             loginView = new laurbe.View({
                 id: 'loginView',
@@ -103,8 +102,7 @@ laurbe.prototype.SecurityManager =  extend({}, {}, {
  */
 laurbe.SecurityManager = function SecurityManager(args){
 	
-    alert ('haciendo new del security manager '+ args );
-	/** Init values **/
+    /** Init values **/
 	var defaults = {
         type:'no esta definido',
 

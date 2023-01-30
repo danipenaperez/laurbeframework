@@ -1,14 +1,14 @@
 import laurbe from '../../../../../js/core/laurbe.js';
 import './configuration.module.js';
-import initView from './view/initview.module.js';
-import newServiceView from './view/newService.module.js';
-import retailInfoView from './view/retailInfoView.module.js';
-import userInfoView from './view/userInfoView.module.js';
+import BuildInitView from './view/initview.module.js';
+import BuildNewServiceWizardView from './view/newService.module.js';
+import BuildRetailInfoView from './view/retailInfoView.module.js';
+import BuildUserInfoView from './view/userInfoView.module.js';
 import DAO from './dao/dao.module.js';
 
 var app;
 
-function init(retailInfo){
+function init(retailInfo, userInfo){
     
     let appArgs ={
       title: retailInfo.name,
@@ -17,20 +17,21 @@ function init(retailInfo){
       dao: DAO,
       onInit:function(app){ },
       navBar: {
-        position:'fixed-top',  //TODO: pass args to navbar object on createNavbar on app.module.js
+        position:'fixed-left',  //TODO: pass args to navbar object on createNavbar on app.module.js
         brand: {
           logoUrl: retailInfo.logoUrl,
           extraClass:'rounded-circle'
         },
         searchTool: {
           placeholder: 'looking for...'
-        }
+        },
+        userInfo: userInfo
       },
       views: [    
-        initView ,
-        newServiceView ,
-        retailInfoView,
-        userInfoView
+        BuildInitView(retailInfo) ,
+        BuildNewServiceWizardView(retailInfo) ,
+        BuildRetailInfoView(retailInfo),
+        BuildUserInfoView(retailInfo)
       ],
       bottomNavBar: {
         items: [
@@ -62,7 +63,15 @@ function init(retailInfo){
     window.app=app;
 }
 
-DAO.getBussinesInfo(init,null,true);
+/**
+ * Chain sequenced loading :-(, change for promises and joinAllPromises
+ */
+DAO.getBussinesInfo(function(retailInfo){
+  DAO.getUserInfo(function(userInfo){
+    init(retailInfo, userInfo);
+  },null, true);
+
+},null,true);
 
 
 

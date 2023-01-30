@@ -47,6 +47,9 @@ laurbe.prototype.Profile =  extend({}, laurbe.BaseViewElement, {
 		return this.id+'_childsWrapper';
 	},
     onShow: function(){
+		if(this.instanceProperties.onShow){
+			this.instanceProperties.onShow(this);
+		}
         console.log('mostrando profile');
     }
    

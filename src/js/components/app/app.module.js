@@ -250,7 +250,8 @@ laurbe.prototype.App =  extend({}, laurbe.prototype.BaseAPP, {
 										theme:laurbe.themes[this.instanceProperties.theme],
 										position: this.instanceProperties.navBar.position ,
           								brand:this.instanceProperties.navBar.brand,
-          								searchTool:this.instanceProperties.navBar.searchTool
+          								searchTool:this.instanceProperties.navBar.searchTool,
+										userInfo: this.instanceProperties.navBar.userInfo
 
 		});
 		this.bottomMenu = new laurbe.NavBarBottom({	

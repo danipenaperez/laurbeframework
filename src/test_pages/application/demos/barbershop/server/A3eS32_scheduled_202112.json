@@ -1,136 +1,50 @@
 {
     "202112":{
         "Vladimir":{
-            "202112200930":
+            "2022-12-01T09:00:00":
                 {
                     "clientId": "668348923",
-                    "end": "202201200959",
+                    "end": "2022-12-01T09:29:00",
                     "observations": "corte a lo profesional loco"
                  },
             
-            "202112201000":
+            "2022-12-01T09:30:00":
                 {
                     "clientId": "668472459",
-                    "end": "202201201029",
+                    "end": "2022-12-01T10:00:00",
                     "observations": ""
                  },
             
-            "202112211030":
+            "2022-12-01T16:00:00":
             {
                 "clientId": "668472459",
-                "end": "202201201059",
+                "end": "2022-12-01T16:30:00",
                 "observations": ""
              }
         },
-        "Paz":{
-            "202112240945":
-            {
-                "clientId": "668348923",
-                "end": "202201201014",
-                "observations": "corte a lo profesional loco"
-            },
-            "202201201015":
-            {
-                "clientId": "668472264",
-                "end": "202201201044",
-                "observations": "Unas mechas to chulas"
-            },
-            "202201201200":
-            {
-                "clientId": "668472724",
-                "end": "202201201229",
-                "observations": ""
-             }
-        }     
-    },
-    "20220121":{
-        "Vladimir":{
-            "202201200930":
+        "Rupert":{
+            "2022-12-01T09:00:00":
                 {
-                    "clientId": "668348923",
-                    "end": "202201200959",
-                    "observations": "corte a lo profesional loco"
+                    "clientId": "668348924",
+                    "end": "2022-12-01T09:29:00",
+                    "observations": "Barba y pelo"
                  },
             
-            "202201201000":
+            "2022-12-01T11:30:00":
                 {
-                    "clientId": "668472459",
-                    "end": "202201201029",
+                    "clientId": "687934593",
+                    "end": "2022-12-01T12:00:00",
                     "observations": ""
                  },
             
-            "202201201030":
+            "2022-12-01T16:00:00":
             {
-                "clientId": "668472459",
-                "end": "202201201059",
+                "clientId": "647112245",
+                "end": "2022-12-01T17:30:00",
                 "observations": ""
              }
-        },
-        "Paz":{
-            "202201200945":
-            {
-                "clientId": "668348923",
-                "end": "202201201014",
-                "observations": "corte a lo profesional loco"
-            },
-            "202201201015":
-            {
-                "clientId": "668472264",
-                "end": "202201201044",
-                "observations": "Unas mechas to chulas"
-            },
-            "202201201200":
-            {
-                "clientId": "668472724",
-                "end": "202201201229",
-                "observations": ""
-             }
-        }     
-    },
-    "20220122":{
-        "Vladimir":{
-            "202201200930":
-                {
-                    "clientId": "668348923",
-                    "end": "202201200959",
-                    "observations": "corte a lo profesional loco"
-                 },
-            
-            "202201201000":
-                {
-                    "clientId": "668472459",
-                    "end": "202201201029",
-                    "observations": ""
-                 },
-            
-            "202201201030":
-            {
-                "clientId": "668472459",
-                "end": "202201201059",
-                "observations": ""
-             }
-        },
-        "Paz":{
-            "202201200945":
-            {
-                "clientId": "668348923",
-                "end": "202201201014",
-                "observations": "corte a lo profesional loco"
-            },
-            "202201201015":
-            {
-                "clientId": "668472264",
-                "end": "202201201044",
-                "observations": "Unas mechas to chulas"
-            },
-            "202201201200":
-            {
-                "clientId": "668472724",
-                "end": "202201201229",
-                "observations": ""
-             }
-        }     
-    }
+        }   
+    }  
 }
         
 

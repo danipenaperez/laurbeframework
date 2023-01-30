@@ -20,7 +20,7 @@
             "id":"Vladimir",
             "name": "Vladimir",
             "description": "Soy un hijo puta... pero hare brillar tu pelo.",
-            "photo": "./images/vladimir.jpg",
+            "photo": "./images/user_Vladimir.jpg",
             "reputation": "5/5",
             "opiniones":[
                 {
@@ -32,10 +32,10 @@
             "serviceDurationDefault": "30m"
         },
         {
-            "id":"Paz",
-            "name": "Paz",
+            "id":"Rupert",
+            "name": "Rupert",
             "description": "Te voy a dejar fino filipino",
-            "photo": "./images/paz.jpg",
+            "photo": "./images/rupert.jpeg",
             "reputation": "4/5",
             "opiniones":[
                 {
@@ -48,6 +48,4 @@
         }
         
     ]
-
-    
 }

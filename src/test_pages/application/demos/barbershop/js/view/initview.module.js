@@ -2,7 +2,8 @@ import laurbe from '../../../../../../js/core/laurbe.js';
 
 import DAO from '../dao/dao.module.js';
 
-var initView = new laurbe.View({
+function BuildInitView(args){
+  var initView = new laurbe.View({
     id: 'Inicio',
     navigator:{
       menuName: 'Inicio'
@@ -40,6 +41,10 @@ var initView = new laurbe.View({
      }
   });
 
+  return initView;
+
+}
+
   function getBussinesInfo(){
     alert('hola soy initview');
 
@@ -56,4 +61,4 @@ var initView = new laurbe.View({
     );
   }
 
-  export default initView;
+  export default BuildInitView;
